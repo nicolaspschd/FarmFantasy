@@ -55,6 +55,7 @@
             this.rbnBle = new System.Windows.Forms.RadioButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lblArgent = new System.Windows.Forms.Label();
+            this.btnMagasin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -366,12 +367,23 @@
             this.lblArgent.TabIndex = 10;
             this.lblArgent.Text = "label1";
             // 
+            // btnMagasin
+            // 
+            this.btnMagasin.Location = new System.Drawing.Point(605, 251);
+            this.btnMagasin.Name = "btnMagasin";
+            this.btnMagasin.Size = new System.Drawing.Size(106, 29);
+            this.btnMagasin.TabIndex = 11;
+            this.btnMagasin.Text = "Magasin";
+            this.btnMagasin.UseVisualStyleBackColor = true;
+            this.btnMagasin.Click += new System.EventHandler(this.btnMagasin_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(730, 487);
+            this.Controls.Add(this.btnMagasin);
             this.Controls.Add(this.lblArgent);
             this.Controls.Add(this.gbxInfo);
             this.Controls.Add(this.pictureBox6);
@@ -446,6 +458,7 @@
         private System.Windows.Forms.RadioButton rbnNothing;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblArgent;
+        private System.Windows.Forms.Button btnMagasin;
     }
 }
 
