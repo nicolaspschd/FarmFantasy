@@ -30,24 +30,26 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.gbxSemence = new System.Windows.Forms.GroupBox();
-            this.btnAcheter = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnVendre = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.lblPrixBle = new System.Windows.Forms.Label();
-            this.lblPrixColza = new System.Windows.Forms.Label();
-            this.lblPrixCarotte = new System.Windows.Forms.Label();
             this.lblPrixPatate = new System.Windows.Forms.Label();
+            this.lblPrixCarotte = new System.Windows.Forms.Label();
+            this.lblPrixColza = new System.Windows.Forms.Label();
+            this.lblPrixBle = new System.Windows.Forms.Label();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnVendre = new System.Windows.Forms.Button();
+            this.btnAcheter = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblArgent = new System.Windows.Forms.Label();
             this.gbxSemence.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,48 +77,76 @@
             this.gbxSemence.Controls.Add(this.label3);
             this.gbxSemence.Controls.Add(this.label2);
             this.gbxSemence.Controls.Add(this.label1);
-            this.gbxSemence.Location = new System.Drawing.Point(12, 12);
+            this.gbxSemence.Location = new System.Drawing.Point(12, 32);
             this.gbxSemence.Name = "gbxSemence";
             this.gbxSemence.Size = new System.Drawing.Size(219, 196);
             this.gbxSemence.TabIndex = 1;
             this.gbxSemence.TabStop = false;
             this.gbxSemence.Text = "Semence";
             // 
-            // btnAcheter
+            // lblPrixPatate
             // 
-            this.btnAcheter.Location = new System.Drawing.Point(41, 167);
-            this.btnAcheter.Name = "btnAcheter";
-            this.btnAcheter.Size = new System.Drawing.Size(65, 23);
-            this.btnAcheter.TabIndex = 1;
-            this.btnAcheter.Text = "Acheter";
-            this.btnAcheter.UseVisualStyleBackColor = true;
+            this.lblPrixPatate.AutoSize = true;
+            this.lblPrixPatate.Location = new System.Drawing.Point(158, 120);
+            this.lblPrixPatate.Name = "lblPrixPatate";
+            this.lblPrixPatate.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixPatate.TabIndex = 2;
+            this.lblPrixPatate.Text = "chf";
             // 
-            // label2
+            // lblPrixCarotte
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Colza :";
+            this.lblPrixCarotte.AutoSize = true;
+            this.lblPrixCarotte.Location = new System.Drawing.Point(158, 90);
+            this.lblPrixCarotte.Name = "lblPrixCarotte";
+            this.lblPrixCarotte.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixCarotte.TabIndex = 2;
+            this.lblPrixCarotte.Text = "chf";
             // 
-            // label3
+            // lblPrixColza
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Carotte";
+            this.lblPrixColza.AutoSize = true;
+            this.lblPrixColza.Location = new System.Drawing.Point(158, 60);
+            this.lblPrixColza.Name = "lblPrixColza";
+            this.lblPrixColza.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixColza.TabIndex = 2;
+            this.lblPrixColza.Text = "chf";
             // 
-            // label4
+            // lblPrixBle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Patate";
+            this.lblPrixBle.AutoSize = true;
+            this.lblPrixBle.Location = new System.Drawing.Point(158, 30);
+            this.lblPrixBle.Name = "lblPrixBle";
+            this.lblPrixBle.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixBle.TabIndex = 2;
+            this.lblPrixBle.Text = "chf";
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(73, 118);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown4.TabIndex = 2;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(74, 88);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown3.TabIndex = 2;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(74, 58);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown2.TabIndex = 2;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(73, 28);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown1.TabIndex = 2;
             // 
             // btnVendre
             // 
@@ -127,85 +157,78 @@
             this.btnVendre.Text = "Vendre";
             this.btnVendre.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // btnAcheter
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(73, 28);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.btnAcheter.Location = new System.Drawing.Point(41, 167);
+            this.btnAcheter.Name = "btnAcheter";
+            this.btnAcheter.Size = new System.Drawing.Size(65, 23);
+            this.btnAcheter.TabIndex = 1;
+            this.btnAcheter.Text = "Acheter";
+            this.btnAcheter.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // label4
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(74, 58);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown2.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Patate";
             // 
-            // numericUpDown3
+            // label3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(74, 88);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown3.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Carotte";
             // 
-            // numericUpDown4
+            // label2
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(73, 118);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown4.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Colza :";
             // 
-            // lblPrixBle
+            // label5
             // 
-            this.lblPrixBle.AutoSize = true;
-            this.lblPrixBle.Location = new System.Drawing.Point(158, 30);
-            this.lblPrixBle.Name = "lblPrixBle";
-            this.lblPrixBle.Size = new System.Drawing.Size(35, 13);
-            this.lblPrixBle.TabIndex = 2;
-            this.lblPrixBle.Text = "label5";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "CHF";
             // 
-            // lblPrixColza
+            // lblArgent
             // 
-            this.lblPrixColza.AutoSize = true;
-            this.lblPrixColza.Location = new System.Drawing.Point(158, 60);
-            this.lblPrixColza.Name = "lblPrixColza";
-            this.lblPrixColza.Size = new System.Drawing.Size(35, 13);
-            this.lblPrixColza.TabIndex = 2;
-            this.lblPrixColza.Text = "label5";
-            // 
-            // lblPrixCarotte
-            // 
-            this.lblPrixCarotte.AutoSize = true;
-            this.lblPrixCarotte.Location = new System.Drawing.Point(158, 90);
-            this.lblPrixCarotte.Name = "lblPrixCarotte";
-            this.lblPrixCarotte.Size = new System.Drawing.Size(35, 13);
-            this.lblPrixCarotte.TabIndex = 2;
-            this.lblPrixCarotte.Text = "label5";
-            // 
-            // lblPrixPatate
-            // 
-            this.lblPrixPatate.AutoSize = true;
-            this.lblPrixPatate.Location = new System.Drawing.Point(158, 120);
-            this.lblPrixPatate.Name = "lblPrixPatate";
-            this.lblPrixPatate.Size = new System.Drawing.Size(35, 13);
-            this.lblPrixPatate.TabIndex = 2;
-            this.lblPrixPatate.Text = "label5";
+            this.lblArgent.AutoSize = true;
+            this.lblArgent.Location = new System.Drawing.Point(53, 9);
+            this.lblArgent.Name = "lblArgent";
+            this.lblArgent.Size = new System.Drawing.Size(35, 13);
+            this.lblArgent.TabIndex = 3;
+            this.lblArgent.Text = "label5";
             // 
             // frmMagasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 390);
+            this.Controls.Add(this.lblArgent);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.gbxSemence);
             this.Name = "frmMagasin";
             this.Text = "frmMagasin";
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,5 +249,7 @@
         private System.Windows.Forms.Label lblPrixCarotte;
         private System.Windows.Forms.Label lblPrixColza;
         private System.Windows.Forms.Label lblPrixBle;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblArgent;
     }
 }
