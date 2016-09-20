@@ -34,10 +34,10 @@
             this.lblPrixCarotte = new System.Windows.Forms.Label();
             this.lblPrixColza = new System.Windows.Forms.Label();
             this.lblPrixBle = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudPatate = new System.Windows.Forms.NumericUpDown();
+            this.nudCarotte = new System.Windows.Forms.NumericUpDown();
+            this.nudColza = new System.Windows.Forms.NumericUpDown();
+            this.nudBle = new System.Windows.Forms.NumericUpDown();
             this.btnVendreSemence = new System.Windows.Forms.Button();
             this.btnAcheterSemence = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,11 +63,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblArgentMagas = new System.Windows.Forms.Label();
+            this.lblTotalSem = new System.Windows.Forms.Label();
             this.gbxSemence.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPatate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCarotte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBle)).BeginInit();
             this.gbxAnimaux.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVache)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCochon)).BeginInit();
@@ -87,14 +88,15 @@
             // 
             // gbxSemence
             // 
+            this.gbxSemence.Controls.Add(this.lblTotalSem);
             this.gbxSemence.Controls.Add(this.lblPrixPatate);
             this.gbxSemence.Controls.Add(this.lblPrixCarotte);
             this.gbxSemence.Controls.Add(this.lblPrixColza);
             this.gbxSemence.Controls.Add(this.lblPrixBle);
-            this.gbxSemence.Controls.Add(this.numericUpDown4);
-            this.gbxSemence.Controls.Add(this.numericUpDown3);
-            this.gbxSemence.Controls.Add(this.numericUpDown2);
-            this.gbxSemence.Controls.Add(this.numericUpDown1);
+            this.gbxSemence.Controls.Add(this.nudPatate);
+            this.gbxSemence.Controls.Add(this.nudCarotte);
+            this.gbxSemence.Controls.Add(this.nudColza);
+            this.gbxSemence.Controls.Add(this.nudBle);
             this.gbxSemence.Controls.Add(this.btnVendreSemence);
             this.gbxSemence.Controls.Add(this.btnAcheterSemence);
             this.gbxSemence.Controls.Add(this.label4);
@@ -113,68 +115,72 @@
             this.lblPrixPatate.AutoSize = true;
             this.lblPrixPatate.Location = new System.Drawing.Point(158, 120);
             this.lblPrixPatate.Name = "lblPrixPatate";
-            this.lblPrixPatate.Size = new System.Drawing.Size(28, 13);
+            this.lblPrixPatate.Size = new System.Drawing.Size(13, 13);
             this.lblPrixPatate.TabIndex = 2;
-            this.lblPrixPatate.Text = "CHF";
+            this.lblPrixPatate.Text = "0";
             // 
             // lblPrixCarotte
             // 
             this.lblPrixCarotte.AutoSize = true;
             this.lblPrixCarotte.Location = new System.Drawing.Point(158, 90);
             this.lblPrixCarotte.Name = "lblPrixCarotte";
-            this.lblPrixCarotte.Size = new System.Drawing.Size(28, 13);
+            this.lblPrixCarotte.Size = new System.Drawing.Size(13, 13);
             this.lblPrixCarotte.TabIndex = 2;
-            this.lblPrixCarotte.Text = "CHF";
+            this.lblPrixCarotte.Text = "0";
             // 
             // lblPrixColza
             // 
             this.lblPrixColza.AutoSize = true;
             this.lblPrixColza.Location = new System.Drawing.Point(158, 60);
             this.lblPrixColza.Name = "lblPrixColza";
-            this.lblPrixColza.Size = new System.Drawing.Size(28, 13);
+            this.lblPrixColza.Size = new System.Drawing.Size(13, 13);
             this.lblPrixColza.TabIndex = 2;
-            this.lblPrixColza.Text = "CHF";
+            this.lblPrixColza.Text = "0";
             // 
             // lblPrixBle
             // 
             this.lblPrixBle.AutoSize = true;
             this.lblPrixBle.Location = new System.Drawing.Point(158, 30);
             this.lblPrixBle.Name = "lblPrixBle";
-            this.lblPrixBle.Size = new System.Drawing.Size(28, 13);
+            this.lblPrixBle.Size = new System.Drawing.Size(13, 13);
             this.lblPrixBle.TabIndex = 2;
-            this.lblPrixBle.Text = "CHF";
+            this.lblPrixBle.Text = "0";
             // 
-            // numericUpDown4
+            // nudPatate
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(73, 118);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown4.TabIndex = 2;
+            this.nudPatate.Location = new System.Drawing.Point(73, 118);
+            this.nudPatate.Name = "nudPatate";
+            this.nudPatate.Size = new System.Drawing.Size(59, 20);
+            this.nudPatate.TabIndex = 2;
+            this.nudPatate.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
-            // numericUpDown3
+            // nudCarotte
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(74, 88);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown3.TabIndex = 2;
+            this.nudCarotte.Location = new System.Drawing.Point(74, 88);
+            this.nudCarotte.Name = "nudCarotte";
+            this.nudCarotte.Size = new System.Drawing.Size(59, 20);
+            this.nudCarotte.TabIndex = 2;
+            this.nudCarotte.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
-            // numericUpDown2
+            // nudColza
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(74, 58);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown2.TabIndex = 2;
+            this.nudColza.Location = new System.Drawing.Point(74, 58);
+            this.nudColza.Name = "nudColza";
+            this.nudColza.Size = new System.Drawing.Size(59, 20);
+            this.nudColza.TabIndex = 2;
+            this.nudColza.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
-            // numericUpDown1
+            // nudBle
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(73, 28);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.nudBle.Location = new System.Drawing.Point(73, 28);
+            this.nudBle.Name = "nudBle";
+            this.nudBle.Size = new System.Drawing.Size(59, 20);
+            this.nudBle.TabIndex = 2;
+            this.nudBle.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // btnVendreSemence
             // 
-            this.btnVendreSemence.Location = new System.Drawing.Point(112, 167);
+            this.btnVendreSemence.Location = new System.Drawing.Point(124, 167);
             this.btnVendreSemence.Name = "btnVendreSemence";
             this.btnVendreSemence.Size = new System.Drawing.Size(65, 23);
             this.btnVendreSemence.TabIndex = 1;
@@ -183,7 +189,7 @@
             // 
             // btnAcheterSemence
             // 
-            this.btnAcheterSemence.Location = new System.Drawing.Point(41, 167);
+            this.btnAcheterSemence.Location = new System.Drawing.Point(25, 167);
             this.btnAcheterSemence.Name = "btnAcheterSemence";
             this.btnAcheterSemence.Size = new System.Drawing.Size(65, 23);
             this.btnAcheterSemence.TabIndex = 1;
@@ -406,6 +412,15 @@
             this.lblArgentMagas.TabIndex = 5;
             this.lblArgentMagas.Text = "LAbel";
             // 
+            // lblTotalSem
+            // 
+            this.lblTotalSem.AutoSize = true;
+            this.lblTotalSem.Location = new System.Drawing.Point(158, 150);
+            this.lblTotalSem.Name = "lblTotalSem";
+            this.lblTotalSem.Size = new System.Drawing.Size(31, 13);
+            this.lblTotalSem.TabIndex = 3;
+            this.lblTotalSem.Text = "Total";
+            // 
             // frmMagasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,10 +437,10 @@
             this.Load += new System.EventHandler(this.frmMagasin_Load);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPatate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCarotte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBle)).EndInit();
             this.gbxAnimaux.ResumeLayout(false);
             this.gbxAnimaux.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVache)).EndInit();
@@ -448,10 +463,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnVendreSemence;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudPatate;
+        private System.Windows.Forms.NumericUpDown nudCarotte;
+        private System.Windows.Forms.NumericUpDown nudColza;
+        private System.Windows.Forms.NumericUpDown nudBle;
         private System.Windows.Forms.Label lblPrixPatate;
         private System.Windows.Forms.Label lblPrixCarotte;
         private System.Windows.Forms.Label lblPrixColza;
@@ -476,5 +491,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblArgentMagas;
+        private System.Windows.Forms.Label lblTotalSem;
     }
 }

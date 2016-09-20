@@ -12,6 +12,7 @@ namespace farmFantasy
 {
     public partial class frmMagasin : Form
     {
+        int total = 0;
         const int PRIXBLE = 5;
         const int PRIXCOLZA = 15;
         const int PRIXCAROTTE = 30;
@@ -54,6 +55,35 @@ namespace farmFantasy
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
             parent.FrmMainArgent = _frmMagasinArgent;
             parent.lblArgent.Text = _frmMagasinArgent.ToString();
+        }
+
+        private void nud_ValueChanged(object sender, EventArgs e)
+        {
+            
+            
+            NumericUpDown nud = (sender as NumericUpDown);
+            if (nud.Name == "nudBle")
+            {
+                total += Convert.ToInt32(nud.Value * PRIXBLE);
+                lblPrixBle.Text = (nud.Value * PRIXBLE).ToString();
+            }
+            if (nud.Name == "nudColza")
+            {
+                total += Convert.ToInt32(nud.Value * PRIXCOLZA);
+                lblPrixColza.Text = (nud.Value * PRIXCOLZA).ToString();
+            }
+            if (nud.Name == "nudCarotte")
+            {
+                total += Convert.ToInt32(nud.Value * PRIXCAROTTE);
+                lblPrixCarotte.Text = (nud.Value * PRIXCAROTTE).ToString();
+            }
+            if (nud.Name == "nudPatate")
+            {
+                total += Convert.ToInt32(nud.Value * PRIXPATATE);
+                lblPrixPatate.Text = (nud.Value * PRIXPATATE).ToString();
+            }
+            lblTotalSem.Text = total.ToString();
+            Console.WriteLine(nud.Name);
         }
     }
 }
