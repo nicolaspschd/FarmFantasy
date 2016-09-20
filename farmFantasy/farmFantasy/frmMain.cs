@@ -22,10 +22,17 @@ namespace farmFantasy
     public partial class frmMain : Form
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
+        Dictionary<string, int> entrepot = new Dictionary<string, int> { 
+            {"ble", 10},
+            {"colza", 0},
+            {"carotte", 0},
+            {"patate", 0}
+        };
+
         frmMagasin FrmMagasin = new frmMagasin();
 
         const int _NBRCHAMPS = 10;
-        private int _FrmMainArgent = 100000;
+        public int _FrmMainArgent = 100000;
 
         public frmMain()
         {
@@ -35,11 +42,18 @@ namespace farmFantasy
         private void frmMain_Load(object sender, EventArgs e)
         {
             lblArgent.Text = _FrmMainArgent.ToString();
+
+            lblBleEntrepot.Text = entrepot["ble"].ToString();
+            lblColzaEntrepot.Text = entrepot["colza"].ToString();
+            lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
+            lblPatateEntrepot.Text = entrepot["patate"].ToString();
         }
 
         private void pbxClick_Click(object sender, EventArgs e)
         {
             string pbxNom = (sender as PictureBox).Name;
+            PictureBox pbx = (sender as PictureBox);
+            string path;
 
             if (!rbnNothing.Checked)
             {
@@ -51,14 +65,19 @@ namespace farmFantasy
                     culture = "colza";
                 else if (rbnCarotte.Checked)
                     culture = "carotte";
+
                 else if (rbnPatate.Checked)
                     culture = "patate";
 
-                PictureBox pbx = (sender as PictureBox);
+                entrepot[culture] -= 1;
+
                 pbx.Enabled = false;
 
-                string path = "images\\" + culture + ".png";
+                path = "images\\" + culture + ".png";
                 pbx.ImageLocation = path;
+
+                frmMain_Load(null, null);
+
                 if (!repertoryChamps.ContainsKey(pbxNom))
                 {
                     repertoryChamps.Add(pbxNom, new Champs(DateTime.Now, pbx, culture));
@@ -68,8 +87,6 @@ namespace farmFantasy
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine(_FrmMainArgent);
-
             if (repertoryChamps.Count() > 0)
             {
                 for (int i = 1; i <= 10; i++)
@@ -79,6 +96,8 @@ namespace farmFantasy
                         Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
                         if (nativChamps.calculTemps())
                         {
+                            entrepot[nativChamps.Culture] += 2;
+                            frmMain_Load(null,null);
                             repertoryChamps.Remove("pbxChamps" + i);
                         }
                     }
@@ -90,11 +109,5 @@ namespace farmFantasy
         {
             FrmMagasin.ShowDialog(this);
         }
-
-        //public void frmMainActuArgent(int argent)
-        //{
-        //    _FrmMainArgent = argent;
-        //    lblArgent.Text = argent.ToString();
-        //}
     }
 }

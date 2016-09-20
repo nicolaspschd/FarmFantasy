@@ -56,6 +56,17 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lblArgent = new System.Windows.Forms.Label();
             this.btnMagasin = new System.Windows.Forms.Button();
+            this.gbxAnimaux = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.gbxSemencesPlante = new System.Windows.Forms.GroupBox();
+            this.gbxEntrepot = new System.Windows.Forms.GroupBox();
+            this.lblColzaEntrepot = new System.Windows.Forms.Label();
+            this.lblBleEntrepot = new System.Windows.Forms.Label();
+            this.lblCarotteEntrepot = new System.Windows.Forms.Label();
+            this.lblPatateEntrepot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -73,6 +84,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.gbxInfo.SuspendLayout();
+            this.gbxAnimaux.SuspendLayout();
+            this.gbxSemencesPlante.SuspendLayout();
+            this.gbxEntrepot.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +106,6 @@
             this.pbxChamps1.Location = new System.Drawing.Point(12, 53);
             this.pbxChamps1.Name = "pbxChamps1";
             this.pbxChamps1.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps1.TabIndex = 2;
             this.pbxChamps1.TabStop = false;
             this.pbxChamps1.Click += new System.EventHandler(this.pbxClick_Click);
@@ -105,7 +118,6 @@
             this.pbxChamps2.Location = new System.Drawing.Point(123, 159);
             this.pbxChamps2.Name = "pbxChamps2";
             this.pbxChamps2.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps2.TabIndex = 2;
             this.pbxChamps2.TabStop = false;
             this.pbxChamps2.Click += new System.EventHandler(this.pbxClick_Click);
@@ -118,7 +130,6 @@
             this.pbxChamps3.Location = new System.Drawing.Point(229, 159);
             this.pbxChamps3.Name = "pbxChamps3";
             this.pbxChamps3.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps3.TabIndex = 2;
             this.pbxChamps3.TabStop = false;
             this.pbxChamps3.Click += new System.EventHandler(this.pbxClick_Click);
@@ -131,7 +142,6 @@
             this.pbxChamps4.Location = new System.Drawing.Point(123, 265);
             this.pbxChamps4.Name = "pbxChamps4";
             this.pbxChamps4.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps4.TabIndex = 2;
             this.pbxChamps4.TabStop = false;
             this.pbxChamps4.Click += new System.EventHandler(this.pbxClick_Click);
@@ -144,7 +154,6 @@
             this.pbxChamps5.Location = new System.Drawing.Point(229, 371);
             this.pbxChamps5.Name = "pbxChamps5";
             this.pbxChamps5.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps5.TabIndex = 2;
             this.pbxChamps5.TabStop = false;
             this.pbxChamps5.Click += new System.EventHandler(this.pbxClick_Click);
@@ -157,7 +166,6 @@
             this.pbxChamps6.Location = new System.Drawing.Point(12, 371);
             this.pbxChamps6.Name = "pbxChamps6";
             this.pbxChamps6.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps6.TabIndex = 2;
             this.pbxChamps6.TabStop = false;
             this.pbxChamps6.Click += new System.EventHandler(this.pbxClick_Click);
@@ -170,7 +178,6 @@
             this.pbxChamps7.Location = new System.Drawing.Point(335, 265);
             this.pbxChamps7.Name = "pbxChamps7";
             this.pbxChamps7.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps7.TabIndex = 2;
             this.pbxChamps7.TabStop = false;
             this.pbxChamps7.Click += new System.EventHandler(this.pbxClick_Click);
@@ -183,7 +190,6 @@
             this.pbxChamps8.Location = new System.Drawing.Point(335, 53);
             this.pbxChamps8.Name = "pbxChamps8";
             this.pbxChamps8.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps8.TabIndex = 2;
             this.pbxChamps8.TabStop = false;
             this.pbxChamps8.Click += new System.EventHandler(this.pbxClick_Click);
@@ -196,7 +202,6 @@
             this.pbxChamps9.Location = new System.Drawing.Point(441, 53);
             this.pbxChamps9.Name = "pbxChamps9";
             this.pbxChamps9.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps9.TabIndex = 2;
             this.pbxChamps9.TabStop = false;
             this.pbxChamps9.Click += new System.EventHandler(this.pbxClick_Click);
@@ -209,7 +214,6 @@
             this.pbxChamps10.Location = new System.Drawing.Point(335, 371);
             this.pbxChamps10.Name = "pbxChamps10";
             this.pbxChamps10.Size = new System.Drawing.Size(100, 100);
-            this.pbxChamps10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxChamps10.TabIndex = 2;
             this.pbxChamps10.TabStop = false;
             this.pbxChamps10.Click += new System.EventHandler(this.pbxClick_Click);
@@ -276,16 +280,13 @@
             // 
             // gbxInfo
             // 
-            this.gbxInfo.BackColor = System.Drawing.Color.Turquoise;
-            this.gbxInfo.Controls.Add(this.rbnNothing);
-            this.gbxInfo.Controls.Add(this.rbnPatate);
-            this.gbxInfo.Controls.Add(this.rbnCarotte);
-            this.gbxInfo.Controls.Add(this.rbnColza);
-            this.gbxInfo.Controls.Add(this.rbnBle);
-            this.gbxInfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.gbxInfo.Location = new System.Drawing.Point(605, 53);
+            this.gbxInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.gbxInfo.Controls.Add(this.gbxEntrepot);
+            this.gbxInfo.Controls.Add(this.gbxSemencesPlante);
+            this.gbxInfo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gbxInfo.Location = new System.Drawing.Point(547, 53);
             this.gbxInfo.Name = "gbxInfo";
-            this.gbxInfo.Size = new System.Drawing.Size(106, 192);
+            this.gbxInfo.Size = new System.Drawing.Size(204, 171);
             this.gbxInfo.TabIndex = 9;
             this.gbxInfo.TabStop = false;
             this.gbxInfo.Text = "Semences";
@@ -296,7 +297,7 @@
             this.rbnNothing.Checked = true;
             this.rbnNothing.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rbnNothing.ForeColor = System.Drawing.Color.White;
-            this.rbnNothing.Location = new System.Drawing.Point(19, 33);
+            this.rbnNothing.Location = new System.Drawing.Point(13, 19);
             this.rbnNothing.Name = "rbnNothing";
             this.rbnNothing.Size = new System.Drawing.Size(53, 18);
             this.rbnNothing.TabIndex = 1;
@@ -309,7 +310,7 @@
             this.rbnPatate.AutoSize = true;
             this.rbnPatate.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rbnPatate.ForeColor = System.Drawing.Color.White;
-            this.rbnPatate.Location = new System.Drawing.Point(19, 125);
+            this.rbnPatate.Location = new System.Drawing.Point(13, 111);
             this.rbnPatate.Name = "rbnPatate";
             this.rbnPatate.Size = new System.Drawing.Size(62, 18);
             this.rbnPatate.TabIndex = 0;
@@ -321,7 +322,7 @@
             this.rbnCarotte.AutoSize = true;
             this.rbnCarotte.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rbnCarotte.ForeColor = System.Drawing.Color.White;
-            this.rbnCarotte.Location = new System.Drawing.Point(19, 102);
+            this.rbnCarotte.Location = new System.Drawing.Point(13, 88);
             this.rbnCarotte.Name = "rbnCarotte";
             this.rbnCarotte.Size = new System.Drawing.Size(65, 18);
             this.rbnCarotte.TabIndex = 0;
@@ -333,7 +334,7 @@
             this.rbnColza.AutoSize = true;
             this.rbnColza.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rbnColza.ForeColor = System.Drawing.Color.White;
-            this.rbnColza.Location = new System.Drawing.Point(19, 79);
+            this.rbnColza.Location = new System.Drawing.Point(13, 65);
             this.rbnColza.Name = "rbnColza";
             this.rbnColza.Size = new System.Drawing.Size(57, 18);
             this.rbnColza.TabIndex = 0;
@@ -345,7 +346,7 @@
             this.rbnBle.AutoSize = true;
             this.rbnBle.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rbnBle.ForeColor = System.Drawing.Color.White;
-            this.rbnBle.Location = new System.Drawing.Point(19, 56);
+            this.rbnBle.Location = new System.Drawing.Point(13, 42);
             this.rbnBle.Name = "rbnBle";
             this.rbnBle.Size = new System.Drawing.Size(46, 18);
             this.rbnBle.TabIndex = 0;
@@ -369,20 +370,133 @@
             // 
             // btnMagasin
             // 
-            this.btnMagasin.Location = new System.Drawing.Point(605, 251);
+            this.btnMagasin.Location = new System.Drawing.Point(547, 230);
             this.btnMagasin.Name = "btnMagasin";
-            this.btnMagasin.Size = new System.Drawing.Size(106, 29);
+            this.btnMagasin.Size = new System.Drawing.Size(204, 29);
             this.btnMagasin.TabIndex = 11;
             this.btnMagasin.Text = "Magasin";
             this.btnMagasin.UseVisualStyleBackColor = true;
             this.btnMagasin.Click += new System.EventHandler(this.btnMagasin_Click);
+            // 
+            // gbxAnimaux
+            // 
+            this.gbxAnimaux.Controls.Add(this.label5);
+            this.gbxAnimaux.Controls.Add(this.label4);
+            this.gbxAnimaux.Controls.Add(this.label3);
+            this.gbxAnimaux.Controls.Add(this.label2);
+            this.gbxAnimaux.Location = new System.Drawing.Point(547, 265);
+            this.gbxAnimaux.Name = "gbxAnimaux";
+            this.gbxAnimaux.Size = new System.Drawing.Size(204, 206);
+            this.gbxAnimaux.TabIndex = 12;
+            this.gbxAnimaux.TabStop = false;
+            this.gbxAnimaux.Text = "Animaux";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "label2";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "label2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "label2";
+            // 
+            // gbxSemencesPlante
+            // 
+            this.gbxSemencesPlante.Controls.Add(this.rbnNothing);
+            this.gbxSemencesPlante.Controls.Add(this.rbnBle);
+            this.gbxSemencesPlante.Controls.Add(this.rbnPatate);
+            this.gbxSemencesPlante.Controls.Add(this.rbnColza);
+            this.gbxSemencesPlante.Controls.Add(this.rbnCarotte);
+            this.gbxSemencesPlante.Location = new System.Drawing.Point(6, 16);
+            this.gbxSemencesPlante.Name = "gbxSemencesPlante";
+            this.gbxSemencesPlante.Size = new System.Drawing.Size(91, 149);
+            this.gbxSemencesPlante.TabIndex = 2;
+            this.gbxSemencesPlante.TabStop = false;
+            this.gbxSemencesPlante.Text = "Planter";
+            // 
+            // gbxEntrepot
+            // 
+            this.gbxEntrepot.Controls.Add(this.lblBleEntrepot);
+            this.gbxEntrepot.Controls.Add(this.lblPatateEntrepot);
+            this.gbxEntrepot.Controls.Add(this.lblCarotteEntrepot);
+            this.gbxEntrepot.Controls.Add(this.lblColzaEntrepot);
+            this.gbxEntrepot.Location = new System.Drawing.Point(103, 16);
+            this.gbxEntrepot.Name = "gbxEntrepot";
+            this.gbxEntrepot.Size = new System.Drawing.Size(95, 149);
+            this.gbxEntrepot.TabIndex = 3;
+            this.gbxEntrepot.TabStop = false;
+            this.gbxEntrepot.Text = "Entrepôt";
+            // 
+            // lblColzaEntrepot
+            // 
+            this.lblColzaEntrepot.AutoSize = true;
+            this.lblColzaEntrepot.Location = new System.Drawing.Point(22, 67);
+            this.lblColzaEntrepot.Name = "lblColzaEntrepot";
+            this.lblColzaEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblColzaEntrepot.TabIndex = 0;
+            this.lblColzaEntrepot.Text = "label6";
+            // 
+            // lblBleEntrepot
+            // 
+            this.lblBleEntrepot.AutoSize = true;
+            this.lblBleEntrepot.Location = new System.Drawing.Point(22, 44);
+            this.lblBleEntrepot.Name = "lblBleEntrepot";
+            this.lblBleEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblBleEntrepot.TabIndex = 0;
+            this.lblBleEntrepot.Text = "label6";
+            // 
+            // lblCarotteEntrepot
+            // 
+            this.lblCarotteEntrepot.AutoSize = true;
+            this.lblCarotteEntrepot.Location = new System.Drawing.Point(22, 90);
+            this.lblCarotteEntrepot.Name = "lblCarotteEntrepot";
+            this.lblCarotteEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblCarotteEntrepot.TabIndex = 0;
+            this.lblCarotteEntrepot.Text = "label6";
+            // 
+            // lblPatateEntrepot
+            // 
+            this.lblPatateEntrepot.AutoSize = true;
+            this.lblPatateEntrepot.Location = new System.Drawing.Point(22, 113);
+            this.lblPatateEntrepot.Name = "lblPatateEntrepot";
+            this.lblPatateEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblPatateEntrepot.TabIndex = 0;
+            this.lblPatateEntrepot.Text = "label6";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(730, 487);
+            this.ClientSize = new System.Drawing.Size(763, 482);
+            this.Controls.Add(this.gbxAnimaux);
             this.Controls.Add(this.btnMagasin);
             this.Controls.Add(this.lblArgent);
             this.Controls.Add(this.gbxInfo);
@@ -425,7 +539,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.gbxInfo.ResumeLayout(false);
-            this.gbxInfo.PerformLayout();
+            this.gbxAnimaux.ResumeLayout(false);
+            this.gbxAnimaux.PerformLayout();
+            this.gbxSemencesPlante.ResumeLayout(false);
+            this.gbxSemencesPlante.PerformLayout();
+            this.gbxEntrepot.ResumeLayout(false);
+            this.gbxEntrepot.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,6 +578,17 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button btnMagasin;
         public System.Windows.Forms.Label lblArgent;
+        private System.Windows.Forms.GroupBox gbxAnimaux;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbxSemencesPlante;
+        private System.Windows.Forms.GroupBox gbxEntrepot;
+        private System.Windows.Forms.Label lblBleEntrepot;
+        private System.Windows.Forms.Label lblPatateEntrepot;
+        private System.Windows.Forms.Label lblCarotteEntrepot;
+        private System.Windows.Forms.Label lblColzaEntrepot;
     }
 }
 

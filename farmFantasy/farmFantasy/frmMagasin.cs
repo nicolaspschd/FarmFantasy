@@ -41,7 +41,7 @@ namespace farmFantasy
 
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            parent._FrmMainArgent = _frmMagasinArgent;
         }
     }
 }

@@ -44,8 +44,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblArgent = new System.Windows.Forms.Label();
             this.gbxAnimaux = new System.Windows.Forms.GroupBox();
+            this.btnAcheterAnimal = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,12 +58,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnAcheterAnimal = new System.Windows.Forms.Button();
             this.gbxProd = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblArgentMagas = new System.Windows.Forms.Label();
             this.gbxSemence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -114,36 +113,36 @@
             this.lblPrixPatate.AutoSize = true;
             this.lblPrixPatate.Location = new System.Drawing.Point(158, 120);
             this.lblPrixPatate.Name = "lblPrixPatate";
-            this.lblPrixPatate.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixPatate.Size = new System.Drawing.Size(28, 13);
             this.lblPrixPatate.TabIndex = 2;
-            this.lblPrixPatate.Text = "chf";
+            this.lblPrixPatate.Text = "CHF";
             // 
             // lblPrixCarotte
             // 
             this.lblPrixCarotte.AutoSize = true;
             this.lblPrixCarotte.Location = new System.Drawing.Point(158, 90);
             this.lblPrixCarotte.Name = "lblPrixCarotte";
-            this.lblPrixCarotte.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixCarotte.Size = new System.Drawing.Size(28, 13);
             this.lblPrixCarotte.TabIndex = 2;
-            this.lblPrixCarotte.Text = "chf";
+            this.lblPrixCarotte.Text = "CHF";
             // 
             // lblPrixColza
             // 
             this.lblPrixColza.AutoSize = true;
             this.lblPrixColza.Location = new System.Drawing.Point(158, 60);
             this.lblPrixColza.Name = "lblPrixColza";
-            this.lblPrixColza.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixColza.Size = new System.Drawing.Size(28, 13);
             this.lblPrixColza.TabIndex = 2;
-            this.lblPrixColza.Text = "chf";
+            this.lblPrixColza.Text = "CHF";
             // 
             // lblPrixBle
             // 
             this.lblPrixBle.AutoSize = true;
             this.lblPrixBle.Location = new System.Drawing.Point(158, 30);
             this.lblPrixBle.Name = "lblPrixBle";
-            this.lblPrixBle.Size = new System.Drawing.Size(22, 13);
+            this.lblPrixBle.Size = new System.Drawing.Size(28, 13);
             this.lblPrixBle.TabIndex = 2;
-            this.lblPrixBle.Text = "chf";
+            this.lblPrixBle.Text = "CHF";
             // 
             // numericUpDown4
             // 
@@ -228,15 +227,6 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "CHF";
             // 
-            // lblArgentMagas
-            // 
-            this.lblArgentMagas.AutoSize = true;
-            this.lblArgentMagas.Location = new System.Drawing.Point(46, 9);
-            this.lblArgentMagas.Name = "lblArgentMagas";
-            this.lblArgentMagas.Size = new System.Drawing.Size(35, 13);
-            this.lblArgentMagas.TabIndex = 3;
-            this.lblArgentMagas.Text = "label5";
-            // 
             // gbxAnimaux
             // 
             this.gbxAnimaux.Controls.Add(this.btnAcheterAnimal);
@@ -259,41 +249,50 @@
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
             // 
+            // btnAcheterAnimal
+            // 
+            this.btnAcheterAnimal.Location = new System.Drawing.Point(163, 158);
+            this.btnAcheterAnimal.Name = "btnAcheterAnimal";
+            this.btnAcheterAnimal.Size = new System.Drawing.Size(65, 23);
+            this.btnAcheterAnimal.TabIndex = 15;
+            this.btnAcheterAnimal.Text = "Acheter";
+            this.btnAcheterAnimal.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(206, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "chf";
+            this.label6.Text = "CHF";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(206, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 13);
+            this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 8;
-            this.label7.Text = "chf";
+            this.label7.Text = "CHF";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(206, 61);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 13);
+            this.label8.Size = new System.Drawing.Size(28, 13);
             this.label8.TabIndex = 9;
-            this.label8.Text = "chf";
+            this.label8.Text = "CHF";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(206, 29);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 13);
+            this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 10;
-            this.label9.Text = "chf";
+            this.label9.Text = "CHF";
             // 
             // nudVache
             // 
@@ -359,36 +358,26 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Poule :";
             // 
-            // btnAcheterAnimal
-            // 
-            this.btnAcheterAnimal.Location = new System.Drawing.Point(163, 158);
-            this.btnAcheterAnimal.Name = "btnAcheterAnimal";
-            this.btnAcheterAnimal.Size = new System.Drawing.Size(65, 23);
-            this.btnAcheterAnimal.TabIndex = 15;
-            this.btnAcheterAnimal.Text = "Acheter";
-            this.btnAcheterAnimal.UseVisualStyleBackColor = true;
-            // 
             // gbxProd
             // 
-            this.gbxProd.Controls.Add(this.label17);
             this.gbxProd.Controls.Add(this.label16);
             this.gbxProd.Controls.Add(this.label15);
             this.gbxProd.Controls.Add(this.label14);
             this.gbxProd.Location = new System.Drawing.Point(15, 243);
             this.gbxProd.Name = "gbxProd";
-            this.gbxProd.Size = new System.Drawing.Size(539, 135);
+            this.gbxProd.Size = new System.Drawing.Size(539, 108);
             this.gbxProd.TabIndex = 3;
             this.gbxProd.TabStop = false;
             this.gbxProd.Text = "Production des animaux";
             // 
-            // label14
+            // label16
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 108);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(357, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Lait se vend toutes les 10 minutes pour le nombre de vache X 1.25 CHF/L";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(38, 56);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(331, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "La laine se vend a 150 CHF l\'unité mais prend 2 heures a se produire";
             // 
             // label15
             // 
@@ -399,36 +388,37 @@
             this.label15.TabIndex = 1;
             this.label15.Text = "Les oeufs se vendent a 0.20 CHF/Unité";
             // 
-            // label16
+            // label14
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(38, 56);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(277, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "La laine se vend a 150 mais prend 2 heures a se produire";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(38, 81);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(357, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Lait se vend toutes les 10 minutes pour le nombre de vache X 1.25 CHF/L";
             // 
-            // label17
+            // lblArgentMagas
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(38, 80);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(277, 13);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "La laine se vend a 150 mais prend 2 heures a se produire";
+            this.lblArgentMagas.AutoSize = true;
+            this.lblArgentMagas.Location = new System.Drawing.Point(46, 9);
+            this.lblArgentMagas.Name = "lblArgentMagas";
+            this.lblArgentMagas.Size = new System.Drawing.Size(34, 13);
+            this.lblArgentMagas.TabIndex = 5;
+            this.lblArgentMagas.Text = "LAbel";
             // 
             // frmMagasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 390);
+            this.ClientSize = new System.Drawing.Size(566, 362);
+            this.Controls.Add(this.lblArgentMagas);
             this.Controls.Add(this.gbxProd);
             this.Controls.Add(this.gbxAnimaux);
-            this.Controls.Add(this.lblArgent);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.gbxSemence);
             this.Name = "frmMagasin";
-            this.Text = "frmMagasin";
+            this.Text = "Magasin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMagasin_FormClosing);
             this.Load += new System.EventHandler(this.frmMagasin_Load);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
@@ -467,7 +457,6 @@
         private System.Windows.Forms.Label lblPrixColza;
         private System.Windows.Forms.Label lblPrixBle;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblArgent;
         private System.Windows.Forms.GroupBox gbxAnimaux;
         private System.Windows.Forms.Button btnAcheterAnimal;
         private System.Windows.Forms.Label label6;
@@ -483,9 +472,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gbxProd;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblArgentMagas;
     }
 }

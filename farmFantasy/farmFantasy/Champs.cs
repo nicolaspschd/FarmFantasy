@@ -10,15 +10,22 @@ namespace farmFantasy
 {
     class Champs
     {
-        private DateTime hourPlant;
-        private double tempsPousse;
-        private PictureBox pbxChamps;
-        private double temps;
+        private DateTime _hourPlant;
+        private double _tempsPousse;
+        private PictureBox _pbxChamps;
+        private double _temps;
+        private string _culture;
+
+        public string Culture
+        {
+            get { return _culture; }
+            set { _culture = value; }
+        }
 
         public double Temps
         {
-            get { return temps; }
-            set { temps = value; }
+            get { return _temps; }
+            set { _temps = value; }
         }
 
         private Dictionary<string, double> DicoSemence = new Dictionary<string, double> { 
@@ -31,21 +38,21 @@ namespace farmFantasy
         //  Constructor:
         public Champs(DateTime hour, PictureBox Champs, string semence)
         {
-            hourPlant = hour;
-            pbxChamps = Champs;
-            tempsPousse = DicoSemence[semence];
+            _hourPlant = hour;
+            _pbxChamps = Champs;
+            _tempsPousse = DicoSemence[semence];
+            _culture = semence;
         }
 
         public bool calculTemps()
         {
             bool fini;
-            if ((DateTime.Now - hourPlant).Minutes >= tempsPousse)
+            if ((DateTime.Now - _hourPlant).Minutes >= _tempsPousse)
             {
                 fini = true;
-                pbxChamps.Enabled = true;
+                _pbxChamps.Enabled = true;
 
-                pbxChamps.ImageLocation = "images\\dirt.png";
-                pbxChamps.SizeMode = PictureBoxSizeMode.StretchImage;
+                _pbxChamps.ImageLocation = "images\\dirt.png";
             }
             else
             {
