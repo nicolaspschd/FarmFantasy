@@ -27,21 +27,33 @@ namespace farmFantasy
 
         private void frmMagasin_Load(object sender, EventArgs e)
         {
+            //  Récupération de frmMain
             parent = (frmMain)this.Owner;
-            _frmMagasinArgent = Convert.ToInt32(parent.lblArgent.Text);
+
+            //  Récupération de l'argent de frmMain
+            _frmMagasinArgent = Convert.ToInt32(parent.FrmMainArgent);
+
+            //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
         }
 
         private void btnAcheterSemence_Click(object sender, EventArgs e)
         {
+            //  Decrement de l'argent
             _frmMagasinArgent -= 10;
+
+            //  Mise a jour du label
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
-            parent.lblArgent.Text = _frmMagasinArgent.ToString();     
+
+            //  Mise a jour de l'argent sur frmMain
+            parent.FrmMainArgent = _frmMagasinArgent;
         }
 
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parent._FrmMainArgent = _frmMagasinArgent;
+            //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
+            parent.FrmMainArgent = _frmMagasinArgent;
+            parent.lblArgent.Text = _frmMagasinArgent.ToString();
         }
     }
 }

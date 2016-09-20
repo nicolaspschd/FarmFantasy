@@ -43,7 +43,6 @@ namespace farmFantasy
         {
             lblArgent.Text = FrmMainArgent.ToString();
 
-            //  Initialisation de l'entrepot
             lblBleEntrepot.Text = entrepot["ble"].ToString();
             lblColzaEntrepot.Text = entrepot["colza"].ToString();
             lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
@@ -52,7 +51,6 @@ namespace farmFantasy
 
         private void pbxClick_Click(object sender, EventArgs e)
         {
-            //  Initialisation Des variables
             string pbxNom = (sender as PictureBox).Name;
             PictureBox pbx = (sender as PictureBox);
             string path;
@@ -61,18 +59,19 @@ namespace farmFantasy
             {
                 string culture = string.Empty;
 
-                //  Check quel semence va être plantée
                 if (rbnBle.Checked)
                     culture = "ble";
                 else if (rbnColza.Checked)
                     culture = "colza";
                 else if (rbnCarotte.Checked)
                     culture = "carotte";
+
                 else if (rbnPatate.Checked)
                     culture = "patate";
 
                 entrepot[culture] -= 1;
 
+                //
                 pbx.Enabled = false;
 
                 //  Récupération de la bonne image de culture
