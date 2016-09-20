@@ -222,7 +222,6 @@
             this.Controls.Add(this.gbxSemence);
             this.Name = "frmMagasin";
             this.Text = "frmMagasin";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMagasin_FormClosing);
             this.Load += new System.EventHandler(this.frmMagasin_Load);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();

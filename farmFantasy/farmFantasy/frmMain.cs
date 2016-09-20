@@ -22,19 +22,10 @@ namespace farmFantasy
     public partial class frmMain : Form
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
+        frmMagasin FrmMagasin = new frmMagasin();
 
         const int _NBRCHAMPS = 10;
         private int _FrmMainArgent = 100000;
-
-        public int FrmMainArgent
-        {
-            get { return _FrmMainArgent; }
-            set 
-            {
-                _FrmMainArgent = value;
-                lblArgent.Text = value.ToString();
-            }
-        }
 
         public frmMain()
         {
@@ -97,9 +88,7 @@ namespace farmFantasy
 
         private void btnMagasin_Click(object sender, EventArgs e)
         {
-            frmMagasin FrmMagasin = new frmMagasin();
-            FrmMagasin.ShowDialog();
-            FrmMagasin._frmMagasinArgent = _FrmMainArgent;
+            FrmMagasin.ShowDialog(this);
         }
 
         //public void frmMainActuArgent(int argent)

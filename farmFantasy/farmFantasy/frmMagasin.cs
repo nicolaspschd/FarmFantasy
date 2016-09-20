@@ -18,8 +18,7 @@ namespace farmFantasy
         const int PRIXPATATE = 50;
 
         public int _frmMagasinArgent;
-
-        frmMain FrmMain = new frmMain();
+        frmMain parent;
 
         public frmMagasin()
         {
@@ -28,7 +27,8 @@ namespace farmFantasy
 
         private void frmMagasin_Load(object sender, EventArgs e)
         {
-            _frmMagasinArgent = FrmMain.FrmMainArgent;
+            parent = (frmMain)this.Owner;
+            _frmMagasinArgent = Convert.ToInt32(parent.lblArgent.Text);
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
         }
 
@@ -36,11 +36,12 @@ namespace farmFantasy
         {
             _frmMagasinArgent -= 10;
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
+            parent.lblArgent.Text = _frmMagasinArgent.ToString();     
         }
 
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FrmMain.FrmMainArgent = _frmMagasinArgent;
+            
         }
     }
 }

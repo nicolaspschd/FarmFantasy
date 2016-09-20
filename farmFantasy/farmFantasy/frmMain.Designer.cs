@@ -457,8 +457,8 @@
         private System.Windows.Forms.RadioButton rbnBle;
         private System.Windows.Forms.RadioButton rbnNothing;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label lblArgent;
         private System.Windows.Forms.Button btnMagasin;
+        public System.Windows.Forms.Label lblArgent;
     }
 }
 
