@@ -21,11 +21,11 @@ namespace farmFantasy
 {
     public partial class frmMain : Form
     {
-
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
+        frmMagasin FrmMagasin = new frmMagasin();
 
         const int _NBRCHAMPS = 10;
-        public int _argent = 100000;
+        private int _FrmMainArgent = 100000;
 
         public frmMain()
         {
@@ -34,7 +34,7 @@ namespace farmFantasy
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            lblArgent.Text = _argent.ToString();
+            lblArgent.Text = _FrmMainArgent.ToString();
         }
 
         private void pbxClick_Click(object sender, EventArgs e)
@@ -68,6 +68,8 @@ namespace farmFantasy
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine(_FrmMainArgent);
+
             if (repertoryChamps.Count() > 0)
             {
                 for (int i = 1; i <= 10; i++)
@@ -83,5 +85,16 @@ namespace farmFantasy
                 }
             }
         }
+
+        private void btnMagasin_Click(object sender, EventArgs e)
+        {
+            FrmMagasin.ShowDialog(this);
+        }
+
+        //public void frmMainActuArgent(int argent)
+        //{
+        //    _FrmMainArgent = argent;
+        //    lblArgent.Text = argent.ToString();
+        //}
     }
 }

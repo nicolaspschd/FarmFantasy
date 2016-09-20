@@ -38,8 +38,8 @@
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btnVendre = new System.Windows.Forms.Button();
-            this.btnAcheter = new System.Windows.Forms.Button();
+            this.btnVendreSemence = new System.Windows.Forms.Button();
+            this.btnAcheterSemence = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,8 +96,8 @@
             this.gbxSemence.Controls.Add(this.numericUpDown3);
             this.gbxSemence.Controls.Add(this.numericUpDown2);
             this.gbxSemence.Controls.Add(this.numericUpDown1);
-            this.gbxSemence.Controls.Add(this.btnVendre);
-            this.gbxSemence.Controls.Add(this.btnAcheter);
+            this.gbxSemence.Controls.Add(this.btnVendreSemence);
+            this.gbxSemence.Controls.Add(this.btnAcheterSemence);
             this.gbxSemence.Controls.Add(this.label4);
             this.gbxSemence.Controls.Add(this.label3);
             this.gbxSemence.Controls.Add(this.label2);
@@ -173,23 +173,24 @@
             this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
             this.numericUpDown1.TabIndex = 2;
             // 
-            // btnVendre
+            // btnVendreSemence
             // 
-            this.btnVendre.Location = new System.Drawing.Point(112, 167);
-            this.btnVendre.Name = "btnVendre";
-            this.btnVendre.Size = new System.Drawing.Size(65, 23);
-            this.btnVendre.TabIndex = 1;
-            this.btnVendre.Text = "Vendre";
-            this.btnVendre.UseVisualStyleBackColor = true;
+            this.btnVendreSemence.Location = new System.Drawing.Point(112, 167);
+            this.btnVendreSemence.Name = "btnVendreSemence";
+            this.btnVendreSemence.Size = new System.Drawing.Size(65, 23);
+            this.btnVendreSemence.TabIndex = 1;
+            this.btnVendreSemence.Text = "Vendre";
+            this.btnVendreSemence.UseVisualStyleBackColor = true;
             // 
-            // btnAcheter
+            // btnAcheterSemence
             // 
-            this.btnAcheter.Location = new System.Drawing.Point(41, 167);
-            this.btnAcheter.Name = "btnAcheter";
-            this.btnAcheter.Size = new System.Drawing.Size(65, 23);
-            this.btnAcheter.TabIndex = 1;
-            this.btnAcheter.Text = "Acheter";
-            this.btnAcheter.UseVisualStyleBackColor = true;
+            this.btnAcheterSemence.Location = new System.Drawing.Point(41, 167);
+            this.btnAcheterSemence.Name = "btnAcheterSemence";
+            this.btnAcheterSemence.Size = new System.Drawing.Size(65, 23);
+            this.btnAcheterSemence.TabIndex = 1;
+            this.btnAcheterSemence.Text = "Acheter";
+            this.btnAcheterSemence.UseVisualStyleBackColor = true;
+            this.btnAcheterSemence.Click += new System.EventHandler(this.btnAcheterSemence_Click);
             // 
             // label4
             // 
@@ -227,14 +228,14 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "CHF";
             // 
-            // lblArgent
+            // lblArgentMagas
             // 
-            this.lblArgent.AutoSize = true;
-            this.lblArgent.Location = new System.Drawing.Point(53, 9);
-            this.lblArgent.Name = "lblArgent";
-            this.lblArgent.Size = new System.Drawing.Size(35, 13);
-            this.lblArgent.TabIndex = 3;
-            this.lblArgent.Text = "label5";
+            this.lblArgentMagas.AutoSize = true;
+            this.lblArgentMagas.Location = new System.Drawing.Point(46, 9);
+            this.lblArgentMagas.Name = "lblArgentMagas";
+            this.lblArgentMagas.Size = new System.Drawing.Size(35, 13);
+            this.lblArgentMagas.TabIndex = 3;
+            this.lblArgentMagas.Text = "label5";
             // 
             // gbxAnimaux
             // 
@@ -428,6 +429,7 @@
             this.Controls.Add(this.gbxSemence);
             this.Name = "frmMagasin";
             this.Text = "frmMagasin";
+            this.Load += new System.EventHandler(this.frmMagasin_Load);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
@@ -451,11 +453,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbxSemence;
-        private System.Windows.Forms.Button btnAcheter;
+        private System.Windows.Forms.Button btnAcheterSemence;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnVendre;
+        private System.Windows.Forms.Button btnVendreSemence;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
