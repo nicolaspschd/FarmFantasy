@@ -52,7 +52,7 @@ namespace farmFantasy
 
         private void pbxClick_Click(object sender, EventArgs e)
         {
-            //  Initialisation Des variables
+            //  Initialisation des variables
             string pbxNom = (sender as PictureBox).Name;
             PictureBox pbx = (sender as PictureBox);
             string path;
@@ -126,4 +126,3 @@ namespace farmFantasy
         }
     }
 }
-// Encore un troll de Marco
