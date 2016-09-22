@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animaux.cs" />
     <Compile Include="Champs.cs" />
     <Compile Include="frmMagasin.cs">
       <SubType>Form</SubType>
