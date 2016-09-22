@@ -26,7 +26,8 @@ namespace farmFantasy
             {"ble", 10},
             {"colza", 0},
             {"carotte", 0},
-            {"patate", 0}
+            {"patate", 0},
+            {"mais", 0}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();
@@ -48,14 +49,13 @@ namespace farmFantasy
             lblColzaEntrepot.Text = entrepot["colza"].ToString();
             lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
             lblPatateEntrepot.Text = entrepot["patate"].ToString();
+            lblMaisEntrepot.Text = entrepot["mais"].ToString();
         }
 
         private void pbxClick_Click(object sender, EventArgs e)
         {
             //  Initialisation des variables
-            string pbxNom = (sender as PictureBox).Name;
             PictureBox pbx = (sender as PictureBox);
-            string path;
 
             if (!rbnNothing.Checked)
             {
@@ -70,22 +70,25 @@ namespace farmFantasy
                     culture = "carotte";
                 else if (rbnPatate.Checked)
                     culture = "patate";
+                else if (rbnMais.Checked)
+                    culture = "mais";
 
-                entrepot[culture] -= 1;
-
-                pbx.Enabled = false;
-
-                //  Récupération de la bonne image de culture
-                path = "images\\" + culture + ".png";
-                pbx.ImageLocation = path;
-
-                //  Mise a jour des labels
-                frmMain_Load(null, null);
-
-                if (!repertoryChamps.ContainsKey(pbxNom))
+                if (entrepot[culture] > 0)
                 {
-                    //  Création du champs dans le tableau
-                    repertoryChamps.Add(pbxNom, new Champs(DateTime.Now, pbx, culture));
+                    entrepot[culture] -= 1;
+                    pbx.Enabled = false;
+
+                    //  Récupération de la bonne image de culture
+                    pbx.ImageLocation = "images\\" + culture + ".png";
+
+                    //  Mise a jour des labels
+                    frmMain_Load(null, null);
+
+                    if (!repertoryChamps.ContainsKey(pbx.Name))
+                    {
+                        //  Création du champs dans le tableau
+                        repertoryChamps.Add(pbx.Name, new Champs(DateTime.Now, pbx, culture));
+                    }
                 }
             }
         }
@@ -109,7 +112,7 @@ namespace farmFantasy
                             entrepot[nativChamps.Culture] += 2;
 
                             //  Mise a jour des labels
-                            frmMain_Load(null,null);
+                            frmMain_Load(null, null);
 
                             //  Supression de l'objet "lié" au champs
                             repertoryChamps.Remove("pbxChamps" + i);

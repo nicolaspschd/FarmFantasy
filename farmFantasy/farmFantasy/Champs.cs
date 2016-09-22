@@ -31,7 +31,8 @@ namespace farmFantasy
                 {"ble", 1},
                 {"colza", 2},
                 {"carotte", 5},
-                {"patate", 10} 
+                {"patate", 10},
+                {"mais", 15}
             };
 
         //  Constructor:
