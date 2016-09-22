@@ -13,10 +13,17 @@ namespace farmFantasy
     public partial class frmMagasin : Form
     {
         int total = 0;
+        int prixTotBle = 0;
+        int prixTotColza = 0;
+        int prixTotCarotte = 0;
+        int prixTotPatate = 0;
+        int prixTotMais = 0;
+
         const int PRIXBLE = 5;
         const int PRIXCOLZA = 15;
         const int PRIXCAROTTE = 30;
         const int PRIXPATATE = 50;
+        const int PRIXMAIS = 75;
 
         public int _frmMagasinArgent;
         frmMain parent;
@@ -32,7 +39,7 @@ namespace farmFantasy
             parent = (frmMain)this.Owner;
 
             //  Récupération de l'argent de frmMain
-            _frmMagasinArgent = Convert.ToInt32(parent.FrmMainArgent);
+            _frmMagasinArgent = (int)(parent.FrmMainArgent);
 
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
@@ -41,7 +48,13 @@ namespace farmFantasy
         private void btnAcheterSemence_Click(object sender, EventArgs e)
         {
             //  Decrement de l'argent
-            _frmMagasinArgent -= 10;
+            _frmMagasinArgent -= total;
+
+            parent.entrepot["ble"] += (int)nudBle.Value;
+            parent.entrepot["colza"] += (int)nudColza.Value;
+            parent.entrepot["carotte"] += (int)nudCarotte.Value;
+            parent.entrepot["patate"] += (int)nudPatate.Value;
+            parent.entrepot["mais"] += (int)nudMais.Value;
 
             //  Mise a jour du label
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
@@ -55,35 +68,58 @@ namespace farmFantasy
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
             parent.FrmMainArgent = _frmMagasinArgent;
             parent.lblArgent.Text = _frmMagasinArgent.ToString();
+            parent.frmMain_Load(null,null);
         }
 
         private void nud_ValueChanged(object sender, EventArgs e)
         {
-            
-            
             NumericUpDown nud = (sender as NumericUpDown);
             if (nud.Name == "nudBle")
             {
-                total += Convert.ToInt32(nud.Value * PRIXBLE);
-                lblPrixBle.Text = (nud.Value * PRIXBLE).ToString();
+                prixTotBle = (int)(nud.Value * PRIXBLE);
+                lblPrixBle.Text = prixTotBle.ToString();
             }
             if (nud.Name == "nudColza")
             {
-                total += Convert.ToInt32(nud.Value * PRIXCOLZA);
-                lblPrixColza.Text = (nud.Value * PRIXCOLZA).ToString();
+                prixTotColza = (int)(nud.Value * PRIXCOLZA);
+                lblPrixColza.Text = prixTotColza.ToString();
             }
             if (nud.Name == "nudCarotte")
             {
-                total += Convert.ToInt32(nud.Value * PRIXCAROTTE);
-                lblPrixCarotte.Text = (nud.Value * PRIXCAROTTE).ToString();
+                prixTotCarotte = (int)(nud.Value * PRIXCAROTTE);
+                lblPrixCarotte.Text = prixTotCarotte.ToString();
             }
             if (nud.Name == "nudPatate")
             {
-                total += Convert.ToInt32(nud.Value * PRIXPATATE);
-                lblPrixPatate.Text = (nud.Value * PRIXPATATE).ToString();
+                prixTotPatate = (int)(nud.Value * PRIXPATATE);
+                lblPrixPatate.Text = prixTotPatate.ToString();
             }
+            if (nud.Name == "nudMais")
+            {
+                prixTotMais = (int)(nud.Value * PRIXMAIS);
+                lblPrixMais.Text = prixTotMais.ToString();
+            }
+         
+            total = prixTotBle + prixTotCarotte + prixTotColza + prixTotMais + prixTotPatate;
             lblTotalSem.Text = total.ToString();
-            Console.WriteLine(nud.Name);
+        }
+
+        private void btnVendreSemence_Click(object sender, EventArgs e)
+        {
+            //  Increment de l'argent
+            _frmMagasinArgent += total;
+
+            parent.entrepot["ble"] -= (int)nudBle.Value;
+            parent.entrepot["colza"] -= (int)nudColza.Value;
+            parent.entrepot["carotte"] -= (int)nudCarotte.Value;
+            parent.entrepot["patate"] -= (int)nudPatate.Value;
+            parent.entrepot["mais"] -= (int)nudMais.Value;
+
+            //  Mise a jour du label
+            lblArgentMagas.Text = _frmMagasinArgent.ToString();
+
+            //  Mise a jour de l'argent sur frmMain
+            parent.FrmMainArgent = _frmMagasinArgent;
         }
     }
 }

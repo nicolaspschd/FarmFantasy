@@ -22,7 +22,14 @@ namespace farmFantasy
     public partial class frmMain : Form
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
-        Dictionary<string, int> entrepot = new Dictionary<string, int> { 
+        Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
+            {"vache", new Animaux(1.25, 10)},
+            {"poule", new Animaux(0.20, 5)},
+            {"mouton", new Animaux(150, 120)},
+            {"cochon", new Animaux(10, 20)}
+        };
+
+        public Dictionary<string, int> entrepot = new Dictionary<string, int> { 
             {"ble", 10},
             {"colza", 0},
             {"carotte", 0},
@@ -40,7 +47,7 @@ namespace farmFantasy
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        public void frmMain_Load(object sender, EventArgs e)
         {
             lblArgent.Text = FrmMainArgent.ToString();
 
@@ -52,7 +59,7 @@ namespace farmFantasy
             lblMaisEntrepot.Text = entrepot["mais"].ToString();
         }
 
-        private void pbxClick_Click(object sender, EventArgs e)
+        private void pbxClickChamps_Click(object sender, EventArgs e)
         {
             //  Initialisation des variables
             PictureBox pbx = (sender as PictureBox);
@@ -120,6 +127,31 @@ namespace farmFantasy
                     }
                 }
             }
+
+            if (repertoryAnimaux["vache"].calculTempsProd())
+            {
+                FrmMainArgent += (int)repertoryAnimaux["vache"].Production;
+            }
+
+            if (repertoryAnimaux["poule"].calculTempsProd())
+            {
+                FrmMainArgent += (int)repertoryAnimaux["poule"].Production;
+            }
+
+            if (repertoryAnimaux["mouton"].calculTempsProd())
+            {
+                FrmMainArgent += (int)repertoryAnimaux["mouton"].Production;
+            }
+            
+            if (repertoryAnimaux["cochon"].calculTempsProd())
+            {
+                FrmMainArgent += (int)repertoryAnimaux["cochon"].Production;
+            }
+        }
+
+        private void pbxClickAnimaux_Click(object sender, EventArgs e)
+        {
+            PictureBox pbx = (sender as PictureBox);
         }
 
         private void btnMagasin_Click(object sender, EventArgs e)

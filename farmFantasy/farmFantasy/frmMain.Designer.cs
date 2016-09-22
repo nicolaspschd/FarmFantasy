@@ -42,18 +42,20 @@
             this.pbxChamps9 = new System.Windows.Forms.PictureBox();
             this.pbxChamps10 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pbxVache = new System.Windows.Forms.PictureBox();
+            this.pbxPoule = new System.Windows.Forms.PictureBox();
+            this.pbxCochon = new System.Windows.Forms.PictureBox();
+            this.pbxMouton = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.gbxInfo = new System.Windows.Forms.GroupBox();
             this.gbxEntrepot = new System.Windows.Forms.GroupBox();
+            this.lblMaisEntrepot = new System.Windows.Forms.Label();
             this.lblBleEntrepot = new System.Windows.Forms.Label();
             this.lblPatateEntrepot = new System.Windows.Forms.Label();
             this.lblCarotteEntrepot = new System.Windows.Forms.Label();
             this.lblColzaEntrepot = new System.Windows.Forms.Label();
             this.gbxSemencesPlante = new System.Windows.Forms.GroupBox();
+            this.rbnMais = new System.Windows.Forms.RadioButton();
             this.rbnNothing = new System.Windows.Forms.RadioButton();
             this.rbnBle = new System.Windows.Forms.RadioButton();
             this.rbnPatate = new System.Windows.Forms.RadioButton();
@@ -67,8 +69,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbnMais = new System.Windows.Forms.RadioButton();
-            this.lblMaisEntrepot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -80,10 +80,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxVache)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPoule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCochon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMouton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.gbxInfo.SuspendLayout();
             this.gbxEntrepot.SuspendLayout();
@@ -110,7 +110,7 @@
             this.pbxChamps1.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps1.TabIndex = 2;
             this.pbxChamps1.TabStop = false;
-            this.pbxChamps1.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps1.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps2
             // 
@@ -122,7 +122,7 @@
             this.pbxChamps2.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps2.TabIndex = 2;
             this.pbxChamps2.TabStop = false;
-            this.pbxChamps2.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps2.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps3
             // 
@@ -134,7 +134,7 @@
             this.pbxChamps3.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps3.TabIndex = 2;
             this.pbxChamps3.TabStop = false;
-            this.pbxChamps3.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps3.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps4
             // 
@@ -146,7 +146,7 @@
             this.pbxChamps4.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps4.TabIndex = 2;
             this.pbxChamps4.TabStop = false;
-            this.pbxChamps4.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps4.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps5
             // 
@@ -158,7 +158,7 @@
             this.pbxChamps5.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps5.TabIndex = 2;
             this.pbxChamps5.TabStop = false;
-            this.pbxChamps5.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps5.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps6
             // 
@@ -170,7 +170,7 @@
             this.pbxChamps6.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps6.TabIndex = 2;
             this.pbxChamps6.TabStop = false;
-            this.pbxChamps6.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps6.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps7
             // 
@@ -182,7 +182,7 @@
             this.pbxChamps7.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps7.TabIndex = 2;
             this.pbxChamps7.TabStop = false;
-            this.pbxChamps7.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps7.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps8
             // 
@@ -194,7 +194,7 @@
             this.pbxChamps8.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps8.TabIndex = 2;
             this.pbxChamps8.TabStop = false;
-            this.pbxChamps8.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps8.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps9
             // 
@@ -206,7 +206,7 @@
             this.pbxChamps9.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps9.TabIndex = 2;
             this.pbxChamps9.TabStop = false;
-            this.pbxChamps9.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps9.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pbxChamps10
             // 
@@ -218,7 +218,7 @@
             this.pbxChamps10.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps10.TabIndex = 2;
             this.pbxChamps10.TabStop = false;
-            this.pbxChamps10.Click += new System.EventHandler(this.pbxClick_Click);
+            this.pbxChamps10.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
             // pictureBox1
             // 
@@ -230,45 +230,45 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pbxVache
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(123, 53);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(206, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.pbxVache.Image = ((System.Drawing.Image)(resources.GetObject("pbxVache.Image")));
+            this.pbxVache.Location = new System.Drawing.Point(123, 53);
+            this.pbxVache.Name = "pbxVache";
+            this.pbxVache.Size = new System.Drawing.Size(206, 100);
+            this.pbxVache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxVache.TabIndex = 4;
+            this.pbxVache.TabStop = false;
             // 
-            // pictureBox3
+            // pbxPoule
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(123, 371);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.pbxPoule.Image = ((System.Drawing.Image)(resources.GetObject("pbxPoule.Image")));
+            this.pbxPoule.Location = new System.Drawing.Point(123, 371);
+            this.pbxPoule.Name = "pbxPoule";
+            this.pbxPoule.Size = new System.Drawing.Size(100, 100);
+            this.pbxPoule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxPoule.TabIndex = 5;
+            this.pbxPoule.TabStop = false;
             // 
-            // pictureBox4
+            // pbxCochon
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(335, 159);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(206, 100);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
+            this.pbxCochon.Image = ((System.Drawing.Image)(resources.GetObject("pbxCochon.Image")));
+            this.pbxCochon.Location = new System.Drawing.Point(335, 159);
+            this.pbxCochon.Name = "pbxCochon";
+            this.pbxCochon.Size = new System.Drawing.Size(206, 100);
+            this.pbxCochon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxCochon.TabIndex = 6;
+            this.pbxCochon.TabStop = false;
             // 
-            // pictureBox5
+            // pbxMouton
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(441, 265);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 206);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
+            this.pbxMouton.Image = ((System.Drawing.Image)(resources.GetObject("pbxMouton.Image")));
+            this.pbxMouton.Location = new System.Drawing.Point(441, 265);
+            this.pbxMouton.Name = "pbxMouton";
+            this.pbxMouton.Size = new System.Drawing.Size(100, 206);
+            this.pbxMouton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxMouton.TabIndex = 7;
+            this.pbxMouton.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -306,6 +306,15 @@
             this.gbxEntrepot.TabIndex = 3;
             this.gbxEntrepot.TabStop = false;
             this.gbxEntrepot.Text = "Entrepôt";
+            // 
+            // lblMaisEntrepot
+            // 
+            this.lblMaisEntrepot.AutoSize = true;
+            this.lblMaisEntrepot.Location = new System.Drawing.Point(22, 137);
+            this.lblMaisEntrepot.Name = "lblMaisEntrepot";
+            this.lblMaisEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblMaisEntrepot.TabIndex = 1;
+            this.lblMaisEntrepot.Text = "label6";
             // 
             // lblBleEntrepot
             // 
@@ -357,6 +366,17 @@
             this.gbxSemencesPlante.TabIndex = 2;
             this.gbxSemencesPlante.TabStop = false;
             this.gbxSemencesPlante.Text = "Planter";
+            // 
+            // rbnMais
+            // 
+            this.rbnMais.AutoSize = true;
+            this.rbnMais.Location = new System.Drawing.Point(13, 135);
+            this.rbnMais.Name = "rbnMais";
+            this.rbnMais.Size = new System.Drawing.Size(49, 17);
+            this.rbnMais.TabIndex = 2;
+            this.rbnMais.TabStop = true;
+            this.rbnMais.Text = "Maïs";
+            this.rbnMais.UseVisualStyleBackColor = true;
             // 
             // rbnNothing
             // 
@@ -494,26 +514,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "label2";
             // 
-            // rbnMais
-            // 
-            this.rbnMais.AutoSize = true;
-            this.rbnMais.Location = new System.Drawing.Point(13, 135);
-            this.rbnMais.Name = "rbnMais";
-            this.rbnMais.Size = new System.Drawing.Size(49, 17);
-            this.rbnMais.TabIndex = 2;
-            this.rbnMais.TabStop = true;
-            this.rbnMais.Text = "Maïs";
-            this.rbnMais.UseVisualStyleBackColor = true;
-            // 
-            // lblMaisEntrepot
-            // 
-            this.lblMaisEntrepot.AutoSize = true;
-            this.lblMaisEntrepot.Location = new System.Drawing.Point(22, 137);
-            this.lblMaisEntrepot.Name = "lblMaisEntrepot";
-            this.lblMaisEntrepot.Size = new System.Drawing.Size(35, 13);
-            this.lblMaisEntrepot.TabIndex = 1;
-            this.lblMaisEntrepot.Text = "label6";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,10 +525,10 @@
             this.Controls.Add(this.lblArgent);
             this.Controls.Add(this.gbxInfo);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbxMouton);
+            this.Controls.Add(this.pbxCochon);
+            this.Controls.Add(this.pbxPoule);
+            this.Controls.Add(this.pbxVache);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbxChamps6);
             this.Controls.Add(this.pbxChamps10);
@@ -557,10 +557,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxVache)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPoule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCochon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMouton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.gbxInfo.ResumeLayout(false);
             this.gbxEntrepot.ResumeLayout(false);
@@ -588,10 +588,10 @@
         private System.Windows.Forms.PictureBox pbxChamps9;
         private System.Windows.Forms.PictureBox pbxChamps10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pbxVache;
+        private System.Windows.Forms.PictureBox pbxPoule;
+        private System.Windows.Forms.PictureBox pbxCochon;
+        private System.Windows.Forms.PictureBox pbxMouton;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.GroupBox gbxInfo;
         private System.Windows.Forms.RadioButton rbnPatate;
@@ -609,12 +609,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbxSemencesPlante;
         private System.Windows.Forms.GroupBox gbxEntrepot;
-        private System.Windows.Forms.Label lblBleEntrepot;
-        private System.Windows.Forms.Label lblPatateEntrepot;
-        private System.Windows.Forms.Label lblCarotteEntrepot;
-        private System.Windows.Forms.Label lblColzaEntrepot;
-        private System.Windows.Forms.Label lblMaisEntrepot;
         private System.Windows.Forms.RadioButton rbnMais;
+        public System.Windows.Forms.Label lblBleEntrepot;
+        public System.Windows.Forms.Label lblPatateEntrepot;
+        public System.Windows.Forms.Label lblCarotteEntrepot;
+        public System.Windows.Forms.Label lblColzaEntrepot;
+        public System.Windows.Forms.Label lblMaisEntrepot;
     }
 }
 
