@@ -10,39 +10,35 @@ namespace farmFantasy
     {
         string _typeAnimal;
         int _nbrAnimaux;
-        double _tempsProduction = 10;
-        DateTime _heureDebut;
+        double _tempsProduction;
         double _prixVenteProduit;
-        int _production;
+        int _temps = 0;
 
-        public int NbrAnimaux
+        public double PrixVenteProduit
         {
-            get { return _nbrAnimaux; }
-            set { _nbrAnimaux = value; }
+            get { return _prixVenteProduit; }
+            set { _prixVenteProduit = value; }
         }
 
-
-        public int Production
-        {
-            get { return _production; }
-            set { _production = value; }
-        }
-
-        public DateTime HeureDebut
-        {
-            get { return _heureDebut; }
-            set { _heureDebut = value; }
-        }
-
-        public Animaux(double prixV, int tempsProd)
+        public Animaux(double prixV, int tempsProd, string typAnim, int nbrAnim)
         {
             _tempsProduction = tempsProd;
-            _prixVenteProduit = prixV;
+            _typeAnimal = typAnim;
+            _nbrAnimaux = nbrAnim;
+            _prixVenteProduit = prixV * _nbrAnimaux;
         }
 
         public bool calculTempsProd()
         {
-            return ((DateTime.Now - _heureDebut).Seconds >= _tempsProduction);
+            bool fini = false;
+            _temps += 1;
+            if (_temps >= _tempsProduction)
+            {
+                fini = true;
+                _temps = 1;
+            }
+
+            return fini;
         }
     }
 }

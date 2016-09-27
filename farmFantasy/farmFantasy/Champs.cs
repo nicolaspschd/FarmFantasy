@@ -9,10 +9,10 @@ namespace farmFantasy
 {
     class Champs
     {
-        private DateTime _hourPlant;
         private double _tempsPousse;
         private PictureBox _pbxChamps;
         private string _culture;
+        private int _temps = 0;
 
         public string Culture
         {
@@ -29,9 +29,8 @@ namespace farmFantasy
             };
 
         //  Constructor:
-        public Champs(DateTime hour, PictureBox Champs, string semence)
+        public Champs(PictureBox Champs, string semence)
         {
-            _hourPlant = hour;
             _pbxChamps = Champs;
             _tempsPousse = DicoSemence[semence];
             _culture = semence;
@@ -39,19 +38,14 @@ namespace farmFantasy
 
         public bool calculTemps()
         {
-            bool fini;
-            Console.WriteLine("Minutes : " + (DateTime.Now - _hourPlant).Minutes);
-            Console.WriteLine("Secondes : " + (DateTime.Now - _hourPlant).Seconds);
-            if ((DateTime.Now - _hourPlant).Seconds >= _tempsPousse)
+            bool fini = false;
+            _temps += 1;
+            if (_temps >= _tempsPousse)
             {
                 fini = true;
                 _pbxChamps.Enabled = true;
-
+                _temps = 0;
                 _pbxChamps.ImageLocation = "images\\dirt.png";
-            }
-            else
-            {
-                fini = false;
             }
 
             return fini;

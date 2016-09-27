@@ -31,16 +31,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbxSemence = new System.Windows.Forms.GroupBox();
             this.lblTotalSem = new System.Windows.Forms.Label();
+            this.lblPrixMais = new System.Windows.Forms.Label();
             this.lblPrixPatate = new System.Windows.Forms.Label();
             this.lblPrixCarotte = new System.Windows.Forms.Label();
             this.lblPrixColza = new System.Windows.Forms.Label();
             this.lblPrixBle = new System.Windows.Forms.Label();
+            this.nudMais = new System.Windows.Forms.NumericUpDown();
             this.nudPatate = new System.Windows.Forms.NumericUpDown();
             this.nudCarotte = new System.Windows.Forms.NumericUpDown();
             this.nudColza = new System.Windows.Forms.NumericUpDown();
             this.nudBle = new System.Windows.Forms.NumericUpDown();
             this.btnVendreSemence = new System.Windows.Forms.Button();
             this.btnAcheterSemence = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,10 +67,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblArgentMagas = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.nudMais = new System.Windows.Forms.NumericUpDown();
-            this.lblPrixMais = new System.Windows.Forms.Label();
             this.gbxSemence.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPatate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCarotte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudColza)).BeginInit();
@@ -78,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMouton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoule)).BeginInit();
             this.gbxProd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMais)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +126,15 @@
             this.lblTotalSem.TabIndex = 3;
             this.lblTotalSem.Text = "Total";
             // 
+            // lblPrixMais
+            // 
+            this.lblPrixMais.AutoSize = true;
+            this.lblPrixMais.Location = new System.Drawing.Point(158, 134);
+            this.lblPrixMais.Name = "lblPrixMais";
+            this.lblPrixMais.Size = new System.Drawing.Size(13, 13);
+            this.lblPrixMais.TabIndex = 2;
+            this.lblPrixMais.Text = "0";
+            // 
             // lblPrixPatate
             // 
             this.lblPrixPatate.AutoSize = true;
@@ -161,6 +170,14 @@
             this.lblPrixBle.Size = new System.Drawing.Size(13, 13);
             this.lblPrixBle.TabIndex = 2;
             this.lblPrixBle.Text = "0";
+            // 
+            // nudMais
+            // 
+            this.nudMais.Location = new System.Drawing.Point(74, 132);
+            this.nudMais.Name = "nudMais";
+            this.nudMais.Size = new System.Drawing.Size(59, 20);
+            this.nudMais.TabIndex = 2;
+            this.nudMais.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nudPatate
             // 
@@ -213,6 +230,15 @@
             this.btnAcheterSemence.Text = "Acheter";
             this.btnAcheterSemence.UseVisualStyleBackColor = true;
             this.btnAcheterSemence.Click += new System.EventHandler(this.btnAcheterSemence_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 134);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Maïs";
             // 
             // label4
             // 
@@ -396,7 +422,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(38, 56);
+            this.label16.Location = new System.Drawing.Point(38, 51);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(331, 13);
             this.label16.TabIndex = 2;
@@ -414,7 +440,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 81);
+            this.label14.Location = new System.Drawing.Point(38, 73);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(346, 13);
             this.label14.TabIndex = 0;
@@ -428,32 +454,6 @@
             this.lblArgentMagas.Size = new System.Drawing.Size(34, 13);
             this.lblArgentMagas.TabIndex = 5;
             this.lblArgentMagas.Text = "LAbel";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 134);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(31, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Maïs";
-            // 
-            // nudMais
-            // 
-            this.nudMais.Location = new System.Drawing.Point(74, 132);
-            this.nudMais.Name = "nudMais";
-            this.nudMais.Size = new System.Drawing.Size(59, 20);
-            this.nudMais.TabIndex = 2;
-            this.nudMais.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
-            // 
-            // lblPrixMais
-            // 
-            this.lblPrixMais.AutoSize = true;
-            this.lblPrixMais.Location = new System.Drawing.Point(158, 134);
-            this.lblPrixMais.Name = "lblPrixMais";
-            this.lblPrixMais.Size = new System.Drawing.Size(13, 13);
-            this.lblPrixMais.TabIndex = 2;
-            this.lblPrixMais.Text = "0";
             // 
             // frmMagasin
             // 
@@ -471,6 +471,7 @@
             this.Load += new System.EventHandler(this.frmMagasin_Load);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPatate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCarotte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudColza)).EndInit();
@@ -483,7 +484,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPoule)).EndInit();
             this.gbxProd.ResumeLayout(false);
             this.gbxProd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMais)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

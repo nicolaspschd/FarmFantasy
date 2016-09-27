@@ -17,16 +17,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MySql;
+
 namespace farmFantasy
 {
     public partial class frmMain : Form
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
         Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"vache", new Animaux(1.25, 10)},
-            {"poule", new Animaux(0.20, 5)},
-            {"mouton", new Animaux(150, 120)},
-            {"cochon", new Animaux(10, 20)}
+            {"vache", new Animaux(1.25, 10 * 60, "vache", 0)},
+            {"poule", new Animaux(0.20, 5 * 60, "poule", 0)},
+            {"mouton", new Animaux(150, 120 * 60, "mouton", 0)},
+            {"cochon", new Animaux(10, 20 * 60, "cochon", 0)}
         };
 
         public Dictionary<string, int> entrepot = new Dictionary<string, int> { 
@@ -40,7 +42,7 @@ namespace farmFantasy
         frmMagasin FrmMagasin = new frmMagasin();
 
         const int NBRCHAMPS = 10;
-        public int FrmMainArgent = 100000;
+        public int FrmMainArgent = 100;
 
         public frmMain()
         {
@@ -94,7 +96,7 @@ namespace farmFantasy
                     if (!repertoryChamps.ContainsKey(pbx.Name))
                     {
                         //  Création du champs dans le tableau
-                        repertoryChamps.Add(pbx.Name, new Champs(DateTime.Now, pbx, culture));
+                        repertoryChamps.Add(pbx.Name, new Champs(pbx, culture));
                     }
                 }
             }
@@ -130,22 +132,23 @@ namespace farmFantasy
 
             if (repertoryAnimaux["vache"].calculTempsProd())
             {
-                FrmMainArgent += (int)repertoryAnimaux["vache"].Production;
+                FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteProduit;
+                Console.WriteLine(repertoryAnimaux["vache"]);
             }
 
             if (repertoryAnimaux["poule"].calculTempsProd())
             {
-                FrmMainArgent += (int)repertoryAnimaux["poule"].Production;
+                FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteProduit;
             }
 
             if (repertoryAnimaux["mouton"].calculTempsProd())
             {
-                FrmMainArgent += (int)repertoryAnimaux["mouton"].Production;
+                FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteProduit;
             }
             
             if (repertoryAnimaux["cochon"].calculTempsProd())
             {
-                FrmMainArgent += (int)repertoryAnimaux["cochon"].Production;
+                FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteProduit;
             }
         }
 
