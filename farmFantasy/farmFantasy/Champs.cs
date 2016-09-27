@@ -12,7 +12,6 @@ namespace farmFantasy
         private DateTime _hourPlant;
         private double _tempsPousse;
         private PictureBox _pbxChamps;
-        private double _temps;
         private string _culture;
 
         public string Culture
@@ -21,18 +20,12 @@ namespace farmFantasy
             set { _culture = value; }
         }
 
-        public double Temps
-        {
-            get { return _temps; }
-            set { _temps = value; }
-        }
-
         private Dictionary<string, double> DicoSemence = new Dictionary<string, double> { 
-                {"ble", 1},
-                {"colza", 2},
-                {"carotte", 5},
-                {"patate", 10},
-                {"mais", 15}
+                {"ble", 59},
+                {"colza", 119},
+                {"carotte", 299},
+                {"patate", 499},
+                {"mais", 899}
             };
 
         //  Constructor:
@@ -47,7 +40,9 @@ namespace farmFantasy
         public bool calculTemps()
         {
             bool fini;
-            if ((DateTime.Now - _hourPlant).Minutes >= _tempsPousse)
+            Console.WriteLine("Minutes : " + (DateTime.Now - _hourPlant).Minutes);
+            Console.WriteLine("Secondes : " + (DateTime.Now - _hourPlant).Seconds);
+            if ((DateTime.Now - _hourPlant).Seconds >= _tempsPousse)
             {
                 fini = true;
                 _pbxChamps.Enabled = true;
