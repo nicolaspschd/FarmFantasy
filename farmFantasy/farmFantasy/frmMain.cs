@@ -134,26 +134,21 @@ namespace farmFantasy
                 }
             }
 
-            if (repertoryAnimaux["vache"].calculTempsProd())
-            {
-                FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteProduit;
-                Console.WriteLine(repertoryAnimaux["vache"]);
-            }
+            if (repertoryAnimaux["vache"].NbrAnimaux > 0)
+                if (repertoryAnimaux["vache"].calculTempsProd())
+                    FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteProduit;
 
-            if (repertoryAnimaux["poule"].calculTempsProd())
-            {
-                FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteProduit;
-            }
+            if (repertoryAnimaux["poule"].NbrAnimaux > 0)
+                if (repertoryAnimaux["poule"].calculTempsProd())
+                    FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteProduit;
 
-            if (repertoryAnimaux["mouton"].calculTempsProd())
-            {
-                FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteProduit;
-            }
-            
-            if (repertoryAnimaux["cochon"].calculTempsProd())
-            {
-                FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteProduit;
-            }
+            if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
+                if (repertoryAnimaux["mouton"].calculTempsProd())
+                    FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteProduit;
+
+            if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
+                if (repertoryAnimaux["cochon"].calculTempsProd())
+                    FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteProduit;
         }
 
         private void pbxClickAnimaux_Click(object sender, EventArgs e)
@@ -165,6 +160,12 @@ namespace farmFantasy
         {
             //  Ouverture de frmMagasin + envois des données
             FrmMagasin.ShowDialog(this);
+        }
+
+        private void pbxEntrepot_Click(object sender, EventArgs e)
+        {
+            frmEntrepot FrmEntrepot = new frmEntrepot();
+            FrmEntrepot.ShowDialog(this);
         }
     }
 }

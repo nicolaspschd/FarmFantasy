@@ -27,7 +27,7 @@ namespace farmFantasy
         const int PRIXMAIS = 75;
 
         public int _frmMagasinArgent;
-        frmMain parent;
+        frmMain _FrmMain;
 
         public frmMagasin()
         {
@@ -37,10 +37,10 @@ namespace farmFantasy
         private void frmMagasin_Load(object sender, EventArgs e)
         {
             //  Récupération de frmMain
-            parent = (frmMain)this.Owner;
+            _FrmMain = (frmMain)this.Owner;
 
             //  Récupération de l'argent de frmMain
-            _frmMagasinArgent = (int)(parent.FrmMainArgent);
+            _frmMagasinArgent = (int)(_FrmMain.FrmMainArgent);
 
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
@@ -53,17 +53,17 @@ namespace farmFantasy
             {
                 _frmMagasinArgent -= total;
 
-                parent.entrepot["ble"] += (int)nudBle.Value;
-                parent.entrepot["colza"] += (int)nudColza.Value;
-                parent.entrepot["carotte"] += (int)nudCarotte.Value;
-                parent.entrepot["patate"] += (int)nudPatate.Value;
-                parent.entrepot["mais"] += (int)nudMais.Value;
+                _FrmMain.entrepot["ble"] += (int)nudBle.Value;
+                _FrmMain.entrepot["colza"] += (int)nudColza.Value;
+                _FrmMain.entrepot["carotte"] += (int)nudCarotte.Value;
+                _FrmMain.entrepot["patate"] += (int)nudPatate.Value;
+                _FrmMain.entrepot["mais"] += (int)nudMais.Value;
 
                 //  Mise a jour du label
                 lblArgentMagas.Text = _frmMagasinArgent.ToString();
 
                 //  Mise a jour de l'argent sur frmMain
-                parent.FrmMainArgent = _frmMagasinArgent;
+                _FrmMain.FrmMainArgent = _frmMagasinArgent;
             }
             else
             {
@@ -74,9 +74,9 @@ namespace farmFantasy
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
-            parent.FrmMainArgent = _frmMagasinArgent;
-            parent.lblArgent.Text = _frmMagasinArgent.ToString();
-            parent.frmMain_Load(null, null);
+            _FrmMain.FrmMainArgent = _frmMagasinArgent;
+            _FrmMain.lblArgent.Text = _frmMagasinArgent.ToString();
+            _FrmMain.frmMain_Load(null, null);
         }
 
         private void nud_ValueChanged(object sender, EventArgs e)
@@ -116,30 +116,30 @@ namespace farmFantasy
         private void btnVendreSemence_Click(object sender, EventArgs e)
         {
             int totVente = 0;
-            if (parent.entrepot["ble"] >= (int)nudBle.Value)
+            if (_FrmMain.entrepot["ble"] >= (int)nudBle.Value)
             {
                 totVente += prixTotBle;
-                parent.entrepot["ble"] -= (int)nudBle.Value;
+                _FrmMain.entrepot["ble"] -= (int)nudBle.Value;
             }
-            if (parent.entrepot["colza"] >= (int)nudColza.Value)
+            if (_FrmMain.entrepot["colza"] >= (int)nudColza.Value)
             {
                 totVente += prixTotColza;
-                parent.entrepot["colza"] -= (int)nudColza.Value;
+                _FrmMain.entrepot["colza"] -= (int)nudColza.Value;
             }
-            if (parent.entrepot["carotte"] >= (int)nudCarotte.Value)
+            if (_FrmMain.entrepot["carotte"] >= (int)nudCarotte.Value)
             {
                 totVente += prixTotCarotte;
-                parent.entrepot["carotte"] -= (int)nudCarotte.Value;
+                _FrmMain.entrepot["carotte"] -= (int)nudCarotte.Value;
             }
-            if (parent.entrepot["patate"] >= (int)nudPatate.Value)
+            if (_FrmMain.entrepot["patate"] >= (int)nudPatate.Value)
             {
                 totVente += prixTotPatate;
-                parent.entrepot["patate"] -= (int)nudPatate.Value;
+                _FrmMain.entrepot["patate"] -= (int)nudPatate.Value;
             }
-            if (parent.entrepot["mais"] >= (int)nudMais.Value)
+            if (_FrmMain.entrepot["mais"] >= (int)nudMais.Value)
             {
                 totVente += prixTotMais;
-                parent.entrepot["mais"] -= (int)nudMais.Value;
+                _FrmMain.entrepot["mais"] -= (int)nudMais.Value;
             }
 
             //  Mise a jour de l'argent
@@ -149,7 +149,7 @@ namespace farmFantasy
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
 
             //  Mise a jour de l'argent sur frmMain
-            parent.FrmMainArgent = _frmMagasinArgent;
+            _FrmMain.FrmMainArgent = _frmMagasinArgent;
         }
     }
 }

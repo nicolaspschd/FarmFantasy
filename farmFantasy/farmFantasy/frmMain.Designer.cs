@@ -41,7 +41,7 @@
             this.pbxChamps8 = new System.Windows.Forms.PictureBox();
             this.pbxChamps9 = new System.Windows.Forms.PictureBox();
             this.pbxChamps10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxEntrepot = new System.Windows.Forms.PictureBox();
             this.pbxVache = new System.Windows.Forms.PictureBox();
             this.pbxPoule = new System.Windows.Forms.PictureBox();
             this.pbxCochon = new System.Windows.Forms.PictureBox();
@@ -83,7 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEntrepot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxVache)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPoule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCochon)).BeginInit();
@@ -224,15 +224,16 @@
             this.pbxChamps10.TabStop = false;
             this.pbxChamps10.Click += new System.EventHandler(this.pbxClickChamps_Click);
             // 
-            // pictureBox1
+            // pbxEntrepot
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 159);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 206);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pbxEntrepot.Image = ((System.Drawing.Image)(resources.GetObject("pbxEntrepot.Image")));
+            this.pbxEntrepot.Location = new System.Drawing.Point(12, 159);
+            this.pbxEntrepot.Name = "pbxEntrepot";
+            this.pbxEntrepot.Size = new System.Drawing.Size(100, 206);
+            this.pbxEntrepot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxEntrepot.TabIndex = 3;
+            this.pbxEntrepot.TabStop = false;
+            this.pbxEntrepot.Click += new System.EventHandler(this.pbxEntrepot_Click);
             // 
             // pbxVache
             // 
@@ -573,7 +574,7 @@
             this.Controls.Add(this.pbxCochon);
             this.Controls.Add(this.pbxPoule);
             this.Controls.Add(this.pbxVache);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxEntrepot);
             this.Controls.Add(this.pbxChamps6);
             this.Controls.Add(this.pbxChamps10);
             this.Controls.Add(this.pbxChamps9);
@@ -600,7 +601,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEntrepot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxVache)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPoule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCochon)).EndInit();
@@ -631,7 +632,7 @@
         private System.Windows.Forms.PictureBox pbxChamps8;
         private System.Windows.Forms.PictureBox pbxChamps9;
         private System.Windows.Forms.PictureBox pbxChamps10;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxEntrepot;
         private System.Windows.Forms.PictureBox pbxVache;
         private System.Windows.Forms.PictureBox pbxPoule;
         private System.Windows.Forms.PictureBox pbxCochon;

@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="Animaux.cs" />
     <Compile Include="Champs.cs" />
+    <Compile Include="frmEntrepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEntrepot.Designer.cs">
+      <DependentUpon>frmEntrepot.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMagasin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEntrepot.resx">
+      <DependentUpon>frmEntrepot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMagasin.resx">
       <DependentUpon>frmMagasin.cs</DependentUpon>
     </EmbeddedResource>

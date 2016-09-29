@@ -13,6 +13,11 @@ namespace farmFantasy
         double _tempsProduction;
         double _prixVenteProduit;
         int _temps = 0;
+        public int NbrAnimaux
+        {
+            get { return _nbrAnimaux; }
+            set { _nbrAnimaux = value; }
+        }
 
         public double PrixVenteProduit
         {
