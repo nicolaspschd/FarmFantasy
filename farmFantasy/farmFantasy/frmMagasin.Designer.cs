@@ -49,6 +49,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxAnimaux = new System.Windows.Forms.GroupBox();
+            this.lblTotAnim = new System.Windows.Forms.Label();
+            this.lblPrixVache = new System.Windows.Forms.Label();
+            this.lblPrixCochon = new System.Windows.Forms.Label();
+            this.lblPrixMouton = new System.Windows.Forms.Label();
+            this.lblPrixPoule = new System.Windows.Forms.Label();
             this.btnAcheterAnimal = new System.Windows.Forms.Button();
             this.nudVache = new System.Windows.Forms.NumericUpDown();
             this.nudCochon = new System.Windows.Forms.NumericUpDown();
@@ -63,11 +68,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblArgentMagas = new System.Windows.Forms.Label();
-            this.lblPrixPoule = new System.Windows.Forms.Label();
-            this.lblPrixMouton = new System.Windows.Forms.Label();
-            this.lblPrixCochon = new System.Windows.Forms.Label();
-            this.lblPrixVache = new System.Windows.Forms.Label();
-            this.lblTotAnim = new System.Windows.Forms.Label();
             this.gbxSemence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPatate)).BeginInit();
@@ -300,14 +300,60 @@
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
             // 
+            // lblTotAnim
+            // 
+            this.lblTotAnim.AutoSize = true;
+            this.lblTotAnim.Location = new System.Drawing.Point(142, 154);
+            this.lblTotAnim.Name = "lblTotAnim";
+            this.lblTotAnim.Size = new System.Drawing.Size(31, 13);
+            this.lblTotAnim.TabIndex = 17;
+            this.lblTotAnim.Text = "Total";
+            // 
+            // lblPrixVache
+            // 
+            this.lblPrixVache.AutoSize = true;
+            this.lblPrixVache.Location = new System.Drawing.Point(142, 91);
+            this.lblPrixVache.Name = "lblPrixVache";
+            this.lblPrixVache.Size = new System.Drawing.Size(13, 13);
+            this.lblPrixVache.TabIndex = 16;
+            this.lblPrixVache.Text = "0";
+            // 
+            // lblPrixCochon
+            // 
+            this.lblPrixCochon.AutoSize = true;
+            this.lblPrixCochon.Location = new System.Drawing.Point(142, 121);
+            this.lblPrixCochon.Name = "lblPrixCochon";
+            this.lblPrixCochon.Size = new System.Drawing.Size(13, 13);
+            this.lblPrixCochon.TabIndex = 16;
+            this.lblPrixCochon.Text = "0";
+            // 
+            // lblPrixMouton
+            // 
+            this.lblPrixMouton.AutoSize = true;
+            this.lblPrixMouton.Location = new System.Drawing.Point(142, 59);
+            this.lblPrixMouton.Name = "lblPrixMouton";
+            this.lblPrixMouton.Size = new System.Drawing.Size(13, 13);
+            this.lblPrixMouton.TabIndex = 16;
+            this.lblPrixMouton.Text = "0";
+            // 
+            // lblPrixPoule
+            // 
+            this.lblPrixPoule.AutoSize = true;
+            this.lblPrixPoule.Location = new System.Drawing.Point(142, 29);
+            this.lblPrixPoule.Name = "lblPrixPoule";
+            this.lblPrixPoule.Size = new System.Drawing.Size(13, 13);
+            this.lblPrixPoule.TabIndex = 16;
+            this.lblPrixPoule.Text = "0";
+            // 
             // btnAcheterAnimal
             // 
-            this.btnAcheterAnimal.Location = new System.Drawing.Point(79, 179);
+            this.btnAcheterAnimal.Location = new System.Drawing.Point(66, 186);
             this.btnAcheterAnimal.Name = "btnAcheterAnimal";
             this.btnAcheterAnimal.Size = new System.Drawing.Size(65, 23);
             this.btnAcheterAnimal.TabIndex = 15;
             this.btnAcheterAnimal.Text = "Acheter";
             this.btnAcheterAnimal.UseVisualStyleBackColor = true;
+            this.btnAcheterAnimal.Click += new System.EventHandler(this.btnAcheterSemence_Click);
             // 
             // nudVache
             // 
@@ -315,6 +361,7 @@
             this.nudVache.Name = "nudVache";
             this.nudVache.Size = new System.Drawing.Size(59, 20);
             this.nudVache.TabIndex = 11;
+            this.nudVache.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nudCochon
             // 
@@ -322,6 +369,7 @@
             this.nudCochon.Name = "nudCochon";
             this.nudCochon.Size = new System.Drawing.Size(59, 20);
             this.nudCochon.TabIndex = 12;
+            this.nudCochon.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nudMouton
             // 
@@ -329,6 +377,7 @@
             this.nudMouton.Name = "nudMouton";
             this.nudMouton.Size = new System.Drawing.Size(59, 20);
             this.nudMouton.TabIndex = 13;
+            this.nudMouton.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // nudPoule
             // 
@@ -336,6 +385,7 @@
             this.nudPoule.Name = "nudPoule";
             this.nudPoule.Size = new System.Drawing.Size(59, 20);
             this.nudPoule.TabIndex = 14;
+            this.nudPoule.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // label10
             // 
@@ -420,51 +470,6 @@
             this.lblArgentMagas.Size = new System.Drawing.Size(34, 13);
             this.lblArgentMagas.TabIndex = 5;
             this.lblArgentMagas.Text = "LAbel";
-            // 
-            // lblPrixPoule
-            // 
-            this.lblPrixPoule.AutoSize = true;
-            this.lblPrixPoule.Location = new System.Drawing.Point(142, 29);
-            this.lblPrixPoule.Name = "lblPrixPoule";
-            this.lblPrixPoule.Size = new System.Drawing.Size(13, 13);
-            this.lblPrixPoule.TabIndex = 16;
-            this.lblPrixPoule.Text = "0";
-            // 
-            // lblPrixMouton
-            // 
-            this.lblPrixMouton.AutoSize = true;
-            this.lblPrixMouton.Location = new System.Drawing.Point(142, 59);
-            this.lblPrixMouton.Name = "lblPrixMouton";
-            this.lblPrixMouton.Size = new System.Drawing.Size(13, 13);
-            this.lblPrixMouton.TabIndex = 16;
-            this.lblPrixMouton.Text = "0";
-            // 
-            // lblPrixCochon
-            // 
-            this.lblPrixCochon.AutoSize = true;
-            this.lblPrixCochon.Location = new System.Drawing.Point(142, 121);
-            this.lblPrixCochon.Name = "lblPrixCochon";
-            this.lblPrixCochon.Size = new System.Drawing.Size(13, 13);
-            this.lblPrixCochon.TabIndex = 16;
-            this.lblPrixCochon.Text = "0";
-            // 
-            // lblPrixVache
-            // 
-            this.lblPrixVache.AutoSize = true;
-            this.lblPrixVache.Location = new System.Drawing.Point(142, 91);
-            this.lblPrixVache.Name = "lblPrixVache";
-            this.lblPrixVache.Size = new System.Drawing.Size(13, 13);
-            this.lblPrixVache.TabIndex = 16;
-            this.lblPrixVache.Text = "0";
-            // 
-            // lblTotAnim
-            // 
-            this.lblTotAnim.AutoSize = true;
-            this.lblTotAnim.Location = new System.Drawing.Point(142, 154);
-            this.lblTotAnim.Name = "lblTotAnim";
-            this.lblTotAnim.Size = new System.Drawing.Size(31, 13);
-            this.lblTotAnim.TabIndex = 17;
-            this.lblTotAnim.Text = "Total";
             // 
             // frmMagasin
             // 

@@ -65,14 +65,14 @@
             this.lblArgent = new System.Windows.Forms.Label();
             this.btnMagasin = new System.Windows.Forms.Button();
             this.gbxAnimaux = new System.Windows.Forms.GroupBox();
+            this.lblNbrCochon = new System.Windows.Forms.Label();
+            this.lblNbrVache = new System.Windows.Forms.Label();
+            this.lblNbrMouton = new System.Windows.Forms.Label();
+            this.lblNbrPoule = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblNbrPoule = new System.Windows.Forms.Label();
-            this.lblNbrMouton = new System.Windows.Forms.Label();
-            this.lblNbrVache = new System.Windows.Forms.Label();
-            this.lblNbrCochon = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -217,7 +217,7 @@
             this.pbxChamps10.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbxChamps10.ErrorImage")));
             this.pbxChamps10.Image = ((System.Drawing.Image)(resources.GetObject("pbxChamps10.Image")));
             this.pbxChamps10.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbxChamps10.InitialImage")));
-            this.pbxChamps10.Location = new System.Drawing.Point(335, 371);
+            this.pbxChamps10.Location = new System.Drawing.Point(441, 265);
             this.pbxChamps10.Name = "pbxChamps10";
             this.pbxChamps10.Size = new System.Drawing.Size(100, 100);
             this.pbxChamps10.TabIndex = 2;
@@ -241,7 +241,7 @@
             this.pbxVache.Location = new System.Drawing.Point(123, 53);
             this.pbxVache.Name = "pbxVache";
             this.pbxVache.Size = new System.Drawing.Size(206, 100);
-            this.pbxVache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxVache.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxVache.TabIndex = 4;
             this.pbxVache.TabStop = false;
             // 
@@ -251,7 +251,7 @@
             this.pbxPoule.Location = new System.Drawing.Point(123, 371);
             this.pbxPoule.Name = "pbxPoule";
             this.pbxPoule.Size = new System.Drawing.Size(100, 100);
-            this.pbxPoule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxPoule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxPoule.TabIndex = 5;
             this.pbxPoule.TabStop = false;
             // 
@@ -261,17 +261,17 @@
             this.pbxCochon.Location = new System.Drawing.Point(335, 159);
             this.pbxCochon.Name = "pbxCochon";
             this.pbxCochon.Size = new System.Drawing.Size(206, 100);
-            this.pbxCochon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxCochon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxCochon.TabIndex = 6;
             this.pbxCochon.TabStop = false;
             // 
             // pbxMouton
             // 
             this.pbxMouton.Image = ((System.Drawing.Image)(resources.GetObject("pbxMouton.Image")));
-            this.pbxMouton.Location = new System.Drawing.Point(441, 265);
+            this.pbxMouton.Location = new System.Drawing.Point(335, 371);
             this.pbxMouton.Name = "pbxMouton";
-            this.pbxMouton.Size = new System.Drawing.Size(100, 206);
-            this.pbxMouton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxMouton.Size = new System.Drawing.Size(206, 100);
+            this.pbxMouton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxMouton.TabIndex = 7;
             this.pbxMouton.TabStop = false;
             // 
@@ -487,6 +487,42 @@
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
             // 
+            // lblNbrCochon
+            // 
+            this.lblNbrCochon.AutoSize = true;
+            this.lblNbrCochon.Location = new System.Drawing.Point(66, 123);
+            this.lblNbrCochon.Name = "lblNbrCochon";
+            this.lblNbrCochon.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrCochon.TabIndex = 13;
+            this.lblNbrCochon.Text = "label6";
+            // 
+            // lblNbrVache
+            // 
+            this.lblNbrVache.AutoSize = true;
+            this.lblNbrVache.Location = new System.Drawing.Point(66, 93);
+            this.lblNbrVache.Name = "lblNbrVache";
+            this.lblNbrVache.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrVache.TabIndex = 13;
+            this.lblNbrVache.Text = "label6";
+            // 
+            // lblNbrMouton
+            // 
+            this.lblNbrMouton.AutoSize = true;
+            this.lblNbrMouton.Location = new System.Drawing.Point(66, 63);
+            this.lblNbrMouton.Name = "lblNbrMouton";
+            this.lblNbrMouton.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrMouton.TabIndex = 13;
+            this.lblNbrMouton.Text = "label6";
+            // 
+            // lblNbrPoule
+            // 
+            this.lblNbrPoule.AutoSize = true;
+            this.lblNbrPoule.Location = new System.Drawing.Point(66, 33);
+            this.lblNbrPoule.Name = "lblNbrPoule";
+            this.lblNbrPoule.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrPoule.TabIndex = 13;
+            this.lblNbrPoule.Text = "label6";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -522,42 +558,6 @@
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Poule";
-            // 
-            // lblNbrPoule
-            // 
-            this.lblNbrPoule.AutoSize = true;
-            this.lblNbrPoule.Location = new System.Drawing.Point(66, 33);
-            this.lblNbrPoule.Name = "lblNbrPoule";
-            this.lblNbrPoule.Size = new System.Drawing.Size(35, 13);
-            this.lblNbrPoule.TabIndex = 13;
-            this.lblNbrPoule.Text = "label6";
-            // 
-            // lblNbrMouton
-            // 
-            this.lblNbrMouton.AutoSize = true;
-            this.lblNbrMouton.Location = new System.Drawing.Point(66, 63);
-            this.lblNbrMouton.Name = "lblNbrMouton";
-            this.lblNbrMouton.Size = new System.Drawing.Size(35, 13);
-            this.lblNbrMouton.TabIndex = 13;
-            this.lblNbrMouton.Text = "label6";
-            // 
-            // lblNbrVache
-            // 
-            this.lblNbrVache.AutoSize = true;
-            this.lblNbrVache.Location = new System.Drawing.Point(66, 93);
-            this.lblNbrVache.Name = "lblNbrVache";
-            this.lblNbrVache.Size = new System.Drawing.Size(35, 13);
-            this.lblNbrVache.TabIndex = 13;
-            this.lblNbrVache.Text = "label6";
-            // 
-            // lblNbrCochon
-            // 
-            this.lblNbrCochon.AutoSize = true;
-            this.lblNbrCochon.Location = new System.Drawing.Point(66, 123);
-            this.lblNbrCochon.Name = "lblNbrCochon";
-            this.lblNbrCochon.Size = new System.Drawing.Size(35, 13);
-            this.lblNbrCochon.TabIndex = 13;
-            this.lblNbrCochon.Text = "label6";
             // 
             // frmMain
             // 
