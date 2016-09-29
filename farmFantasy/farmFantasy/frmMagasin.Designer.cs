@@ -482,6 +482,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.gbxSemence);
             this.Name = "frmMagasin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Magasin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMagasin_FormClosing);
             this.Load += new System.EventHandler(this.frmMagasin_Load);

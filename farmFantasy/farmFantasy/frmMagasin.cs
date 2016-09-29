@@ -84,6 +84,9 @@ namespace farmFantasy
 
                 //  Mise a jour de l'argent sur frmMain
                 _FrmMain.FrmMainArgent = _frmMagasinArgent;
+
+                totalPrixAnim = 0;
+                totalPrixSem = 0;
             }
             else
             {

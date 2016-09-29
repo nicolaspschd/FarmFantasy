@@ -51,6 +51,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEntrepot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dans la grange";
             this.Load += new System.EventHandler(this.frmEntrepot_Load);
             this.ResumeLayout(false);
