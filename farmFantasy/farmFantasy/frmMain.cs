@@ -36,7 +36,11 @@ namespace farmFantasy
             {"colza", 0},
             {"carotte", 0},
             {"patate", 0},
-            {"mais", 0}
+            {"mais", 0},
+            {"oeufs", 0},
+            {"laine", 0},
+            {"lait", 0},
+            {"bacon", 0}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();

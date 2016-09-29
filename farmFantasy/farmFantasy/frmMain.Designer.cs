@@ -69,6 +69,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblNbrPoule = new System.Windows.Forms.Label();
+            this.lblNbrMouton = new System.Windows.Forms.Label();
+            this.lblNbrVache = new System.Windows.Forms.Label();
+            this.lblNbrCochon = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -467,6 +471,10 @@
             // 
             // gbxAnimaux
             // 
+            this.gbxAnimaux.Controls.Add(this.lblNbrCochon);
+            this.gbxAnimaux.Controls.Add(this.lblNbrVache);
+            this.gbxAnimaux.Controls.Add(this.lblNbrMouton);
+            this.gbxAnimaux.Controls.Add(this.lblNbrPoule);
             this.gbxAnimaux.Controls.Add(this.label5);
             this.gbxAnimaux.Controls.Add(this.label4);
             this.gbxAnimaux.Controls.Add(this.label3);
@@ -483,36 +491,72 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(16, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "label2";
+            this.label5.Text = "Cochon";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "label2";
+            this.label4.Text = "Vache";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "label2";
+            this.label3.Text = "Mouton";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
+            this.label2.Text = "Poule";
+            // 
+            // lblNbrPoule
+            // 
+            this.lblNbrPoule.AutoSize = true;
+            this.lblNbrPoule.Location = new System.Drawing.Point(66, 33);
+            this.lblNbrPoule.Name = "lblNbrPoule";
+            this.lblNbrPoule.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrPoule.TabIndex = 13;
+            this.lblNbrPoule.Text = "label6";
+            // 
+            // lblNbrMouton
+            // 
+            this.lblNbrMouton.AutoSize = true;
+            this.lblNbrMouton.Location = new System.Drawing.Point(66, 63);
+            this.lblNbrMouton.Name = "lblNbrMouton";
+            this.lblNbrMouton.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrMouton.TabIndex = 13;
+            this.lblNbrMouton.Text = "label6";
+            // 
+            // lblNbrVache
+            // 
+            this.lblNbrVache.AutoSize = true;
+            this.lblNbrVache.Location = new System.Drawing.Point(66, 93);
+            this.lblNbrVache.Name = "lblNbrVache";
+            this.lblNbrVache.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrVache.TabIndex = 13;
+            this.lblNbrVache.Text = "label6";
+            // 
+            // lblNbrCochon
+            // 
+            this.lblNbrCochon.AutoSize = true;
+            this.lblNbrCochon.Location = new System.Drawing.Point(66, 123);
+            this.lblNbrCochon.Name = "lblNbrCochon";
+            this.lblNbrCochon.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrCochon.TabIndex = 13;
+            this.lblNbrCochon.Text = "label6";
             // 
             // frmMain
             // 
@@ -615,6 +659,10 @@
         public System.Windows.Forms.Label lblCarotteEntrepot;
         public System.Windows.Forms.Label lblColzaEntrepot;
         public System.Windows.Forms.Label lblMaisEntrepot;
+        private System.Windows.Forms.Label lblNbrCochon;
+        private System.Windows.Forms.Label lblNbrVache;
+        private System.Windows.Forms.Label lblNbrMouton;
+        private System.Windows.Forms.Label lblNbrPoule;
     }
 }
 
