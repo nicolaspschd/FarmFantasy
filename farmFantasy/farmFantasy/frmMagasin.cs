@@ -13,12 +13,23 @@ namespace farmFantasy
 {
     public partial class frmMagasin : Form
     {
-        int total = 0;
+        int totalPrixSem = 0;
+        int totalPrixAnim = 0;
         int prixTotBle = 0;
         int prixTotColza = 0;
         int prixTotCarotte = 0;
         int prixTotPatate = 0;
         int prixTotMais = 0;
+
+        int prixTotPoule = 0;
+        int prixTotMouton = 0;
+        int prixTotCochon = 0;
+        int prixTotVache = 0;
+
+        const int PRIXPOULE = 25;
+        const int PRIXMOUTON = 75;
+        const int PRIXCOCHON = 150;
+        const int PRIXVACHE = 300;
 
         const int PRIXBLE = 5;
         const int PRIXCOLZA = 15;
@@ -48,16 +59,25 @@ namespace farmFantasy
 
         private void btnAcheterSemence_Click(object sender, EventArgs e)
         {
-            //  Decrement de l'argent
-            if (_frmMagasinArgent - total >= 0)
+            if ((_frmMagasinArgent - totalPrixSem >= 0) && (_frmMagasinArgent - totalPrixAnim >= 0))
             {
-                _frmMagasinArgent -= total;
+                _frmMagasinArgent -= totalPrixSem + totalPrixAnim;
 
                 _FrmMain.entrepot["ble"] += (int)nudBle.Value;
                 _FrmMain.entrepot["colza"] += (int)nudColza.Value;
                 _FrmMain.entrepot["carotte"] += (int)nudCarotte.Value;
                 _FrmMain.entrepot["patate"] += (int)nudPatate.Value;
                 _FrmMain.entrepot["mais"] += (int)nudMais.Value;
+
+                _FrmMain.repertoryAnimaux["vache"].NbrAnimaux += (int)nudVache.Value;
+                _FrmMain.repertoryAnimaux["poule"].NbrAnimaux += (int)nudPoule.Value;
+                _FrmMain.repertoryAnimaux["mouton"].NbrAnimaux += (int)nudMouton.Value;
+                _FrmMain.repertoryAnimaux["cochon"].NbrAnimaux += (int)nudCochon.Value;
+
+                _FrmMain.repertoryAnimaux["vache"].majPrix();
+                _FrmMain.repertoryAnimaux["poule"].majPrix();
+                _FrmMain.repertoryAnimaux["mouton"].majPrix();
+                _FrmMain.repertoryAnimaux["cochon"].majPrix();
 
                 //  Mise a jour du label
                 lblArgentMagas.Text = _frmMagasinArgent.ToString();
@@ -88,29 +108,62 @@ namespace farmFantasy
                 prixTotBle = (int)(nud.Value * PRIXBLE);
                 lblPrixBle.Text = prixTotBle.ToString();
             }
+            
             if (nud.Name == "nudColza")
             {
                 prixTotColza = (int)(nud.Value * PRIXCOLZA);
                 lblPrixColza.Text = prixTotColza.ToString();
             }
+
             if (nud.Name == "nudCarotte")
             {
                 prixTotCarotte = (int)(nud.Value * PRIXCAROTTE);
                 lblPrixCarotte.Text = prixTotCarotte.ToString();
             }
+            
             if (nud.Name == "nudPatate")
             {
                 prixTotPatate = (int)(nud.Value * PRIXPATATE);
                 lblPrixPatate.Text = prixTotPatate.ToString();
             }
+            
             if (nud.Name == "nudMais")
             {
                 prixTotMais = (int)(nud.Value * PRIXMAIS);
                 lblPrixMais.Text = prixTotMais.ToString();
             }
 
-            total = prixTotBle + prixTotCarotte + prixTotColza + prixTotMais + prixTotPatate;
-            lblTotalSem.Text = total.ToString();
+            if (nud.Name == "nudPoule")
+            {
+                prixTotPoule = (int)(nud.Value * PRIXPOULE);
+                lblPrixPoule.Text = prixTotPoule.ToString();
+            }
+
+            if (nud.Name == "nudMouton")
+            {
+                prixTotMouton = (int)(nud.Value * PRIXMOUTON);
+                lblPrixMouton.Text = prixTotMouton.ToString();
+            }
+            
+            if (nud.Name == "nudCochon")
+            {
+                prixTotCochon = (int)(nud.Value * PRIXCOCHON);
+                lblPrixCochon.Text = prixTotCochon.ToString();
+            }
+            
+            if (nud.Name == "nudVache")
+            {
+                prixTotVache = (int)(nud.Value * PRIXVACHE);
+                lblPrixVache.Text = prixTotVache.ToString();
+            }
+
+            //  Affichage du prix total des animaux
+            totalPrixAnim = prixTotVache + prixTotCochon + prixTotPoule + prixTotMouton;
+            lblTotAnim.Text = totalPrixAnim.ToString();
+
+            //  Affichage du prix total des semences
+            totalPrixSem = prixTotBle + prixTotCarotte + prixTotColza + prixTotMais + prixTotPatate;
+            lblTotalSem.Text = totalPrixSem.ToString();
         }
 
         private void btnVendreSemence_Click(object sender, EventArgs e)

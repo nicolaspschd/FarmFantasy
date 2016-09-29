@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace farmFantasy
 {
-    class Animaux
+    public class Animaux
     {
-        string _typeAnimal;
-        int _nbrAnimaux;
-        double _tempsProduction;
-        double _prixVenteProduit;
-        int _temps = 0;
+        private string _typeAnimal;
+        private int _nbrAnimaux;
+        private double _tempsProduction;
+        private double _prixVenteTot;
+        private int _temps = 0;
+        private double _prixV;
+
         public int NbrAnimaux
         {
             get { return _nbrAnimaux; }
             set { _nbrAnimaux = value; }
         }
 
-        public double PrixVenteProduit
+        public double PrixVenteTot
         {
-            get { return _prixVenteProduit; }
-            set { _prixVenteProduit = value; }
+            get { return _prixVenteTot; }
+            set { _prixVenteTot = value; }
         }
 
         public Animaux(double prixV, int tempsProd, string typAnim, int nbrAnim)
@@ -30,7 +32,12 @@ namespace farmFantasy
             _tempsProduction = tempsProd;
             _typeAnimal = typAnim;
             _nbrAnimaux = nbrAnim;
-            _prixVenteProduit = prixV * _nbrAnimaux;
+            _prixV = prixV;
+        }
+
+        public void majPrix()
+        {
+            _prixVenteTot = _prixV * _nbrAnimaux;
         }
 
         public bool calculTempsProd()
@@ -41,6 +48,7 @@ namespace farmFantasy
             {
                 fini = true;
                 _temps = 1;
+                Console.WriteLine(_typeAnimal + " : " + _prixVenteTot);
             }
 
             return fini;

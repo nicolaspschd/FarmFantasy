@@ -24,12 +24,6 @@ namespace farmFantasy
     public partial class frmMain : Form
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
-        Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"vache", new Animaux(1.25, 10 * 60, "vache", 0)},
-            {"poule", new Animaux(0.20, 5 * 60, "poule", 0)},
-            {"mouton", new Animaux(150, 120 * 60, "mouton", 0)},
-            {"cochon", new Animaux(10, 20 * 60, "cochon", 0)}
-        };
 
         public Dictionary<string, int> entrepot = new Dictionary<string, int> { 
             {"ble", 10},
@@ -41,6 +35,13 @@ namespace farmFantasy
             {"laine", 0},
             {"lait", 0},
             {"bacon", 0}
+        };
+
+        public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
+            {"vache", new Animaux(2, 10 * 60, "vache", 0)},
+            {"poule", new Animaux(1, 1 * 60, "poule", 0)},
+            {"mouton", new Animaux(150, 120 * 60, "mouton", 0)},
+            {"cochon", new Animaux(10, 20 * 60, "cochon", 0)}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();
@@ -63,6 +64,11 @@ namespace farmFantasy
             lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
             lblPatateEntrepot.Text = entrepot["patate"].ToString();
             lblMaisEntrepot.Text = entrepot["mais"].ToString();
+
+            lblNbrPoule.Text = repertoryAnimaux["poule"].NbrAnimaux.ToString();
+            lblNbrMouton.Text = repertoryAnimaux["mouton"].NbrAnimaux.ToString();
+            lblNbrVache.Text = repertoryAnimaux["vache"].NbrAnimaux.ToString();
+            lblNbrCochon.Text = repertoryAnimaux["cochon"].NbrAnimaux.ToString();
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)
@@ -136,19 +142,19 @@ namespace farmFantasy
 
             if (repertoryAnimaux["vache"].NbrAnimaux > 0)
                 if (repertoryAnimaux["vache"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteProduit;
+                    FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteTot;
 
             if (repertoryAnimaux["poule"].NbrAnimaux > 0)
                 if (repertoryAnimaux["poule"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteProduit;
-
+                    FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteTot;
             if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
                 if (repertoryAnimaux["mouton"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteProduit;
+                    FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteTot;
 
             if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
                 if (repertoryAnimaux["cochon"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteProduit;
+                    FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteTot;
+            lblArgent.Text = FrmMainArgent.ToString();
         }
 
         private void pbxClickAnimaux_Click(object sender, EventArgs e)
