@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql;
+//using System.Data.Sql;
 
 namespace farmFantasy
 {
@@ -55,6 +55,7 @@ namespace farmFantasy
 
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
+            ResetMag();
         }
 
         private void btnAcheterSemence_Click(object sender, EventArgs e)
@@ -87,6 +88,9 @@ namespace farmFantasy
 
                 totalPrixAnim = 0;
                 totalPrixSem = 0;
+
+                ResetMag();
+          
             }
             else
             {
@@ -206,6 +210,25 @@ namespace farmFantasy
 
             //  Mise a jour de l'argent sur frmMain
             _FrmMain.FrmMainArgent = _frmMagasinArgent;
+
+            ResetMag();
+            
+            
+        }
+
+
+        public void ResetMag()
+        {
+            nudBle.Value = 0;
+            nudCarotte.Value = 0;
+            nudCochon.Value = 0;
+            nudColza.Value = 0;
+            nudMais.Value = 0;
+            nudMouton.Value = 0;
+            nudPatate.Value = 0;
+            nudPoule.Value = 0;
+            nudVache.Value = 0;
+           
         }
     }
 }
