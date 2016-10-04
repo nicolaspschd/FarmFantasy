@@ -483,6 +483,7 @@
             this.Controls.Add(this.gbxAnimaux);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.gbxSemence);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMagasin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Magasin";

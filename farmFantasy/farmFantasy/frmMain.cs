@@ -38,10 +38,10 @@ namespace farmFantasy
         };
 
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"vache", new Animaux(2, 10 * 60, "vache", 0)},
-            {"poule", new Animaux(1, 1 * 60, "poule", 0)},
-            {"mouton", new Animaux(150, 120 * 60, "mouton", 0)},
-            {"cochon", new Animaux(10, 20 * 60, "cochon", 0)}
+            {"vache", new Animaux(2, 10 * 60, "vache", 0, 1)},
+            {"poule", new Animaux(1, 2 * 60, "poule", 0, 5)},
+            {"mouton", new Animaux(150, 120 * 60, "mouton", 0, 25)},
+            {"cochon", new Animaux(10, 20 * 60, "cochon", 0, 4)}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();
@@ -142,18 +142,16 @@ namespace farmFantasy
 
             if (repertoryAnimaux["vache"].NbrAnimaux > 0)
                 if (repertoryAnimaux["vache"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["vache"].PrixVenteTot;
-
+                    entrepot["lait"] += (int)repertoryAnimaux["vache"].Quantite;
             if (repertoryAnimaux["poule"].NbrAnimaux > 0)
                 if (repertoryAnimaux["poule"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["poule"].PrixVenteTot;
+                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite;
             if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
                 if (repertoryAnimaux["mouton"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["mouton"].PrixVenteTot;
-
+                    entrepot["laine"] += (int)repertoryAnimaux["mouton"].Quantite;
             if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
                 if (repertoryAnimaux["cochon"].calculTempsProd())
-                    FrmMainArgent += (int)repertoryAnimaux["cochon"].PrixVenteTot;
+                    entrepot["bacon"] += (int)repertoryAnimaux["cochon"].Quantite;
             lblArgent.Text = FrmMainArgent.ToString();
         }
 

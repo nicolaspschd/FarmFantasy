@@ -14,6 +14,13 @@ namespace farmFantasy
         private double _prixVenteTot;
         private int _temps = 0;
         private double _prixV;
+        private int _quantite;
+
+        public int Quantite
+        {
+            get { return _quantite; }
+            set { _quantite = value; }
+        }
 
         public int NbrAnimaux
         {
@@ -27,17 +34,19 @@ namespace farmFantasy
             set { _prixVenteTot = value; }
         }
 
-        public Animaux(double prixV, int tempsProd, string typAnim, int nbrAnim)
+        public Animaux(double prixV, int tempsProd, string typAnim, int nbrAnim, int qteProd)
         {
             _tempsProduction = tempsProd;
             _typeAnimal = typAnim;
             _nbrAnimaux = nbrAnim;
             _prixV = prixV;
+            _quantite = nbrAnim * qteProd;
         }
 
         public void majPrix()
         {
             _prixVenteTot = _prixV * _nbrAnimaux;
+            _quantite = _nbrAnimaux * 2;
         }
 
         public bool calculTempsProd()
@@ -48,7 +57,6 @@ namespace farmFantasy
             {
                 fini = true;
                 _temps = 1;
-                Console.WriteLine(_typeAnimal + " : " + _prixVenteTot);
             }
 
             return fini;
