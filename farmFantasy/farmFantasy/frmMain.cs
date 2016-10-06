@@ -177,5 +177,10 @@ namespace farmFantasy
             frmEntrepot FrmEntrepot = new frmEntrepot();
             FrmEntrepot.ShowDialog(this);
         }
+
+        private void btnSauvegarder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -82,6 +82,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSauvegarder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -659,12 +660,23 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Bacon :";
             // 
+            // btnSauvegarder
+            // 
+            this.btnSauvegarder.Location = new System.Drawing.Point(148, 4);
+            this.btnSauvegarder.Name = "btnSauvegarder";
+            this.btnSauvegarder.Size = new System.Drawing.Size(92, 22);
+            this.btnSauvegarder.TabIndex = 13;
+            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.UseVisualStyleBackColor = true;
+            this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 482);
+            this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.gbxAnimaux);
             this.Controls.Add(this.btnMagasin);
             this.Controls.Add(this.lblArgent);
@@ -775,6 +787,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSauvegarder;
     }
 }
 
