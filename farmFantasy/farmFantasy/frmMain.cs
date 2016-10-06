@@ -17,7 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-//using System.Data.Sql;
+using System.Data.Sql;
 
 namespace farmFantasy
 {
@@ -38,10 +38,10 @@ namespace farmFantasy
         };
 
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"vache", new Animaux(2, 10 * 60, "vache", 0, 1)},
-            {"poule", new Animaux(1, 15 * 60, "poule", 0, 5)},
-            {"mouton", new Animaux(150, 120 * 60, "mouton", 0, 25)},
-            {"cochon", new Animaux(10, 20 * 60, "cochon", 0, 4)}
+            {"vache", new Animaux(2, 600, "vache", 0, 1)},
+            {"poule", new Animaux(1, 900, "poule", 0, 5)},
+            {"mouton", new Animaux(150, 7200, "mouton", 0, 25)},
+            {"cochon", new Animaux(10, 1200, "cochon", 0, 4)}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();
@@ -103,7 +103,8 @@ namespace farmFantasy
                     pbx.Enabled = false;
 
                     //  Récupération de la bonne image de culture
-                    pbx.ImageLocation = "images\\" + culture + ".png";
+
+                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(culture);
 
                     //  Mise a jour des labels
                     frmMain_Load(null, null);

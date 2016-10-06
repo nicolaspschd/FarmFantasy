@@ -52,7 +52,7 @@ namespace farmFantasy
                 fini = true;
                 _pbxChamps.Enabled = true;
                 _temps = 0;
-                _pbxChamps.ImageLocation = "images\\dirt.png";
+                _pbxChamps.Image = Properties.Resources.terre;
             }
 
             return fini;

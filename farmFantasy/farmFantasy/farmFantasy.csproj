@@ -87,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -101,6 +102,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\ble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\carotte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\cochon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\colza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\herbe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mais.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mouton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\patate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\poulet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\terre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\vache.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
