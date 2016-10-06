@@ -15,21 +15,33 @@ namespace farmFantasy
     {
         int totalPrixSem = 0;
         int totalPrixAnim = 0;
+        int totalPrixProduits = 0;
         int prixTotBle = 0;
         int prixTotColza = 0;
         int prixTotCarotte = 0;
         int prixTotPatate = 0;
         int prixTotMais = 0;
 
+        int prixTotOeufs = 0;
+        int prixTotLaine = 0;
+        int prixTotBacon = 0;
+        int prixTotLait = 0;
+
         int prixTotPoule = 0;
         int prixTotMouton = 0;
         int prixTotCochon = 0;
         int prixTotVache = 0;
 
+
         const int PRIXPOULE = 25;
         const int PRIXMOUTON = 75;
         const int PRIXCOCHON = 150;
         const int PRIXVACHE = 300;
+
+        const int PRIXOEUFS = 2;
+        const int PRIXLAINE = 2;
+        const int PRIXBACON = 2;
+        const int PRIXLAIT = 2;
 
         const int PRIXBLE = 5;
         const int PRIXCOLZA = 15;
@@ -86,11 +98,7 @@ namespace farmFantasy
                 //  Mise a jour de l'argent sur frmMain
                 _FrmMain.FrmMainArgent = _frmMagasinArgent;
 
-                totalPrixAnim = 0;
-                totalPrixSem = 0;
-
                 ResetMag();
-          
             }
             else
             {
@@ -110,58 +118,60 @@ namespace farmFantasy
         {
             NumericUpDown nud = (sender as NumericUpDown);
 
-            if (nud.Name == "nudBle")
+            switch (nud.Name)
             {
-                prixTotBle = (int)(nud.Value * PRIXBLE);
-                lblPrixBle.Text = prixTotBle.ToString();
-            }
-            
-            if (nud.Name == "nudColza")
-            {
-                prixTotColza = (int)(nud.Value * PRIXCOLZA);
-                lblPrixColza.Text = prixTotColza.ToString();
-            }
-
-            if (nud.Name == "nudCarotte")
-            {
-                prixTotCarotte = (int)(nud.Value * PRIXCAROTTE);
-                lblPrixCarotte.Text = prixTotCarotte.ToString();
-            }
-            
-            if (nud.Name == "nudPatate")
-            {
-                prixTotPatate = (int)(nud.Value * PRIXPATATE);
-                lblPrixPatate.Text = prixTotPatate.ToString();
-            }
-            
-            if (nud.Name == "nudMais")
-            {
-                prixTotMais = (int)(nud.Value * PRIXMAIS);
-                lblPrixMais.Text = prixTotMais.ToString();
-            }
-
-            if (nud.Name == "nudPoule")
-            {
-                prixTotPoule = (int)(nud.Value * PRIXPOULE);
-                lblPrixPoule.Text = prixTotPoule.ToString();
-            }
-
-            if (nud.Name == "nudMouton")
-            {
-                prixTotMouton = (int)(nud.Value * PRIXMOUTON);
-                lblPrixMouton.Text = prixTotMouton.ToString();
-            }
-            
-            if (nud.Name == "nudCochon")
-            {
-                prixTotCochon = (int)(nud.Value * PRIXCOCHON);
-                lblPrixCochon.Text = prixTotCochon.ToString();
-            }
-            
-            if (nud.Name == "nudVache")
-            {
-                prixTotVache = (int)(nud.Value * PRIXVACHE);
-                lblPrixVache.Text = prixTotVache.ToString();
+                case "nudBle":
+                    prixTotBle = (int)(nud.Value * PRIXBLE);
+                    lblPrixBle.Text = prixTotBle.ToString();
+                    break;
+                case "nudColza":
+                    prixTotColza = (int)(nud.Value * PRIXCOLZA);
+                    lblPrixColza.Text = prixTotColza.ToString();
+                    break;
+                case "nudCarotte":
+                    prixTotCarotte = (int)(nud.Value * PRIXCAROTTE);
+                    lblPrixCarotte.Text = prixTotCarotte.ToString();
+                    break;
+                case "nudPatate":
+                    prixTotPatate = (int)(nud.Value * PRIXPATATE);
+                    lblPrixPatate.Text = prixTotPatate.ToString();
+                    break;
+                case "nudMais":
+                    prixTotMais = (int)(nud.Value * PRIXMAIS);
+                    lblPrixMais.Text = prixTotMais.ToString();
+                    break;
+                case "nudPoule":
+                    prixTotPoule = (int)(nud.Value * PRIXPOULE);
+                    lblPrixPoule.Text = prixTotPoule.ToString();
+                    break;
+                case "nudMouton":
+                    prixTotMouton = (int)(nud.Value * PRIXMOUTON);
+                    lblPrixMouton.Text = prixTotMouton.ToString();
+                    break;
+                case "nudCochon":
+                    prixTotCochon = (int)(nud.Value * PRIXCOCHON);
+                    lblPrixCochon.Text = prixTotCochon.ToString();
+                    break;
+                case "nudVache":
+                    prixTotVache = (int)(nud.Value * PRIXVACHE);
+                    lblPrixVache.Text = prixTotVache.ToString();
+                    break;
+                case "nudOeufs":
+                    prixTotOeufs = (int)(nud.Value * PRIXOEUFS);
+                    lblPrixOeufs.Text = prixTotOeufs.ToString();
+                    break;
+                case "nudLaine":
+                    prixTotLaine = (int)(nud.Value * PRIXLAINE);
+                    lblPrixLaine.Text = prixTotLaine.ToString();
+                    break;
+                case "nudBacon":
+                    prixTotBacon = (int)(nud.Value * PRIXBACON);
+                    lblPrixBacon.Text = prixTotBacon.ToString();
+                    break;
+                case "nudLait":
+                    prixTotLait = (int)(nud.Value * PRIXLAIT);
+                    lblPrixLait.Text = prixTotLait.ToString();
+                    break;
             }
 
             //  Affichage du prix total des animaux
@@ -170,12 +180,17 @@ namespace farmFantasy
 
             //  Affichage du prix total des semences
             totalPrixSem = prixTotBle + prixTotCarotte + prixTotColza + prixTotMais + prixTotPatate;
+
+            totalPrixProduits = prixTotBacon + prixTotLaine + prixTotLait + prixTotOeufs;
+
+            lblTotProduit.Text = totalPrixProduits.ToString();
             lblTotalSem.Text = totalPrixSem.ToString();
         }
 
         private void btnVendreSemence_Click(object sender, EventArgs e)
         {
             int totVente = 0;
+
             if (_FrmMain.entrepot["ble"] >= (int)nudBle.Value)
             {
                 totVente += prixTotBle;
@@ -212,13 +227,49 @@ namespace farmFantasy
             _FrmMain.FrmMainArgent = _frmMagasinArgent;
 
             ResetMag();
-            
-            
         }
 
+        private void btnVendreProduits_Click(object sender, EventArgs e)
+        {
+            int totVente = 0;
+
+            if (_FrmMain.entrepot["oeufs"] >= (int)nudOeufs.Value)
+            {
+                totVente += prixTotOeufs;
+                _FrmMain.entrepot["oeufs"] -= (int)nudOeufs.Value;
+            }
+            if (_FrmMain.entrepot["laine"] >= (int)nudLaine.Value)
+            {
+                totVente += prixTotLaine;
+                _FrmMain.entrepot["laine"] -= (int)nudLaine.Value;
+            }
+            if (_FrmMain.entrepot["bacon"] >= (int)nudBacon.Value)
+            {
+                totVente += prixTotBacon;
+                _FrmMain.entrepot["bacon"] -= (int)nudBacon.Value;
+            }
+            if (_FrmMain.entrepot["lait"] >= (int)nudLait.Value)
+            {
+                totVente += prixTotLait;
+                _FrmMain.entrepot["lait"] -= (int)nudLait.Value;
+            }
+
+            //  Mise a jour de l'argent
+            _frmMagasinArgent += totVente;
+
+            //  Mise a jour du label
+            lblArgentMagas.Text = _frmMagasinArgent.ToString();
+
+            //  Mise a jour de l'argent sur frmMain
+            _FrmMain.FrmMainArgent = _frmMagasinArgent;
+
+            ResetMag();
+        }
 
         public void ResetMag()
         {
+            totalPrixAnim = 0;
+            totalPrixSem = 0;
             nudBle.Value = 0;
             nudCarotte.Value = 0;
             nudCochon.Value = 0;
@@ -227,8 +278,10 @@ namespace farmFantasy
             nudMouton.Value = 0;
             nudPatate.Value = 0;
             nudPoule.Value = 0;
-            nudVache.Value = 0;
-           
+            nudOeufs.Value = 0;
+            nudLaine.Value = 0;
+            nudBacon.Value = 0;
+            nudLait.Value = 0;
         }
     }
 }
