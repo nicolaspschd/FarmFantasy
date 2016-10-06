@@ -704,6 +704,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Farm Fantasy";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMain_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).EndInit();

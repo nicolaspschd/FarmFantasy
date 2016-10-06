@@ -275,6 +275,7 @@ namespace farmFantasy
             nudCochon.Value = 0;
             nudColza.Value = 0;
             nudMais.Value = 0;
+            nudVache.Value = 0;
             nudMouton.Value = 0;
             nudPatate.Value = 0;
             nudPoule.Value = 0;
@@ -282,6 +283,15 @@ namespace farmFantasy
             nudLaine.Value = 0;
             nudBacon.Value = 0;
             nudLait.Value = 0;
+        }
+
+        private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine(e.KeyChar);
+            if (e.KeyChar == 27)
+            {
+                this.Close();
+            }
         }
     }
 }

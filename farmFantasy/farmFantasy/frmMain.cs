@@ -183,5 +183,10 @@ namespace farmFantasy
         {
 
         }
+
+        private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
     }
 }

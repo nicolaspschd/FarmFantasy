@@ -28,5 +28,10 @@ namespace farmFantasy
                 tbxEntrepot.Text += _FrmMain.entrepot.ElementAt(i) + Environment.NewLine;
             }
         }
+
+        private void frmEntrepot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine(e.KeyChar.ToString());
+        }
     }
 }

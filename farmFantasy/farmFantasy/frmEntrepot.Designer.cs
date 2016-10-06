@@ -55,6 +55,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dans la grange";
             this.Load += new System.EventHandler(this.frmEntrepot_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmEntrepot_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

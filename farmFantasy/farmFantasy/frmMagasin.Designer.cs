@@ -656,6 +656,7 @@
             this.Text = "Magasin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMagasin_FormClosing);
             this.Load += new System.EventHandler(this.frmMagasin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMagasin_KeyPress);
             this.gbxSemence.ResumeLayout(false);
             this.gbxSemence.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMais)).EndInit();
