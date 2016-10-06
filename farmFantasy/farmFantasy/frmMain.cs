@@ -65,6 +65,11 @@ namespace farmFantasy
             lblPatateEntrepot.Text = entrepot["patate"].ToString();
             lblMaisEntrepot.Text = entrepot["mais"].ToString();
 
+            lblOeufEntrepot.Text = entrepot["oeufs"].ToString();
+            lblLaineEntrepot.Text = entrepot["laine"].ToString();
+            lblLaitEntrepot.Text = entrepot["lait"].ToString();
+            lblBaconEntrepot.Text = entrepot["bacon"].ToString();
+
             lblNbrPoule.Text = repertoryAnimaux["poule"].NbrAnimaux.ToString();
             lblNbrMouton.Text = repertoryAnimaux["mouton"].NbrAnimaux.ToString();
             lblNbrVache.Text = repertoryAnimaux["vache"].NbrAnimaux.ToString();
@@ -144,8 +149,9 @@ namespace farmFantasy
                 if (repertoryAnimaux["vache"].calculTempsProd())
                     entrepot["lait"] += (int)repertoryAnimaux["vache"].Quantite;
             if (repertoryAnimaux["poule"].NbrAnimaux > 0)
-                if (repertoryAnimaux["poule"].calculTempsProd())
-                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite;
+                if (repertoryAnimaux["poule"].calculTempsProd()) {
+                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite; frmMain_Load(null,null);
+                }
             if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
                 if (repertoryAnimaux["mouton"].calculTempsProd())
                     entrepot["laine"] += (int)repertoryAnimaux["mouton"].Quantite;

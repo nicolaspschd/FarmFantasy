@@ -34,7 +34,7 @@ namespace farmFantasy
             set { _prixVenteTot = value; }
         }
 
-        public Animaux(double prixV, int tempsProd, string typAnim, int nbrAnim, int qteProd)
+        public Animaux(double prixV, double tempsProd, string typAnim, int nbrAnim, int qteProd)
         {
             _tempsProduction = tempsProd;
             _typeAnimal = typAnim;
