@@ -13,26 +13,27 @@ namespace farmFantasy
 {
     public partial class frmMagasin : Form
     {
-        int totalPrixSem = 0;
-        int totalPrixAnim = 0;
-        int totalPrixProduits = 0;
-        int prixTotBle = 0;
-        int prixTotColza = 0;
-        int prixTotCarotte = 0;
-        int prixTotPatate = 0;
-        int prixTotMais = 0;
+        public int totalPrixAnim = 0;
+        public int prixProduit = 0;
+        public int prixTotPoule = 0;
+        public int prixTotMouton = 0;
+        public int prixTotCochon = 0;
+        public int prixTotVache = 0;
+        public string produitSelect = string.Empty;
 
-        int prixTotOeufs = 0;
-        int prixTotLaine = 0;
-        int prixTotBacon = 0;
-        int prixTotLait = 0;
+        public Dictionary<string, int> prix = new Dictionary<string, int> { 
+            {"ble", PRIXBLE},
+            {"colza", PRIXCOLZA},
+            {"carotte", PRIXCAROTTE},
+            {"patate", PRIXPATATE},
+            {"mais", PRIXMAIS},
+            {"oeufs", PRIXOEUFS},
+            {"laine", PRIXLAINE},
+            {"lait", PRIXLAIT},
+            {"bacon", PRIXBACON}
+        };
 
-        int prixTotPoule = 0;
-        int prixTotMouton = 0;
-        int prixTotCochon = 0;
-        int prixTotVache = 0;
-
-
+        #region Constante prix
         const int PRIXPOULE = 25;
         const int PRIXMOUTON = 75;
         const int PRIXCOCHON = 150;
@@ -40,14 +41,15 @@ namespace farmFantasy
 
         const int PRIXOEUFS = 2;
         const int PRIXLAINE = 2;
-        const int PRIXBACON = 2;
         const int PRIXLAIT = 2;
+        const int PRIXBACON = 2;
 
         const int PRIXBLE = 5;
         const int PRIXCOLZA = 15;
         const int PRIXCAROTTE = 30;
         const int PRIXPATATE = 50;
         const int PRIXMAIS = 75;
+        #endregion
 
         public int _frmMagasinArgent;
         frmMain _FrmMain;
@@ -65,23 +67,67 @@ namespace farmFantasy
             //  Récupération de l'argent de frmMain
             _frmMagasinArgent = (int)(_FrmMain.FrmMainArgent);
 
+            if (dudVente.Items.Count == 0)
+            {
+                for (int i = 0; i < _FrmMain.entrepot.Count(); i++)
+                {
+                    dudVente.Items.Add(_FrmMain.entrepot.ElementAt(i).Key);
+                }
+            }
+
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = _frmMagasinArgent.ToString();
             ResetMag();
         }
 
-        private void btnAcheterSemence_Click(object sender, EventArgs e)
+        private void btnVenteProduit_Click(object sender, EventArgs e)
         {
-            if ((_frmMagasinArgent - totalPrixSem >= 0) && (_frmMagasinArgent - totalPrixAnim >= 0))
+            if (produitSelect != string.Empty)
             {
-                _frmMagasinArgent -= totalPrixSem + totalPrixAnim;
+                _FrmMain.entrepot[produitSelect] -= (int)nudQuantiteProduit.Value;
+                _frmMagasinArgent += prixProduit;
+                lblArgentMagas.Text = _frmMagasinArgent.ToString();
+            }
+        }
 
-                _FrmMain.entrepot["ble"] += (int)nudBle.Value;
-                _FrmMain.entrepot["colza"] += (int)nudColza.Value;
-                _FrmMain.entrepot["carotte"] += (int)nudCarotte.Value;
-                _FrmMain.entrepot["patate"] += (int)nudPatate.Value;
-                _FrmMain.entrepot["mais"] += (int)nudMais.Value;
+        private void dudVente_SelectedItemChanged(object sender, EventArgs e)
+        {
+            produitSelect = dudVente.SelectedItem.ToString();
 
+            lblStock.Text = (_FrmMain.entrepot[produitSelect]).ToString();
+            lblPrixUnite.Text = prix[produitSelect].ToString();
+            prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
+            lblPrixProduit.Text = prixProduit.ToString();
+        }
+
+        private void nudQuantiteProduit_ValueChanged(object sender, EventArgs e)
+        {
+            if (produitSelect != string.Empty)
+            {
+                if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
+                {
+                    if (btnVenteProduit.Enabled == false)
+                    {
+                        btnVenteProduit.Enabled = true;
+                        lblStock.BackColor = Color.Transparent;
+                    }
+                    lblStock.Text = _FrmMain.entrepot[produitSelect].ToString();
+                }
+                else
+                {
+                    btnVenteProduit.Enabled = false;
+                    lblStock.BackColor = Color.Red;
+                }
+
+                prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
+                lblPrixProduit.Text = prixProduit.ToString();
+            }
+        }
+
+        private void transaction_Click(object sender, EventArgs e)
+        {
+            if ((_frmMagasinArgent - prixProduit >= 0) && (_frmMagasinArgent - totalPrixAnim >= 0))
+            {
                 _FrmMain.repertoryAnimaux["vache"].NbrAnimaux += (int)nudVache.Value;
                 _FrmMain.repertoryAnimaux["poule"].NbrAnimaux += (int)nudPoule.Value;
                 _FrmMain.repertoryAnimaux["mouton"].NbrAnimaux += (int)nudMouton.Value;
@@ -91,6 +137,13 @@ namespace farmFantasy
                 _FrmMain.repertoryAnimaux["poule"].majPrix();
                 _FrmMain.repertoryAnimaux["mouton"].majPrix();
                 _FrmMain.repertoryAnimaux["cochon"].majPrix();
+
+                if (produitSelect != string.Empty)
+                {
+                    _FrmMain.entrepot[produitSelect] += (int)nudQuantiteProduit.Value;                    
+                }
+
+                _frmMagasinArgent -= prixProduit + totalPrixAnim;
 
                 //  Mise a jour du label
                 lblArgentMagas.Text = _frmMagasinArgent.ToString();
@@ -106,40 +159,12 @@ namespace farmFantasy
             }
         }
 
-        private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
-            _FrmMain.FrmMainArgent = _frmMagasinArgent;
-            _FrmMain.lblArgent.Text = _frmMagasinArgent.ToString();
-            _FrmMain.frmMain_Load(null, null);
-        }
-
         private void nud_ValueChanged(object sender, EventArgs e)
         {
             NumericUpDown nud = (sender as NumericUpDown);
 
             switch (nud.Name)
             {
-                case "nudBle":
-                    prixTotBle = (int)(nud.Value * PRIXBLE);
-                    lblPrixBle.Text = prixTotBle.ToString();
-                    break;
-                case "nudColza":
-                    prixTotColza = (int)(nud.Value * PRIXCOLZA);
-                    lblPrixColza.Text = prixTotColza.ToString();
-                    break;
-                case "nudCarotte":
-                    prixTotCarotte = (int)(nud.Value * PRIXCAROTTE);
-                    lblPrixCarotte.Text = prixTotCarotte.ToString();
-                    break;
-                case "nudPatate":
-                    prixTotPatate = (int)(nud.Value * PRIXPATATE);
-                    lblPrixPatate.Text = prixTotPatate.ToString();
-                    break;
-                case "nudMais":
-                    prixTotMais = (int)(nud.Value * PRIXMAIS);
-                    lblPrixMais.Text = prixTotMais.ToString();
-                    break;
                 case "nudPoule":
                     prixTotPoule = (int)(nud.Value * PRIXPOULE);
                     lblPrixPoule.Text = prixTotPoule.ToString();
@@ -156,133 +181,28 @@ namespace farmFantasy
                     prixTotVache = (int)(nud.Value * PRIXVACHE);
                     lblPrixVache.Text = prixTotVache.ToString();
                     break;
-                case "nudOeufs":
-                    prixTotOeufs = (int)(nud.Value * PRIXOEUFS);
-                    lblPrixOeufs.Text = prixTotOeufs.ToString();
-                    break;
-                case "nudLaine":
-                    prixTotLaine = (int)(nud.Value * PRIXLAINE);
-                    lblPrixLaine.Text = prixTotLaine.ToString();
-                    break;
-                case "nudBacon":
-                    prixTotBacon = (int)(nud.Value * PRIXBACON);
-                    lblPrixBacon.Text = prixTotBacon.ToString();
-                    break;
-                case "nudLait":
-                    prixTotLait = (int)(nud.Value * PRIXLAIT);
-                    lblPrixLait.Text = prixTotLait.ToString();
-                    break;
             }
 
             //  Affichage du prix total des animaux
             totalPrixAnim = prixTotVache + prixTotCochon + prixTotPoule + prixTotMouton;
             lblTotAnim.Text = totalPrixAnim.ToString();
-
-            //  Affichage du prix total des semences
-            totalPrixSem = prixTotBle + prixTotCarotte + prixTotColza + prixTotMais + prixTotPatate;
-
-            totalPrixProduits = prixTotBacon + prixTotLaine + prixTotLait + prixTotOeufs;
-
-            lblTotProduit.Text = totalPrixProduits.ToString();
-            lblTotalSem.Text = totalPrixSem.ToString();
         }
 
-        private void btnVendreSemence_Click(object sender, EventArgs e)
+        private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            int totVente = 0;
-
-            if (_FrmMain.entrepot["ble"] >= (int)nudBle.Value)
-            {
-                totVente += prixTotBle;
-                _FrmMain.entrepot["ble"] -= (int)nudBle.Value;
-            }
-            if (_FrmMain.entrepot["colza"] >= (int)nudColza.Value)
-            {
-                totVente += prixTotColza;
-                _FrmMain.entrepot["colza"] -= (int)nudColza.Value;
-            }
-            if (_FrmMain.entrepot["carotte"] >= (int)nudCarotte.Value)
-            {
-                totVente += prixTotCarotte;
-                _FrmMain.entrepot["carotte"] -= (int)nudCarotte.Value;
-            }
-            if (_FrmMain.entrepot["patate"] >= (int)nudPatate.Value)
-            {
-                totVente += prixTotPatate;
-                _FrmMain.entrepot["patate"] -= (int)nudPatate.Value;
-            }
-            if (_FrmMain.entrepot["mais"] >= (int)nudMais.Value)
-            {
-                totVente += prixTotMais;
-                _FrmMain.entrepot["mais"] -= (int)nudMais.Value;
-            }
-
-            //  Mise a jour de l'argent
-            _frmMagasinArgent += totVente;
-
-            //  Mise a jour du label
-            lblArgentMagas.Text = _frmMagasinArgent.ToString();
-
-            //  Mise a jour de l'argent sur frmMain
+            //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
             _FrmMain.FrmMainArgent = _frmMagasinArgent;
-
-            ResetMag();
-        }
-
-        private void btnVendreProduits_Click(object sender, EventArgs e)
-        {
-            int totVente = 0;
-
-            if (_FrmMain.entrepot["oeufs"] >= (int)nudOeufs.Value)
-            {
-                totVente += prixTotOeufs;
-                _FrmMain.entrepot["oeufs"] -= (int)nudOeufs.Value;
-            }
-            if (_FrmMain.entrepot["laine"] >= (int)nudLaine.Value)
-            {
-                totVente += prixTotLaine;
-                _FrmMain.entrepot["laine"] -= (int)nudLaine.Value;
-            }
-            if (_FrmMain.entrepot["bacon"] >= (int)nudBacon.Value)
-            {
-                totVente += prixTotBacon;
-                _FrmMain.entrepot["bacon"] -= (int)nudBacon.Value;
-            }
-            if (_FrmMain.entrepot["lait"] >= (int)nudLait.Value)
-            {
-                totVente += prixTotLait;
-                _FrmMain.entrepot["lait"] -= (int)nudLait.Value;
-            }
-
-            //  Mise a jour de l'argent
-            _frmMagasinArgent += totVente;
-
-            //  Mise a jour du label
-            lblArgentMagas.Text = _frmMagasinArgent.ToString();
-
-            //  Mise a jour de l'argent sur frmMain
-            _FrmMain.FrmMainArgent = _frmMagasinArgent;
-
-            ResetMag();
+            _FrmMain.lblArgent.Text = _frmMagasinArgent.ToString();
+            _FrmMain.frmMain_Load(null, null);
         }
 
         public void ResetMag()
         {
             totalPrixAnim = 0;
-            totalPrixSem = 0;
-            nudBle.Value = 0;
-            nudCarotte.Value = 0;
             nudCochon.Value = 0;
-            nudColza.Value = 0;
-            nudMais.Value = 0;
             nudVache.Value = 0;
             nudMouton.Value = 0;
-            nudPatate.Value = 0;
             nudPoule.Value = 0;
-            nudOeufs.Value = 0;
-            nudLaine.Value = 0;
-            nudBacon.Value = 0;
-            nudLait.Value = 0;
         }
 
         private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
