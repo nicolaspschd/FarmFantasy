@@ -94,7 +94,7 @@ namespace farmFantasy
                 }
                 else
                 {
-                    MessageBox.Show("Vous n'avez plus de " + produitSelect + " dans l'entrepôt","",MessageBoxButtons.OK);
+                    MessageBox.Show("Vous n'avez plus de " + produitSelect + " dans l'entrepôt", "", MessageBoxButtons.OK);
                     btnVenteProduit.Enabled = false;
                 }
             }
@@ -108,13 +108,13 @@ namespace farmFantasy
             lblPrixUnite.Text = prix[produitSelect].ToString();
             prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
             lblPrixProduit.Text = prixProduit.ToString();
-            Console.WriteLine(prixProduit);
         }
 
         private void nudQuantiteProduit_ValueChanged(object sender, EventArgs e)
         {
             if (produitSelect != string.Empty)
             {
+                prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
                 if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
                 {
                     if (btnVenteProduit.Enabled == false)
@@ -122,6 +122,8 @@ namespace farmFantasy
                         btnVenteProduit.Enabled = true;
                         lblStock.BackColor = Color.Transparent;
                     }
+
+
                     lblStock.Text = _FrmMain.entrepot[produitSelect].ToString();
                 }
                 else
@@ -130,8 +132,11 @@ namespace farmFantasy
                     lblStock.BackColor = Color.Red;
                 }
 
-                prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
-                Console.WriteLine(prixProduit);
+                if (prixProduit > _frmMagasinArgent)
+                    lblPrixProduit.BackColor = Color.Red;
+                else
+                    lblPrixProduit.BackColor = Color.Transparent;
+
                 lblPrixProduit.Text = prixProduit.ToString();
             }
         }
@@ -147,7 +152,7 @@ namespace farmFantasy
                     lblArgentMagas.Text = _frmMagasinArgent.ToString();
                     _FrmMain.FrmMainArgent = _frmMagasinArgent;
                     nudQuantiteProduit.Value = 0;
-                }    
+                }
             }
         }
 
@@ -229,11 +234,15 @@ namespace farmFantasy
 
         private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Console.WriteLine(e.KeyChar);
             if (e.KeyChar == 27)
             {
                 this.Close();
             }
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+            nudQuantiteProduit.Value = Convert.ToDecimal((sender as Label).Text);
         }
     }
 }
