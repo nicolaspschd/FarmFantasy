@@ -38,7 +38,7 @@ namespace farmFantasy
         };
 
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"poule", new Animaux(1, 300, "poule", 0, 5)},
+            {"poule", new Animaux(1, 100, "poule", 0, 5)},
             {"mouton", new Animaux(150, 7200, "mouton", 0, 25)},
             {"cochon", new Animaux(10, 1200, "cochon", 0, 4)},
             {"vache", new Animaux(2, 600, "vache", 0, 1)}
@@ -150,16 +150,14 @@ namespace farmFantasy
                 if (repertoryAnimaux["vache"].calculTempsProd())
                     entrepot["lait"] += (int)repertoryAnimaux["vache"].Quantite;
             if (repertoryAnimaux["poule"].NbrAnimaux > 0)
-                if (repertoryAnimaux["poule"].calculTempsProd()) {
-                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite; frmMain_Load(null,null);
-                }
+                if (repertoryAnimaux["poule"].calculTempsProd())
+                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite; frmMain_Load(null, null);
             if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
                 if (repertoryAnimaux["mouton"].calculTempsProd())
                     entrepot["laine"] += (int)repertoryAnimaux["mouton"].Quantite;
             if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
                 if (repertoryAnimaux["cochon"].calculTempsProd())
                     entrepot["bacon"] += (int)repertoryAnimaux["cochon"].Quantite;
-            lblArgent.Text = FrmMainArgent.ToString();
         }
 
         private void pbxClickAnimaux_Click(object sender, EventArgs e)
@@ -186,7 +184,7 @@ namespace farmFantasy
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
     }
 }

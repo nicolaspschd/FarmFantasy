@@ -112,7 +112,7 @@
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "CHF";
             // 
             // pbxChamps1
@@ -304,7 +304,7 @@
             this.gbxInfo.Location = new System.Drawing.Point(547, 53);
             this.gbxInfo.Name = "gbxInfo";
             this.gbxInfo.Size = new System.Drawing.Size(235, 192);
-            this.gbxInfo.TabIndex = 9;
+            this.gbxInfo.TabIndex = 2;
             this.gbxInfo.TabStop = false;
             this.gbxInfo.Text = "Semences";
             // 
@@ -334,7 +334,7 @@
             this.lblMaisEntrepot.Location = new System.Drawing.Point(97, 137);
             this.lblMaisEntrepot.Name = "lblMaisEntrepot";
             this.lblMaisEntrepot.Size = new System.Drawing.Size(35, 13);
-            this.lblMaisEntrepot.TabIndex = 1;
+            this.lblMaisEntrepot.TabIndex = 0;
             this.lblMaisEntrepot.Text = "label6";
             // 
             // rbnMais
@@ -343,7 +343,7 @@
             this.rbnMais.Location = new System.Drawing.Point(13, 135);
             this.rbnMais.Name = "rbnMais";
             this.rbnMais.Size = new System.Drawing.Size(49, 17);
-            this.rbnMais.TabIndex = 2;
+            this.rbnMais.TabIndex = 5;
             this.rbnMais.TabStop = true;
             this.rbnMais.Text = "Maïs";
             this.rbnMais.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             this.rbnNothing.Location = new System.Drawing.Point(13, 19);
             this.rbnNothing.Name = "rbnNothing";
             this.rbnNothing.Size = new System.Drawing.Size(53, 18);
-            this.rbnNothing.TabIndex = 1;
+            this.rbnNothing.TabIndex = 0;
             this.rbnNothing.TabStop = true;
             this.rbnNothing.Text = "Rien";
             this.rbnNothing.UseVisualStyleBackColor = true;
@@ -397,7 +397,7 @@
             this.rbnBle.Location = new System.Drawing.Point(13, 42);
             this.rbnBle.Name = "rbnBle";
             this.rbnBle.Size = new System.Drawing.Size(46, 18);
-            this.rbnBle.TabIndex = 0;
+            this.rbnBle.TabIndex = 1;
             this.rbnBle.Text = "Blé";
             this.rbnBle.UseVisualStyleBackColor = true;
             // 
@@ -418,7 +418,7 @@
             this.rbnPatate.Location = new System.Drawing.Point(13, 111);
             this.rbnPatate.Name = "rbnPatate";
             this.rbnPatate.Size = new System.Drawing.Size(62, 18);
-            this.rbnPatate.TabIndex = 0;
+            this.rbnPatate.TabIndex = 4;
             this.rbnPatate.Text = "Patate";
             this.rbnPatate.UseVisualStyleBackColor = true;
             // 
@@ -430,7 +430,7 @@
             this.rbnColza.Location = new System.Drawing.Point(13, 65);
             this.rbnColza.Name = "rbnColza";
             this.rbnColza.Size = new System.Drawing.Size(57, 18);
-            this.rbnColza.TabIndex = 0;
+            this.rbnColza.TabIndex = 2;
             this.rbnColza.Text = "Colza";
             this.rbnColza.UseVisualStyleBackColor = true;
             // 
@@ -442,7 +442,7 @@
             this.rbnCarotte.Location = new System.Drawing.Point(13, 88);
             this.rbnCarotte.Name = "rbnCarotte";
             this.rbnCarotte.Size = new System.Drawing.Size(65, 18);
-            this.rbnCarotte.TabIndex = 0;
+            this.rbnCarotte.TabIndex = 3;
             this.rbnCarotte.Text = "Carotte";
             this.rbnCarotte.UseVisualStyleBackColor = true;
             // 
@@ -458,7 +458,7 @@
             this.lblArgent.Location = new System.Drawing.Point(46, 9);
             this.lblArgent.Name = "lblArgent";
             this.lblArgent.Size = new System.Drawing.Size(35, 13);
-            this.lblArgent.TabIndex = 10;
+            this.lblArgent.TabIndex = 0;
             this.lblArgent.Text = "label1";
             // 
             // btnMagasin
@@ -466,7 +466,7 @@
             this.btnMagasin.Location = new System.Drawing.Point(547, 251);
             this.btnMagasin.Name = "btnMagasin";
             this.btnMagasin.Size = new System.Drawing.Size(235, 29);
-            this.btnMagasin.TabIndex = 11;
+            this.btnMagasin.TabIndex = 3;
             this.btnMagasin.Text = "Magasin";
             this.btnMagasin.UseVisualStyleBackColor = true;
             this.btnMagasin.Click += new System.EventHandler(this.btnMagasin_Click);
@@ -478,7 +478,7 @@
             this.gbxAnimaux.Location = new System.Drawing.Point(547, 286);
             this.gbxAnimaux.Name = "gbxAnimaux";
             this.gbxAnimaux.Size = new System.Drawing.Size(235, 185);
-            this.gbxAnimaux.TabIndex = 12;
+            this.gbxAnimaux.TabIndex = 4;
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
             // 
@@ -665,7 +665,7 @@
             this.btnSauvegarder.Location = new System.Drawing.Point(148, 4);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(92, 22);
-            this.btnSauvegarder.TabIndex = 13;
+            this.btnSauvegarder.TabIndex = 1;
             this.btnSauvegarder.Text = "Sauvegarder";
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);

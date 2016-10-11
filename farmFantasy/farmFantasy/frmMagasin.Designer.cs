@@ -125,6 +125,7 @@
             this.lblStock.Size = new System.Drawing.Size(13, 13);
             this.lblStock.TabIndex = 23;
             this.lblStock.Text = "0";
+            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
             // 
             // lblPrixUnite
             // 
