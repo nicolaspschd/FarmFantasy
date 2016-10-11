@@ -146,9 +146,9 @@
             // 
             // nudQuantiteProduit
             // 
-            this.nudQuantiteProduit.Location = new System.Drawing.Point(41, 55);
+            this.nudQuantiteProduit.Location = new System.Drawing.Point(69, 55);
             this.nudQuantiteProduit.Name = "nudQuantiteProduit";
-            this.nudQuantiteProduit.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantiteProduit.Size = new System.Drawing.Size(87, 20);
             this.nudQuantiteProduit.TabIndex = 22;
             this.nudQuantiteProduit.ValueChanged += new System.EventHandler(this.nudQuantiteProduit_ValueChanged);
             // 
@@ -164,10 +164,10 @@
             // 
             // dudVente
             // 
-            this.dudVente.Location = new System.Drawing.Point(41, 29);
+            this.dudVente.Location = new System.Drawing.Point(69, 29);
             this.dudVente.Name = "dudVente";
             this.dudVente.ReadOnly = true;
-            this.dudVente.Size = new System.Drawing.Size(120, 20);
+            this.dudVente.Size = new System.Drawing.Size(87, 20);
             this.dudVente.TabIndex = 21;
             this.dudVente.SelectedItemChanged += new System.EventHandler(this.dudVente_SelectedItemChanged);
             // 
@@ -225,7 +225,7 @@
             // lblPrixVache
             // 
             this.lblPrixVache.AutoSize = true;
-            this.lblPrixVache.Location = new System.Drawing.Point(142, 91);
+            this.lblPrixVache.Location = new System.Drawing.Point(157, 116);
             this.lblPrixVache.Name = "lblPrixVache";
             this.lblPrixVache.Size = new System.Drawing.Size(13, 13);
             this.lblPrixVache.TabIndex = 16;
@@ -234,7 +234,7 @@
             // lblPrixCochon
             // 
             this.lblPrixCochon.AutoSize = true;
-            this.lblPrixCochon.Location = new System.Drawing.Point(142, 121);
+            this.lblPrixCochon.Location = new System.Drawing.Point(157, 88);
             this.lblPrixCochon.Name = "lblPrixCochon";
             this.lblPrixCochon.Size = new System.Drawing.Size(13, 13);
             this.lblPrixCochon.TabIndex = 16;
@@ -243,7 +243,7 @@
             // lblPrixMouton
             // 
             this.lblPrixMouton.AutoSize = true;
-            this.lblPrixMouton.Location = new System.Drawing.Point(142, 59);
+            this.lblPrixMouton.Location = new System.Drawing.Point(157, 59);
             this.lblPrixMouton.Name = "lblPrixMouton";
             this.lblPrixMouton.Size = new System.Drawing.Size(13, 13);
             this.lblPrixMouton.TabIndex = 16;
@@ -252,7 +252,7 @@
             // lblPrixPoule
             // 
             this.lblPrixPoule.AutoSize = true;
-            this.lblPrixPoule.Location = new System.Drawing.Point(142, 29);
+            this.lblPrixPoule.Location = new System.Drawing.Point(157, 29);
             this.lblPrixPoule.Name = "lblPrixPoule";
             this.lblPrixPoule.Size = new System.Drawing.Size(13, 13);
             this.lblPrixPoule.TabIndex = 16;
@@ -270,7 +270,7 @@
             // 
             // nudVache
             // 
-            this.nudVache.Location = new System.Drawing.Point(66, 89);
+            this.nudVache.Location = new System.Drawing.Point(81, 114);
             this.nudVache.Name = "nudVache";
             this.nudVache.Size = new System.Drawing.Size(60, 20);
             this.nudVache.TabIndex = 11;
@@ -278,7 +278,7 @@
             // 
             // nudCochon
             // 
-            this.nudCochon.Location = new System.Drawing.Point(66, 119);
+            this.nudCochon.Location = new System.Drawing.Point(81, 86);
             this.nudCochon.Name = "nudCochon";
             this.nudCochon.Size = new System.Drawing.Size(60, 20);
             this.nudCochon.TabIndex = 12;
@@ -286,7 +286,7 @@
             // 
             // nudMouton
             // 
-            this.nudMouton.Location = new System.Drawing.Point(66, 57);
+            this.nudMouton.Location = new System.Drawing.Point(81, 57);
             this.nudMouton.Name = "nudMouton";
             this.nudMouton.Size = new System.Drawing.Size(60, 20);
             this.nudMouton.TabIndex = 13;
@@ -294,7 +294,7 @@
             // 
             // nudPoule
             // 
-            this.nudPoule.Location = new System.Drawing.Point(66, 27);
+            this.nudPoule.Location = new System.Drawing.Point(81, 27);
             this.nudPoule.Name = "nudPoule";
             this.nudPoule.Size = new System.Drawing.Size(60, 20);
             this.nudPoule.TabIndex = 14;
@@ -303,7 +303,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 91);
+            this.label10.Location = new System.Drawing.Point(23, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 3;
@@ -312,7 +312,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 121);
+            this.label11.Location = new System.Drawing.Point(20, 88);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 4;
@@ -321,7 +321,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 59);
+            this.label12.Location = new System.Drawing.Point(21, 59);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
             this.label12.TabIndex = 5;
@@ -330,7 +330,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 29);
+            this.label13.Location = new System.Drawing.Point(30, 29);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 6;

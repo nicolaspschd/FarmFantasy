@@ -40,8 +40,8 @@ namespace farmFantasy
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
             {"poule", new Animaux(1, 300, "poule", 0, 5)},
             {"mouton", new Animaux(150, 7200, "mouton", 0, 25)},
-            {"vache", new Animaux(2, 600, "vache", 0, 1)},
-            {"cochon", new Animaux(10, 1200, "cochon", 0, 4)}
+            {"cochon", new Animaux(10, 1200, "cochon", 0, 4)},
+            {"vache", new Animaux(2, 600, "vache", 0, 1)}
         };
 
         frmMagasin FrmMagasin = new frmMagasin();

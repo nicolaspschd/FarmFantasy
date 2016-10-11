@@ -22,10 +22,10 @@ namespace farmFantasy
         private void frmEntrepot_Load(object sender, EventArgs e)
         {
             _FrmMain = (frmMain)this.Owner;
-
+            tbxEntrepot.Text = "Produit - Quantité" + Environment.NewLine;
             for (int i = 0; i < _FrmMain.entrepot.Count(); i++)
             {
-                tbxEntrepot.Text += _FrmMain.entrepot.ElementAt(i) + Environment.NewLine;
+                tbxEntrepot.Text += Environment.NewLine + _FrmMain.entrepot.ElementAt(i).Key + " -- " + _FrmMain.entrepot.ElementAt(i).Value;
             }
         }
 
