@@ -160,7 +160,7 @@
             this.btnAchatProduit.TabIndex = 20;
             this.btnAchatProduit.Text = "Acheter";
             this.btnAchatProduit.UseVisualStyleBackColor = true;
-            this.btnAchatProduit.Click += new System.EventHandler(this.transaction_Click);
+            this.btnAchatProduit.Click += new System.EventHandler(this.btnAchatProduit_Click);
             // 
             // dudVente
             // 

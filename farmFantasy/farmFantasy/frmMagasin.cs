@@ -82,11 +82,21 @@ namespace farmFantasy
 
         private void btnVenteProduit_Click(object sender, EventArgs e)
         {
+
             if (produitSelect != string.Empty)
             {
-                _FrmMain.entrepot[produitSelect] -= (int)nudQuantiteProduit.Value;
-                _frmMagasinArgent += prixProduit;
-                lblArgentMagas.Text = _frmMagasinArgent.ToString();
+                if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
+                {
+                    _FrmMain.entrepot[produitSelect] -= (int)nudQuantiteProduit.Value;
+                    _frmMagasinArgent += prixProduit;
+                    lblArgentMagas.Text = _frmMagasinArgent.ToString();
+                    nudQuantiteProduit.Value = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez plus de " + produitSelect + " dans l'entrepôt","",MessageBoxButtons.OK);
+                    btnVenteProduit.Enabled = false;
+                }
             }
         }
 
@@ -98,6 +108,7 @@ namespace farmFantasy
             lblPrixUnite.Text = prix[produitSelect].ToString();
             prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
             lblPrixProduit.Text = prixProduit.ToString();
+            Console.WriteLine(prixProduit);
         }
 
         private void nudQuantiteProduit_ValueChanged(object sender, EventArgs e)
@@ -119,8 +130,24 @@ namespace farmFantasy
                     lblStock.BackColor = Color.Red;
                 }
 
-                prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
+                prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
+                Console.WriteLine(prixProduit);
                 lblPrixProduit.Text = prixProduit.ToString();
+            }
+        }
+
+        private void btnAchatProduit_Click(object sender, EventArgs e)
+        {
+            if ((_frmMagasinArgent - prixProduit) >= 0)
+            {
+                if (produitSelect != string.Empty)
+                {
+                    _FrmMain.entrepot[produitSelect] += (int)nudQuantiteProduit.Value;
+                    _frmMagasinArgent -= prixProduit;
+                    lblArgentMagas.Text = _frmMagasinArgent.ToString();
+                    _FrmMain.FrmMainArgent = _frmMagasinArgent;
+                    nudQuantiteProduit.Value = 0;
+                }    
             }
         }
 
@@ -137,11 +164,6 @@ namespace farmFantasy
                 _FrmMain.repertoryAnimaux["poule"].majPrix();
                 _FrmMain.repertoryAnimaux["mouton"].majPrix();
                 _FrmMain.repertoryAnimaux["cochon"].majPrix();
-
-                if (produitSelect != string.Empty)
-                {
-                    _FrmMain.entrepot[produitSelect] += (int)nudQuantiteProduit.Value;                    
-                }
 
                 _frmMagasinArgent -= prixProduit + totalPrixAnim;
 
