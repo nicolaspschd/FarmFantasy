@@ -14,6 +14,12 @@ namespace farmFantasy
         private string _culture;
         private int _temps = 0;
 
+        public int Temps
+        {
+            get { return _temps; }
+            set { _temps = value; }
+        }
+
         public PictureBox PbxChamps
         {
             get { return _pbxChamps; }

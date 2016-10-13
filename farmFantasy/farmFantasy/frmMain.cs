@@ -179,7 +179,30 @@ namespace farmFantasy
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i <= NBRCHAMPS; i++)
+            {
+                if (repertoryChamps.ContainsKey("pbxChamps" + i))
+                {
+                    Console.WriteLine(i + repertoryChamps["pbxChamps" + i].Culture);
+                    Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                    UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                }
+                else
+                {
+                    UpdateChamps(0,"rien", "pbxChamps" + i);
+                }
+            }
 
+            for (int i = 0; i < entrepot.Count; i++)
+            {
+                UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
+            }
+
+            for (int i = 0; i < repertoryAnimaux.Count; i++)
+            {
+                string elementAt = repertoryAnimaux.ElementAt(i).Key;
+                UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+            }
         }
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)

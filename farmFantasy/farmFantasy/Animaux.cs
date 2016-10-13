@@ -13,6 +13,12 @@ namespace farmFantasy
         private double _tempsProduction;
         private double _prixVenteTot;
         private int _temps = 0;
+
+        public int Temps
+        {
+            get { return _temps; }
+            set { _temps = value; }
+        }
         private double _prixV;
         private int _quantite;
 
