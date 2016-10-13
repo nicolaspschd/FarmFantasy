@@ -39,14 +39,14 @@
             this.tbxEntrepot.Name = "tbxEntrepot";
             this.tbxEntrepot.ReadOnly = true;
             this.tbxEntrepot.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbxEntrepot.Size = new System.Drawing.Size(239, 238);
+            this.tbxEntrepot.Size = new System.Drawing.Size(278, 252);
             this.tbxEntrepot.TabIndex = 0;
             // 
             // frmEntrepot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 262);
+            this.ClientSize = new System.Drawing.Size(302, 276);
             this.Controls.Add(this.tbxEntrepot);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;

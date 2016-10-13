@@ -31,7 +31,7 @@ namespace farmFantasy
 
         private void frmEntrepot_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Console.WriteLine(e.KeyChar.ToString());
+
         }
     }
 }

@@ -83,6 +83,7 @@
             this.lblNbrPoule = new System.Windows.Forms.Label();
             this.lblNbrMouton = new System.Windows.Forms.Label();
             this.btnSauvegarder = new System.Windows.Forms.Button();
+            this.lblEntrepot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -298,18 +299,19 @@
             // 
             // gbxInfo
             // 
-            this.gbxInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.gbxInfo.BackColor = System.Drawing.Color.Transparent;
             this.gbxInfo.Controls.Add(this.gbxSemencesPlante);
-            this.gbxInfo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gbxInfo.ForeColor = System.Drawing.Color.White;
             this.gbxInfo.Location = new System.Drawing.Point(547, 53);
             this.gbxInfo.Name = "gbxInfo";
-            this.gbxInfo.Size = new System.Drawing.Size(235, 192);
+            this.gbxInfo.Size = new System.Drawing.Size(256, 192);
             this.gbxInfo.TabIndex = 2;
             this.gbxInfo.TabStop = false;
             this.gbxInfo.Text = "Semences";
             // 
             // gbxSemencesPlante
             // 
+            this.gbxSemencesPlante.BackColor = System.Drawing.Color.Transparent;
             this.gbxSemencesPlante.Controls.Add(this.lblMaisEntrepot);
             this.gbxSemencesPlante.Controls.Add(this.rbnMais);
             this.gbxSemencesPlante.Controls.Add(this.lblBleEntrepot);
@@ -321,9 +323,10 @@
             this.gbxSemencesPlante.Controls.Add(this.rbnPatate);
             this.gbxSemencesPlante.Controls.Add(this.rbnColza);
             this.gbxSemencesPlante.Controls.Add(this.rbnCarotte);
+            this.gbxSemencesPlante.ForeColor = System.Drawing.Color.White;
             this.gbxSemencesPlante.Location = new System.Drawing.Point(6, 16);
             this.gbxSemencesPlante.Name = "gbxSemencesPlante";
-            this.gbxSemencesPlante.Size = new System.Drawing.Size(223, 170);
+            this.gbxSemencesPlante.Size = new System.Drawing.Size(244, 170);
             this.gbxSemencesPlante.TabIndex = 2;
             this.gbxSemencesPlante.TabStop = false;
             this.gbxSemencesPlante.Text = "Planter";
@@ -331,18 +334,22 @@
             // lblMaisEntrepot
             // 
             this.lblMaisEntrepot.AutoSize = true;
-            this.lblMaisEntrepot.Location = new System.Drawing.Point(97, 137);
+            this.lblMaisEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaisEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblMaisEntrepot.Location = new System.Drawing.Point(137, 137);
             this.lblMaisEntrepot.Name = "lblMaisEntrepot";
-            this.lblMaisEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblMaisEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblMaisEntrepot.TabIndex = 0;
             this.lblMaisEntrepot.Text = "label6";
             // 
             // rbnMais
             // 
             this.rbnMais.AutoSize = true;
-            this.rbnMais.Location = new System.Drawing.Point(13, 135);
+            this.rbnMais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnMais.ForeColor = System.Drawing.Color.White;
+            this.rbnMais.Location = new System.Drawing.Point(53, 135);
             this.rbnMais.Name = "rbnMais";
-            this.rbnMais.Size = new System.Drawing.Size(49, 17);
+            this.rbnMais.Size = new System.Drawing.Size(56, 19);
             this.rbnMais.TabIndex = 5;
             this.rbnMais.TabStop = true;
             this.rbnMais.Text = "Maïs";
@@ -351,18 +358,22 @@
             // lblBleEntrepot
             // 
             this.lblBleEntrepot.AutoSize = true;
-            this.lblBleEntrepot.Location = new System.Drawing.Point(97, 44);
+            this.lblBleEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBleEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblBleEntrepot.Location = new System.Drawing.Point(137, 44);
             this.lblBleEntrepot.Name = "lblBleEntrepot";
-            this.lblBleEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblBleEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblBleEntrepot.TabIndex = 0;
             this.lblBleEntrepot.Text = "label6";
             // 
             // lblPatateEntrepot
             // 
             this.lblPatateEntrepot.AutoSize = true;
-            this.lblPatateEntrepot.Location = new System.Drawing.Point(97, 113);
+            this.lblPatateEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatateEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblPatateEntrepot.Location = new System.Drawing.Point(137, 113);
             this.lblPatateEntrepot.Name = "lblPatateEntrepot";
-            this.lblPatateEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblPatateEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblPatateEntrepot.TabIndex = 0;
             this.lblPatateEntrepot.Text = "label6";
             // 
@@ -370,11 +381,11 @@
             // 
             this.rbnNothing.AutoSize = true;
             this.rbnNothing.Checked = true;
-            this.rbnNothing.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbnNothing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnNothing.ForeColor = System.Drawing.Color.White;
-            this.rbnNothing.Location = new System.Drawing.Point(13, 19);
+            this.rbnNothing.Location = new System.Drawing.Point(53, 19);
             this.rbnNothing.Name = "rbnNothing";
-            this.rbnNothing.Size = new System.Drawing.Size(53, 18);
+            this.rbnNothing.Size = new System.Drawing.Size(55, 19);
             this.rbnNothing.TabIndex = 0;
             this.rbnNothing.TabStop = true;
             this.rbnNothing.Text = "Rien";
@@ -383,20 +394,22 @@
             // lblCarotteEntrepot
             // 
             this.lblCarotteEntrepot.AutoSize = true;
-            this.lblCarotteEntrepot.Location = new System.Drawing.Point(97, 90);
+            this.lblCarotteEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarotteEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblCarotteEntrepot.Location = new System.Drawing.Point(137, 90);
             this.lblCarotteEntrepot.Name = "lblCarotteEntrepot";
-            this.lblCarotteEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblCarotteEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblCarotteEntrepot.TabIndex = 0;
             this.lblCarotteEntrepot.Text = "label6";
             // 
             // rbnBle
             // 
             this.rbnBle.AutoSize = true;
-            this.rbnBle.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbnBle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnBle.ForeColor = System.Drawing.Color.White;
-            this.rbnBle.Location = new System.Drawing.Point(13, 42);
+            this.rbnBle.Location = new System.Drawing.Point(53, 42);
             this.rbnBle.Name = "rbnBle";
-            this.rbnBle.Size = new System.Drawing.Size(46, 18);
+            this.rbnBle.Size = new System.Drawing.Size(46, 19);
             this.rbnBle.TabIndex = 1;
             this.rbnBle.Text = "Blé";
             this.rbnBle.UseVisualStyleBackColor = true;
@@ -404,20 +417,22 @@
             // lblColzaEntrepot
             // 
             this.lblColzaEntrepot.AutoSize = true;
-            this.lblColzaEntrepot.Location = new System.Drawing.Point(97, 67);
+            this.lblColzaEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColzaEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblColzaEntrepot.Location = new System.Drawing.Point(137, 67);
             this.lblColzaEntrepot.Name = "lblColzaEntrepot";
-            this.lblColzaEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblColzaEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblColzaEntrepot.TabIndex = 0;
             this.lblColzaEntrepot.Text = "label6";
             // 
             // rbnPatate
             // 
             this.rbnPatate.AutoSize = true;
-            this.rbnPatate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbnPatate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnPatate.ForeColor = System.Drawing.Color.White;
-            this.rbnPatate.Location = new System.Drawing.Point(13, 111);
+            this.rbnPatate.Location = new System.Drawing.Point(53, 111);
             this.rbnPatate.Name = "rbnPatate";
-            this.rbnPatate.Size = new System.Drawing.Size(62, 18);
+            this.rbnPatate.Size = new System.Drawing.Size(66, 19);
             this.rbnPatate.TabIndex = 4;
             this.rbnPatate.Text = "Patate";
             this.rbnPatate.UseVisualStyleBackColor = true;
@@ -425,11 +440,11 @@
             // rbnColza
             // 
             this.rbnColza.AutoSize = true;
-            this.rbnColza.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbnColza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnColza.ForeColor = System.Drawing.Color.White;
-            this.rbnColza.Location = new System.Drawing.Point(13, 65);
+            this.rbnColza.Location = new System.Drawing.Point(53, 65);
             this.rbnColza.Name = "rbnColza";
-            this.rbnColza.Size = new System.Drawing.Size(57, 18);
+            this.rbnColza.Size = new System.Drawing.Size(61, 19);
             this.rbnColza.TabIndex = 2;
             this.rbnColza.Text = "Colza";
             this.rbnColza.UseVisualStyleBackColor = true;
@@ -437,11 +452,11 @@
             // rbnCarotte
             // 
             this.rbnCarotte.AutoSize = true;
-            this.rbnCarotte.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbnCarotte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnCarotte.ForeColor = System.Drawing.Color.White;
-            this.rbnCarotte.Location = new System.Drawing.Point(13, 88);
+            this.rbnCarotte.Location = new System.Drawing.Point(53, 88);
             this.rbnCarotte.Name = "rbnCarotte";
-            this.rbnCarotte.Size = new System.Drawing.Size(65, 18);
+            this.rbnCarotte.Size = new System.Drawing.Size(71, 19);
             this.rbnCarotte.TabIndex = 3;
             this.rbnCarotte.Text = "Carotte";
             this.rbnCarotte.UseVisualStyleBackColor = true;
@@ -465,7 +480,7 @@
             // 
             this.btnMagasin.Location = new System.Drawing.Point(547, 251);
             this.btnMagasin.Name = "btnMagasin";
-            this.btnMagasin.Size = new System.Drawing.Size(235, 29);
+            this.btnMagasin.Size = new System.Drawing.Size(256, 29);
             this.btnMagasin.TabIndex = 3;
             this.btnMagasin.Text = "Magasin";
             this.btnMagasin.UseVisualStyleBackColor = true;
@@ -473,11 +488,13 @@
             // 
             // gbxAnimaux
             // 
+            this.gbxAnimaux.BackColor = System.Drawing.Color.Transparent;
             this.gbxAnimaux.Controls.Add(this.groupBox2);
             this.gbxAnimaux.Controls.Add(this.groupBox1);
+            this.gbxAnimaux.ForeColor = System.Drawing.Color.White;
             this.gbxAnimaux.Location = new System.Drawing.Point(547, 286);
             this.gbxAnimaux.Name = "gbxAnimaux";
-            this.gbxAnimaux.Size = new System.Drawing.Size(235, 185);
+            this.gbxAnimaux.Size = new System.Drawing.Size(256, 185);
             this.gbxAnimaux.TabIndex = 4;
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
@@ -492,9 +509,10 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblLaineEntrepot);
             this.groupBox2.Controls.Add(this.lblLaitEntrepot);
-            this.groupBox2.Location = new System.Drawing.Point(115, 19);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(126, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(108, 160);
+            this.groupBox2.Size = new System.Drawing.Size(124, 160);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entrepôt";
@@ -502,72 +520,88 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 90);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(3, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.Size = new System.Drawing.Size(55, 15);
             this.label9.TabIndex = 13;
             this.label9.Text = "Bacon :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 30);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(6, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.Size = new System.Drawing.Size(52, 15);
             this.label8.TabIndex = 13;
             this.label8.Text = "Oeufs :";
             // 
             // lblBaconEntrepot
             // 
             this.lblBaconEntrepot.AutoSize = true;
-            this.lblBaconEntrepot.Location = new System.Drawing.Point(67, 90);
+            this.lblBaconEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBaconEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblBaconEntrepot.Location = new System.Drawing.Point(57, 90);
             this.lblBaconEntrepot.Name = "lblBaconEntrepot";
-            this.lblBaconEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblBaconEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblBaconEntrepot.TabIndex = 13;
             this.lblBaconEntrepot.Text = "label6";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 60);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(7, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.Size = new System.Drawing.Size(51, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "Laine :";
             // 
             // lblOeufEntrepot
             // 
             this.lblOeufEntrepot.AutoSize = true;
-            this.lblOeufEntrepot.Location = new System.Drawing.Point(67, 30);
+            this.lblOeufEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOeufEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblOeufEntrepot.Location = new System.Drawing.Point(57, 30);
             this.lblOeufEntrepot.Name = "lblOeufEntrepot";
-            this.lblOeufEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblOeufEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblOeufEntrepot.TabIndex = 13;
             this.lblOeufEntrepot.Text = "label6";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 120);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(19, 120);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.Size = new System.Drawing.Size(39, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "Lait :";
             // 
             // lblLaineEntrepot
             // 
             this.lblLaineEntrepot.AutoSize = true;
-            this.lblLaineEntrepot.Location = new System.Drawing.Point(67, 60);
+            this.lblLaineEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaineEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblLaineEntrepot.Location = new System.Drawing.Point(57, 60);
             this.lblLaineEntrepot.Name = "lblLaineEntrepot";
-            this.lblLaineEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblLaineEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblLaineEntrepot.TabIndex = 13;
             this.lblLaineEntrepot.Text = "label6";
             // 
             // lblLaitEntrepot
             // 
             this.lblLaitEntrepot.AutoSize = true;
-            this.lblLaitEntrepot.Location = new System.Drawing.Point(67, 120);
+            this.lblLaitEntrepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaitEntrepot.ForeColor = System.Drawing.Color.White;
+            this.lblLaitEntrepot.Location = new System.Drawing.Point(57, 120);
             this.lblLaitEntrepot.Name = "lblLaitEntrepot";
-            this.lblLaitEntrepot.Size = new System.Drawing.Size(35, 13);
+            this.lblLaitEntrepot.Size = new System.Drawing.Size(47, 15);
             this.lblLaitEntrepot.TabIndex = 13;
             this.lblLaitEntrepot.Text = "label6";
             // 
@@ -581,9 +615,10 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblNbrPoule);
             this.groupBox1.Controls.Add(this.lblNbrMouton);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(103, 160);
+            this.groupBox1.Size = new System.Drawing.Size(119, 160);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animaux";
@@ -591,72 +626,88 @@
             // lblNbrCochon
             // 
             this.lblNbrCochon.AutoSize = true;
-            this.lblNbrCochon.Location = new System.Drawing.Point(60, 90);
+            this.lblNbrCochon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbrCochon.ForeColor = System.Drawing.Color.White;
+            this.lblNbrCochon.Location = new System.Drawing.Point(62, 90);
             this.lblNbrCochon.Name = "lblNbrCochon";
-            this.lblNbrCochon.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrCochon.Size = new System.Drawing.Size(47, 15);
             this.lblNbrCochon.TabIndex = 13;
             this.lblNbrCochon.Text = "label6";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 30);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Poule";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 60);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(1, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(55, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mouton";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 120);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(10, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Vache";
             // 
             // lblNbrVache
             // 
             this.lblNbrVache.AutoSize = true;
-            this.lblNbrVache.Location = new System.Drawing.Point(60, 120);
+            this.lblNbrVache.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbrVache.ForeColor = System.Drawing.Color.White;
+            this.lblNbrVache.Location = new System.Drawing.Point(62, 120);
             this.lblNbrVache.Name = "lblNbrVache";
-            this.lblNbrVache.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrVache.Size = new System.Drawing.Size(47, 15);
             this.lblNbrVache.TabIndex = 13;
             this.lblNbrVache.Text = "label6";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 90);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(55, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Cochon";
             // 
             // lblNbrPoule
             // 
             this.lblNbrPoule.AutoSize = true;
-            this.lblNbrPoule.Location = new System.Drawing.Point(56, 30);
+            this.lblNbrPoule.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbrPoule.ForeColor = System.Drawing.Color.White;
+            this.lblNbrPoule.Location = new System.Drawing.Point(62, 30);
             this.lblNbrPoule.Name = "lblNbrPoule";
-            this.lblNbrPoule.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrPoule.Size = new System.Drawing.Size(47, 15);
             this.lblNbrPoule.TabIndex = 13;
             this.lblNbrPoule.Text = "label6";
             // 
             // lblNbrMouton
             // 
             this.lblNbrMouton.AutoSize = true;
-            this.lblNbrMouton.Location = new System.Drawing.Point(56, 60);
+            this.lblNbrMouton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbrMouton.ForeColor = System.Drawing.Color.White;
+            this.lblNbrMouton.Location = new System.Drawing.Point(62, 60);
             this.lblNbrMouton.Name = "lblNbrMouton";
-            this.lblNbrMouton.Size = new System.Drawing.Size(35, 13);
+            this.lblNbrMouton.Size = new System.Drawing.Size(47, 15);
             this.lblNbrMouton.TabIndex = 13;
             this.lblNbrMouton.Text = "label6";
             // 
@@ -670,12 +721,23 @@
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
+            // lblEntrepot
+            // 
+            this.lblEntrepot.AutoSize = true;
+            this.lblEntrepot.Location = new System.Drawing.Point(34, 335);
+            this.lblEntrepot.Name = "lblEntrepot";
+            this.lblEntrepot.Size = new System.Drawing.Size(47, 13);
+            this.lblEntrepot.TabIndex = 9;
+            this.lblEntrepot.Text = "Entrepôt";
+            this.lblEntrepot.Click += new System.EventHandler(this.pbxEntrepot_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(794, 482);
+            this.ClientSize = new System.Drawing.Size(815, 482);
+            this.Controls.Add(this.lblEntrepot);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.gbxAnimaux);
             this.Controls.Add(this.btnMagasin);
@@ -789,6 +851,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSauvegarder;
+        private System.Windows.Forms.Label lblEntrepot;
     }
 }
 

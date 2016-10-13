@@ -28,11 +28,11 @@ namespace farmFantasy
         }
 
         private Dictionary<string, double> DicoSemence = new Dictionary<string, double> { 
-                {"ble", 59},
-                {"colza", 119},
-                {"carotte", 299},
-                {"patate", 499},
-                {"mais", 899}
+                {"ble", 60},
+                {"colza", 120},
+                {"carotte", 300},
+                {"patate", 500},
+                {"mais", 900}
             };
 
         //  Constructor:
