@@ -26,6 +26,7 @@ namespace farmFantasy
         public void Sauvegarder()
         {
             Sauvegarder();
+            Sauvegarder();
         }
     }
 }
