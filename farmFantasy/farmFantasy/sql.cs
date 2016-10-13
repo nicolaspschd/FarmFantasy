@@ -95,5 +95,30 @@ namespace farmFantasy
             }
             connectionDB.Close();
         }
+
+        public void UpdateArgent(int argent)
+        {
+            string requette = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+
+            cmd = new MySqlCommand(requette, connectionDB);
+
+            cmd.Parameters.AddWithValue("@argent", argent);
+
+            try
+            {
+                connectionDB.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);   
+            }
+            connectionDB.Close();
+        }
+
+        public void SelectChamps()
+        {
+
+        }
     }
 }

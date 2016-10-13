@@ -47,7 +47,7 @@ namespace farmFantasy
         frmMagasin FrmMagasin = new frmMagasin();
 
         const int NBRCHAMPS = 10;
-        public int FrmMainArgent = 100;
+        public int argent = 100;
 
         public frmMain()
         {
@@ -56,7 +56,7 @@ namespace farmFantasy
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            lblArgent.Text = FrmMainArgent.ToString();
+            lblArgent.Text = argent.ToString();
 
             //  Initialisation de l'entrepot
             lblBleEntrepot.Text = entrepot["ble"].ToString();
@@ -203,6 +203,8 @@ namespace farmFantasy
                 string elementAt = repertoryAnimaux.ElementAt(i).Key;
                 UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
             }
+
+            UpdateArgent(argent);
         }
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)

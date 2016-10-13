@@ -49,7 +49,7 @@ namespace farmFantasy
         const int PRIXMAIS = 75;
         #endregion
 
-        public int _frmMagasinArgent;
+        public int argent;
         frmMain _FrmMain;
 
         public frmMagasin()
@@ -63,7 +63,7 @@ namespace farmFantasy
             _FrmMain = (frmMain)this.Owner;
 
             //  Récupération de l'argent de frmMain
-            _frmMagasinArgent = (int)(_FrmMain.FrmMainArgent);
+            argent = (int)(_FrmMain.argent);
 
             if (dudVente.Items.Count == 0)
             {
@@ -74,7 +74,7 @@ namespace farmFantasy
             }
 
             //  Mise a jour du label avec l'argent actuel
-            lblArgentMagas.Text = _frmMagasinArgent.ToString();
+            lblArgentMagas.Text = argent.ToString();
             ResetMag();
         }
 
@@ -86,8 +86,8 @@ namespace farmFantasy
                 if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
                 {
                     _FrmMain.entrepot[produitSelect] -= (int)nudQuantiteProduit.Value;
-                    _frmMagasinArgent += prixProduit;
-                    lblArgentMagas.Text = _frmMagasinArgent.ToString();
+                    argent += prixProduit;
+                    lblArgentMagas.Text = argent.ToString();
                     nudQuantiteProduit.Value = 0;
                 }
                 else
@@ -130,7 +130,7 @@ namespace farmFantasy
                     lblStock.BackColor = Color.Red;
                 }
 
-                if (prixProduit > _frmMagasinArgent)
+                if (prixProduit > argent)
                     lblPrixProduit.BackColor = Color.Red;
                 else
                     lblPrixProduit.BackColor = Color.Transparent;
@@ -141,14 +141,14 @@ namespace farmFantasy
 
         private void btnAchatProduit_Click(object sender, EventArgs e)
         {
-            if ((_frmMagasinArgent - prixProduit) >= 0)
+            if ((argent - prixProduit) >= 0)
             {
                 if (produitSelect != string.Empty)
                 {
                     _FrmMain.entrepot[produitSelect] += (int)nudQuantiteProduit.Value;
-                    _frmMagasinArgent -= prixProduit;
-                    lblArgentMagas.Text = _frmMagasinArgent.ToString();
-                    _FrmMain.FrmMainArgent = _frmMagasinArgent;
+                    argent -= prixProduit;
+                    lblArgentMagas.Text = argent.ToString();
+                    _FrmMain.argent = argent;
                     nudQuantiteProduit.Value = 0;
                 }
             }
@@ -156,7 +156,7 @@ namespace farmFantasy
 
         private void transaction_Click(object sender, EventArgs e)
         {
-            if ((_frmMagasinArgent - prixProduit >= 0) && (_frmMagasinArgent - totalPrixAnim >= 0))
+            if ((argent - prixProduit >= 0) && (argent - totalPrixAnim >= 0))
             {
                 _FrmMain.repertoryAnimaux["vache"].NbrAnimaux += (int)nudVache.Value;
                 _FrmMain.repertoryAnimaux["poule"].NbrAnimaux += (int)nudPoule.Value;
@@ -168,13 +168,13 @@ namespace farmFantasy
                 _FrmMain.repertoryAnimaux["mouton"].majPrix();
                 _FrmMain.repertoryAnimaux["cochon"].majPrix();
 
-                _frmMagasinArgent -= prixProduit + totalPrixAnim;
+                argent -= prixProduit + totalPrixAnim;
 
                 //  Mise a jour du label
-                lblArgentMagas.Text = _frmMagasinArgent.ToString();
+                lblArgentMagas.Text = argent.ToString();
 
                 //  Mise a jour de l'argent sur frmMain
-                _FrmMain.FrmMainArgent = _frmMagasinArgent;
+                _FrmMain.argent = argent;
 
                 ResetMag();
             }
@@ -216,8 +216,8 @@ namespace farmFantasy
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
-            _FrmMain.FrmMainArgent = _frmMagasinArgent;
-            _FrmMain.lblArgent.Text = _frmMagasinArgent.ToString();
+            _FrmMain.argent = argent;
+            _FrmMain.lblArgent.Text = argent.ToString();
             _FrmMain.frmMain_Load(null, null);
         }
 
