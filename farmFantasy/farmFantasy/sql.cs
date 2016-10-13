@@ -25,8 +25,7 @@ namespace farmFantasy
         MySqlCommand cmd;
         public void Sauvegarder()
         {
-            Sauvegarder();
-            Sauvegarder();
+
         }
     }
 }
