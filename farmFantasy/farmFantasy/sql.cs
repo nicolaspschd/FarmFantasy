@@ -24,11 +24,6 @@ namespace farmFantasy
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
 
-        public void Sauvegarder()
-        {
-
-        }
-
         public void UpdateChamps(int temps, string idSemence, string pbxName)
         {
             string requette = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
@@ -47,7 +42,6 @@ namespace farmFantasy
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw;
             }
             connectionDB.Close();
         }

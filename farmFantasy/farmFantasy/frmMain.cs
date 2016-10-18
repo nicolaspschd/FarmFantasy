@@ -179,6 +179,21 @@ namespace farmFantasy
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            sauvegarder();
+        }
+
+        private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sauvegarder();
+        }
+
+        public void sauvegarder()
+        {
             for (int i = 0; i <= NBRCHAMPS; i++)
             {
                 if (repertoryChamps.ContainsKey("pbxChamps" + i))
@@ -189,7 +204,7 @@ namespace farmFantasy
                 }
                 else
                 {
-                    UpdateChamps(0,"rien", "pbxChamps" + i);
+                    UpdateChamps(0, "rien", "pbxChamps" + i);
                 }
             }
 
@@ -205,11 +220,6 @@ namespace farmFantasy
             }
 
             UpdateArgent(argent);
-        }
-
-        private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
     }
 }
