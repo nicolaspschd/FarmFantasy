@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>grange.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -52,6 +55,12 @@
   <ItemGroup>
     <Compile Include="Animaux.cs" />
     <Compile Include="Champs.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEntrepot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +84,9 @@
     <Compile Include="sql.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEntrepot.resx">
       <DependentUpon>frmEntrepot.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\images\vache.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="grange.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -221,5 +221,11 @@ namespace farmFantasy
 
             UpdateArgent(argent);
         }
+
+        private void lblAPropos_Click(object sender, EventArgs e)
+        {
+            frmAbout FrmAbout = new frmAbout();
+            FrmAbout.ShowDialog();
+        }
     }
 }

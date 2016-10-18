@@ -84,6 +84,7 @@
             this.lblNbrMouton = new System.Windows.Forms.Label();
             this.btnSauvegarder = new System.Windows.Forms.Button();
             this.lblEntrepot = new System.Windows.Forms.Label();
+            this.lblAPropos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).BeginInit();
@@ -110,7 +111,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(101, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
@@ -470,7 +471,7 @@
             // lblArgent
             // 
             this.lblArgent.AutoSize = true;
-            this.lblArgent.Location = new System.Drawing.Point(46, 9);
+            this.lblArgent.Location = new System.Drawing.Point(135, 9);
             this.lblArgent.Name = "lblArgent";
             this.lblArgent.Size = new System.Drawing.Size(35, 13);
             this.lblArgent.TabIndex = 0;
@@ -713,7 +714,7 @@
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(148, 4);
+            this.btnSauvegarder.Location = new System.Drawing.Point(229, 4);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(92, 22);
             this.btnSauvegarder.TabIndex = 1;
@@ -731,12 +732,23 @@
             this.lblEntrepot.Text = "Entrepôt";
             this.lblEntrepot.Click += new System.EventHandler(this.pbxEntrepot_Click);
             // 
+            // lblAPropos
+            // 
+            this.lblAPropos.AutoSize = true;
+            this.lblAPropos.Location = new System.Drawing.Point(9, 9);
+            this.lblAPropos.Name = "lblAPropos";
+            this.lblAPropos.Size = new System.Drawing.Size(50, 13);
+            this.lblAPropos.TabIndex = 10;
+            this.lblAPropos.Text = "A Propos";
+            this.lblAPropos.Click += new System.EventHandler(this.lblAPropos_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(815, 482);
+            this.Controls.Add(this.lblAPropos);
             this.Controls.Add(this.lblEntrepot);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.gbxAnimaux);
@@ -761,6 +773,7 @@
             this.Controls.Add(this.pbxChamps1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -853,6 +866,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSauvegarder;
         private System.Windows.Forms.Label lblEntrepot;
+        private System.Windows.Forms.Label lblAPropos;
     }
 }
 
