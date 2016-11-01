@@ -240,7 +240,14 @@ namespace farmFantasy
 
         private void lblStock_Click(object sender, EventArgs e)
         {
-            nudQuantiteProduit.Value = Convert.ToDecimal((sender as Label).Text);
+            if (Convert.ToInt32(lblStock.Text) > 101)
+            {
+                nudQuantiteProduit.Value = 100;
+            }
+            else
+            {
+                nudQuantiteProduit.Value = Convert.ToDecimal((sender as Label).Text);
+            }
         }
     }
 }

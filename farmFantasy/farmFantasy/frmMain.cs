@@ -189,37 +189,55 @@ namespace farmFantasy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            sauvegarder();
+            if (conDB())
+            {
+                sauvegarder();
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeux ?","Danger",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
 
         public void sauvegarder()
         {
-            for (int i = 0; i <= NBRCHAMPS; i++)
+            if (conDB())
             {
-                if (repertoryChamps.ContainsKey("pbxChamps" + i))
+                for (int i = 0; i <= NBRCHAMPS; i++)
                 {
-                    Console.WriteLine(i + repertoryChamps["pbxChamps" + i].Culture);
-                    Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
-                    UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                    if (repertoryChamps.ContainsKey("pbxChamps" + i))
+                    {
+                        Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                        UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                    }
+                    else
+                    {
+                        UpdateChamps(0, "rien", "pbxChamps" + i);
+                    }
                 }
-                else
+
+                for (int i = 0; i < entrepot.Count; i++)
                 {
-                    UpdateChamps(0, "rien", "pbxChamps" + i);
+                    UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
                 }
-            }
 
-            for (int i = 0; i < entrepot.Count; i++)
+                for (int i = 0; i < repertoryAnimaux.Count; i++)
+                {
+                    string elementAt = repertoryAnimaux.ElementAt(i).Key;
+                    UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+                }
+
+                UpdateArgent(argent);
+            }
+            else
             {
-                UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
+                MessageBox.Show("La partie n'a pas pu être sauvegardée", "Pas de connection à la base de donnée", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            for (int i = 0; i < repertoryAnimaux.Count; i++)
-            {
-                string elementAt = repertoryAnimaux.ElementAt(i).Key;
-                UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
-            }
-
-            UpdateArgent(argent);
         }
 
         private void lblAPropos_Click(object sender, EventArgs e)

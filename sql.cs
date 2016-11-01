@@ -2,7 +2,7 @@
  * Auteurs : RAMUSHI Ardi && PASCHOUD Nicolas
  * Nom du programme : Farm Fantasy
  * Description : FarmFantasy est un jeu de gestion de ferme évolutif. 
- *               Plusieurs animaux et type de cultures seront
+ *               Plusieurs animaux et type de cultures seront 
  *               disponible ainsi que des améliorations de bâtiments.
  * Date : 1 Septembre 2016
  * Version 1.0
@@ -23,18 +23,6 @@ namespace farmFantasy
         static string infoDB = "server=127.0.0.1;user=root;database=farmfantasy;password=;";
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
-
-        public bool conDB()
-        {
-            bool conOK = false;
-
-            if (connectionDB.State == System.Data.ConnectionState.Open)
-            {
-                conOK = true;
-            }
-            
-            return conOK;
-        }
 
         public void UpdateChamps(int temps, string idSemence, string pbxName)
         {

@@ -26,7 +26,6 @@ namespace farmFantasy
             set { _pbxChamps = value; }
         }
 
-
         public string Culture
         {
             get { return _culture; }
