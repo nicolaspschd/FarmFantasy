@@ -24,11 +24,12 @@ namespace farmFantasy
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
 
-        const string UPDATECHAMPS = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
+        const string UPDATECHAMPS  = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
         const string UPDATEENTRPOT = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
         const string UPDATEANIMAUX = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
-        const string UPDATEARGENT = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
-        const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
+        const string UPDATEARGENT  = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+        const string SELECTCHAMPS  = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
+        const string SELECTANIMAUX = "SELECT * FROM animaux";
 
         public bool conDB()
         {
@@ -120,10 +121,10 @@ namespace farmFantasy
             connectionDB.Close();
         }
 
-        public void SelectChamps()
+        public void chargerChamps()
         {
             cmd = new MySqlCommand(SELECTCHAMPS, connectionDB);
-            int i = 0;
+            
             try
             {
                 connectionDB.Open();
@@ -132,8 +133,7 @@ namespace farmFantasy
                 while (reader.Read())
                 {
                     PictureBox pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as PictureBox;
-                    i++;
-                    Console.WriteLine(i);
+                    
                     pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
                     
                     repertoryChamps.Add(reader[0].ToString(), new Champs(pbx, reader[2].ToString()));
@@ -143,6 +143,33 @@ namespace farmFantasy
             {
                 Console.WriteLine(e.Message);
             }
+
+            connectionDB.Close();
+        }
+
+        public void chargerAnimaux()
+        {
+            cmd = new MySqlCommand(SELECTANIMAUX, connectionDB);
+
+            try
+            {
+                connectionDB.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Label pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as Label;
+
+                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
+
+                    repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             connectionDB.Close();
         }
     }

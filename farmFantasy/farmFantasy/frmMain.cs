@@ -57,28 +57,11 @@ namespace farmFantasy
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            lblArgent.Text = argent.ToString();
-
-            //  Initialisation de l'entrepot
-            lblBleEntrepot.Text = entrepot["ble"].ToString();
-            lblColzaEntrepot.Text = entrepot["colza"].ToString();
-            lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
-            lblPatateEntrepot.Text = entrepot["patate"].ToString();
-            lblMaisEntrepot.Text = entrepot["mais"].ToString();
-
-            lblOeufEntrepot.Text = entrepot["oeufs"].ToString();
-            lblLaineEntrepot.Text = entrepot["laine"].ToString();
-            lblLaitEntrepot.Text = entrepot["lait"].ToString();
-            lblBaconEntrepot.Text = entrepot["bacon"].ToString();
-
-            lblNbrPoule.Text = repertoryAnimaux["poule"].NbrAnimaux.ToString();
-            lblNbrMouton.Text = repertoryAnimaux["mouton"].NbrAnimaux.ToString();
-            lblNbrVache.Text = repertoryAnimaux["vache"].NbrAnimaux.ToString();
-            lblNbrCochon.Text = repertoryAnimaux["cochon"].NbrAnimaux.ToString();
+            majInterface();
 
             /*if (conDB())
             {*/
-                SelectChamps();
+            chargerChamps();
             //}
         }
 
@@ -113,7 +96,7 @@ namespace farmFantasy
                     pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(culture);
 
                     //  Mise a jour des labels
-                    frmMain_Load(null, null);
+                    majInterface();
 
                     if (!repertoryChamps.ContainsKey(pbx.Name))
                     {
@@ -142,9 +125,6 @@ namespace farmFantasy
                             //  Mise a jour de l'entrepot
                             entrepot[nativChamps.Culture] += 2;
 
-                            //  Mise a jour des labels
-                            frmMain_Load(null, null);
-
                             //  Supression de l'objet "lié" au champs
                             repertoryChamps.Remove("pbxChamps" + i);
                         }
@@ -157,13 +137,16 @@ namespace farmFantasy
                     entrepot["lait"] += (int)repertoryAnimaux["vache"].Quantite;
             if (repertoryAnimaux["poule"].NbrAnimaux > 0)
                 if (repertoryAnimaux["poule"].calculTempsProd())
-                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite; frmMain_Load(null, null);
+                    entrepot["oeufs"] += (int)repertoryAnimaux["poule"].Quantite;
             if (repertoryAnimaux["mouton"].NbrAnimaux > 0)
                 if (repertoryAnimaux["mouton"].calculTempsProd())
                     entrepot["laine"] += (int)repertoryAnimaux["mouton"].Quantite;
             if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
                 if (repertoryAnimaux["cochon"].calculTempsProd())
                     entrepot["bacon"] += (int)repertoryAnimaux["cochon"].Quantite;
+            
+            //  Mise a jour des labels
+            majInterface();
         }
 
         private void pbxClickAnimaux_Click(object sender, EventArgs e)
@@ -201,7 +184,7 @@ namespace farmFantasy
             }
             else
             {
-                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeux ?","Danger",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeux ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dr == DialogResult.No)
                 {
@@ -214,31 +197,31 @@ namespace farmFantasy
         {
             //if (conDB())
             //{
-                for (int i = 0; i <= NBRCHAMPS; i++)
+            for (int i = 0; i <= NBRCHAMPS; i++)
+            {
+                if (repertoryChamps.ContainsKey("pbxChamps" + i))
                 {
-                    if (repertoryChamps.ContainsKey("pbxChamps" + i))
-                    {
-                        Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
-                        UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
-                    }
-                    else
-                    {
-                        UpdateChamps(0, "rien", "pbxChamps" + i);
-                    }
+                    Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                    UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
                 }
-
-                for (int i = 0; i < entrepot.Count; i++)
+                else
                 {
-                    UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
+                    UpdateChamps(0, "rien", "pbxChamps" + i);
                 }
+            }
 
-                for (int i = 0; i < repertoryAnimaux.Count; i++)
-                {
-                    string elementAt = repertoryAnimaux.ElementAt(i).Key;
-                    UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
-                }
+            for (int i = 0; i < entrepot.Count; i++)
+            {
+                UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
+            }
 
-                UpdateArgent(argent);
+            for (int i = 0; i < repertoryAnimaux.Count; i++)
+            {
+                string elementAt = repertoryAnimaux.ElementAt(i).Key;
+                UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+            }
+
+            UpdateArgent(argent);
             //}
             /*else
             {
@@ -250,6 +233,28 @@ namespace farmFantasy
         {
             frmAbout FrmAbout = new frmAbout();
             FrmAbout.ShowDialog();
+        }
+
+        public void majInterface()
+        {
+            lblArgent.Text = argent.ToString();
+
+            //  Initialisation de l'entrepot
+            lblBleEntrepot.Text = entrepot["ble"].ToString();
+            lblColzaEntrepot.Text = entrepot["colza"].ToString();
+            lblCarotteEntrepot.Text = entrepot["carotte"].ToString();
+            lblPatateEntrepot.Text = entrepot["patate"].ToString();
+            lblMaisEntrepot.Text = entrepot["mais"].ToString();
+
+            lblOeufEntrepot.Text = entrepot["oeufs"].ToString();
+            lblLaineEntrepot.Text = entrepot["laine"].ToString();
+            lblLaitEntrepot.Text = entrepot["lait"].ToString();
+            lblBaconEntrepot.Text = entrepot["bacon"].ToString();
+
+            lblNbrPoule.Text = repertoryAnimaux["poule"].NbrAnimaux.ToString();
+            lblNbrMouton.Text = repertoryAnimaux["mouton"].NbrAnimaux.ToString();
+            lblNbrVache.Text = repertoryAnimaux["vache"].NbrAnimaux.ToString();
+            lblNbrCochon.Text = repertoryAnimaux["cochon"].NbrAnimaux.ToString();
         }
     }
 }
