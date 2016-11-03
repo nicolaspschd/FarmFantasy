@@ -62,13 +62,14 @@ namespace farmFantasy
             /*if (conDB())
             {*/
             chargerChamps();
+            chargerArgent();
             //}
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)
         {
             //  Initialisation des variables
-            PictureBox pbx = (sender as PictureBox);
+            PictureBox pbx = sender as PictureBox;
 
             if (!rbnNothing.Checked)
             {
@@ -117,7 +118,7 @@ namespace farmFantasy
                     if (repertoryChamps.ContainsKey("pbxChamps" + i))
                     {
                         //  Récupération du champs
-                        Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                        Champs nativChamps = repertoryChamps["pbxChamps" + i] as Champs;
 
                         //  Si le temps de pousse est finis
                         if (nativChamps.calculTemps())
@@ -151,7 +152,7 @@ namespace farmFantasy
 
         private void pbxClickAnimaux_Click(object sender, EventArgs e)
         {
-            PictureBox pbx = (sender as PictureBox);
+            PictureBox pbx = sender as PictureBox;
         }
 
         private void btnMagasin_Click(object sender, EventArgs e)

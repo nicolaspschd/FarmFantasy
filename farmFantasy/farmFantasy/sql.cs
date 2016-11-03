@@ -30,6 +30,7 @@ namespace farmFantasy
         const string UPDATEARGENT  = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
         const string SELECTCHAMPS  = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
         const string SELECTANIMAUX = "SELECT * FROM animaux";
+        const string SELECTARGENT  = "SELECT argent FROM joueurs";
 
         public bool conDB()
         {
@@ -168,6 +169,30 @@ namespace farmFantasy
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+
+            connectionDB.Close();
+        }
+
+        public void chargerArgent()
+        {
+            cmd = new MySqlCommand(SELECTARGENT, connectionDB);
+
+            try
+            {
+                connectionDB.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Console.WriteLine(reader.GetValue(0));
+                    argent = Convert.ToInt32(reader.GetValue(0));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);   
             }
 
             connectionDB.Close();
