@@ -7,6 +7,7 @@
  * Date : 1 Septembre 2016
  * Version 1.0
  */
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +75,11 @@ namespace farmFantasy
             lblNbrMouton.Text = repertoryAnimaux["mouton"].NbrAnimaux.ToString();
             lblNbrVache.Text = repertoryAnimaux["vache"].NbrAnimaux.ToString();
             lblNbrCochon.Text = repertoryAnimaux["cochon"].NbrAnimaux.ToString();
+
+            /*if (conDB())
+            {*/
+                SelectChamps();
+            //}
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)
@@ -206,8 +212,8 @@ namespace farmFantasy
 
         public void sauvegarder()
         {
-            if (conDB())
-            {
+            //if (conDB())
+            //{
                 for (int i = 0; i <= NBRCHAMPS; i++)
                 {
                     if (repertoryChamps.ContainsKey("pbxChamps" + i))
@@ -233,11 +239,11 @@ namespace farmFantasy
                 }
 
                 UpdateArgent(argent);
-            }
-            else
+            //}
+            /*else
             {
                 MessageBox.Show("La partie n'a pas pu être sauvegardée", "Pas de connection à la base de donnée", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
         private void lblAPropos_Click(object sender, EventArgs e)

@@ -32,6 +32,12 @@ namespace farmFantasy
             set { _culture = value; }
         }
 
+        public double TempsPousse
+        {
+            get { return _tempsPousse; }
+            set { _tempsPousse = value; }
+        }
+
         private Dictionary<string, double> DicoSemence = new Dictionary<string, double> { 
                 {"ble", 60},
                 {"colza", 120},
@@ -41,11 +47,14 @@ namespace farmFantasy
             };
 
         //  Constructor:
-        public Champs(PictureBox Champs, string semence)
+        public Champs(PictureBox champs, string semence) : this(champs, semence, 0) { }
+
+        public Champs(PictureBox Champs, string semence, int tempsActu)
         {
-            _pbxChamps = Champs;
-            _tempsPousse = DicoSemence[semence];
-            _culture = semence;
+            PbxChamps = Champs;
+            TempsPousse = DicoSemence[semence];
+            Culture = semence;
+            Temps = tempsActu;
         }
 
         public bool calculTemps()

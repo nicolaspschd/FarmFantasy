@@ -24,6 +24,12 @@ namespace farmFantasy
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
 
+        const string UPDATECHAMPS = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
+        const string UPDATEENTRPOT = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
+        const string UPDATEANIMAUX = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
+        const string UPDATEARGENT = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+        const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
+
         public bool conDB()
         {
             bool conOK = false;
@@ -32,15 +38,13 @@ namespace farmFantasy
             {
                 conOK = true;
             }
-            
+
             return conOK;
         }
 
         public void UpdateChamps(int temps, string idSemence, string pbxName)
         {
-            string requette = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
-
-            cmd = new MySqlCommand(requette, connectionDB);
+            cmd = new MySqlCommand(UPDATECHAMPS, connectionDB);
 
             cmd.Parameters.AddWithValue("@temps", temps);
             cmd.Parameters.AddWithValue("@idSemence", idSemence);
@@ -60,9 +64,7 @@ namespace farmFantasy
 
         public void UpdateEntrepot(string idItem, int qte)
         {
-            string requette = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
-
-            cmd = new MySqlCommand(requette, connectionDB);
+            cmd = new MySqlCommand(UPDATEENTRPOT, connectionDB);
 
             cmd.Parameters.AddWithValue("@item", qte);
             cmd.Parameters.AddWithValue("@idItem", idItem);
@@ -82,9 +84,7 @@ namespace farmFantasy
 
         public void UpdateAnimaux(string nomAnimal, int nbrAnimaux, int TempsProdActu)
         {
-            string requette = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
-
-            cmd = new MySqlCommand(requette, connectionDB);
+            cmd = new MySqlCommand(UPDATEANIMAUX, connectionDB);
 
             cmd.Parameters.AddWithValue("@nbrAnim", nbrAnimaux);
             cmd.Parameters.AddWithValue("@tempsProd", TempsProdActu);
@@ -104,9 +104,7 @@ namespace farmFantasy
 
         public void UpdateArgent(int argent)
         {
-            string requette = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
-
-            cmd = new MySqlCommand(requette, connectionDB);
+            cmd = new MySqlCommand(UPDATEARGENT, connectionDB);
 
             cmd.Parameters.AddWithValue("@argent", argent);
 
@@ -117,16 +115,35 @@ namespace farmFantasy
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);   
+                Console.WriteLine(ex.Message);
             }
             connectionDB.Close();
         }
 
         public void SelectChamps()
         {
-            string requette = "SELECT * FROM champs";
+            cmd = new MySqlCommand(SELECTCHAMPS, connectionDB);
+            int i = 0;
+            try
+            {
+                connectionDB.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-            cmd = new MySqlCommand(requette, connectionDB);
+                while (reader.Read())
+                {
+                    PictureBox pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as PictureBox;
+                    i++;
+                    Console.WriteLine(i);
+                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
+                    
+                    repertoryChamps.Add(reader[0].ToString(), new Champs(pbx, reader[2].ToString()));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            connectionDB.Close();
         }
     }
 }
