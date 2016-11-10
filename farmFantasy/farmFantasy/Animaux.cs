@@ -25,6 +25,24 @@ namespace farmFantasy
         private int _temps = 0;
         private double _prixV;
         private int _quantite;
+        
+        public double PrixV
+        {
+            get { return _prixV; }
+            set { _prixV = value; }
+        }
+
+        public string TypeAnimal
+        {
+            get { return _typeAnimal; }
+            set { _typeAnimal = value; }
+        }
+
+        public double TempsProduction
+        {
+            get { return _tempsProduction; }
+            set { _tempsProduction = value; }
+        }
 
         public int Temps
         {
@@ -52,10 +70,10 @@ namespace farmFantasy
 
         public Animaux(double prixV, double tempsProd, string typAnim, int nbrAnim, int qteProd)
         {
-            _tempsProduction = tempsProd;
-            _typeAnimal = typAnim;
+            TempsProduction = tempsProd;
+            TypeAnimal = typAnim;
             NbrAnimaux = nbrAnim;
-            _prixV = prixV;
+            PrixV = prixV;
             Quantite = nbrAnim * qteProd;
         }
 
