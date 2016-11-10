@@ -44,6 +44,7 @@ namespace farmFantasy
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             MessageBox.Show("Vous êtes bien inscrit", "Meuuuh !!!", MessageBoxButtons.OK);
+                            this.Close();
                         }
                     }
                     catch (Exception ex)
