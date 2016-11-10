@@ -51,12 +51,11 @@ namespace farmFantasy
         {
             if (login == string.Empty)
             {
+                timer.Enabled = false;
                 frmConnexion frmCo = new frmConnexion();
                 frmCo.ShowDialog();
             }
-            else
-            {
-                Console.WriteLine(".bip");
+                timer.Enabled = true;
 
                 /*if (conDB())
                 {*/
@@ -66,7 +65,6 @@ namespace farmFantasy
                 //}
 
                 majInterface();
-            }
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)

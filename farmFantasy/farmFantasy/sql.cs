@@ -188,7 +188,6 @@ namespace farmFantasy
 
                 if (reader.Read())
                 {
-                    Console.WriteLine(reader.GetValue(0));
                     argent = Convert.ToInt32(reader.GetValue(0));
                 }
             }

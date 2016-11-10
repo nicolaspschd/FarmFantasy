@@ -62,6 +62,7 @@
             this.btnInscription.TabIndex = 1;
             this.btnInscription.Text = "Inscription";
             this.btnInscription.UseVisualStyleBackColor = false;
+            this.btnInscription.Click += new System.EventHandler(this.btnInscription_Click);
             // 
             // btnLogin
             // 
@@ -72,6 +73,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Se connecter";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblPseudo
             // 
@@ -87,6 +89,7 @@
             // 
             // tbxPseudo
             // 
+            this.tbxPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPseudo.Location = new System.Drawing.Point(251, 168);
             this.tbxPseudo.Multiline = true;
             this.tbxPseudo.Name = "tbxPseudo";
@@ -107,9 +110,11 @@
             // 
             // tbxMdp
             // 
+            this.tbxMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxMdp.Location = new System.Drawing.Point(251, 209);
             this.tbxMdp.Multiline = true;
             this.tbxMdp.Name = "tbxMdp";
+            this.tbxMdp.PasswordChar = '*';
             this.tbxMdp.Size = new System.Drawing.Size(229, 29);
             this.tbxMdp.TabIndex = 6;
             // 
@@ -128,9 +133,11 @@
             // 
             // tbxConfMdp
             // 
+            this.tbxConfMdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxConfMdp.Location = new System.Drawing.Point(251, 257);
             this.tbxConfMdp.Multiline = true;
             this.tbxConfMdp.Name = "tbxConfMdp";
+            this.tbxConfMdp.PasswordChar = '*';
             this.tbxConfMdp.Size = new System.Drawing.Size(229, 29);
             this.tbxConfMdp.TabIndex = 8;
             this.tbxConfMdp.Visible = false;
