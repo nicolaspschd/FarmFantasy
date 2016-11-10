@@ -24,14 +24,14 @@ namespace farmFantasy
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
 
-        const string UPDATECHAMPS  = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
-        const string UPDATEENTRPOT = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
-        const string UPDATEANIMAUX = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
-        const string UPDATEARGENT  = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
-        const string SELECTCHAMPS  = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
-        const string SELECTANIMAUX = "SELECT * FROM animaux";
-        const string SELECTARGENT  = "SELECT argent FROM joueurs";
+        const string UPDATECHAMPS   = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
+        const string UPDATEENTRPOT  = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
+        const string UPDATEANIMAUX  = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
+        const string UPDATEARGENT   = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+        const string SELECTCHAMPS   = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
+        const string SELECTARGENT   = "SELECT argent FROM joueurs";
         const string SELECTENTREPOT = "SELECT * FROM entrepots";
+        const string SELECTANIMAUX  = "SELECT * FROM animaux NATURAL JOIN produits";
 
         public bool conDB()
         {
