@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 10 Novembre 2016 à 08:51
+-- Généré le :  Jeu 10 Novembre 2016 à 10:36
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `animaux` (
   `idNomAnimal` varchar(50) NOT NULL,
   `nbrAnimaux` int(11) NOT NULL,
   `tempProdActu` int(11) NOT NULL,
+  `qteProd` int(11) NOT NULL,
   `idNomProduit` varchar(50) NOT NULL,
   `idJoueur` int(11) NOT NULL,
   PRIMARY KEY (`idNomAnimal`),
@@ -44,11 +45,11 @@ CREATE TABLE IF NOT EXISTS `animaux` (
 -- Contenu de la table `animaux`
 --
 
-INSERT INTO `animaux` (`idNomAnimal`, `nbrAnimaux`, `tempProdActu`, `idNomProduit`, `idJoueur`) VALUES
-('cochon', 0, 0, 'bacon', 1),
-('mouton', 0, 0, 'laine', 1),
-('poule', 0, 0, 'oeufs', 1),
-('vache', 0, 0, 'lait', 1);
+INSERT INTO `animaux` (`idNomAnimal`, `nbrAnimaux`, `tempProdActu`, `qteProd`, `idNomProduit`, `idJoueur`) VALUES
+('cochon', 0, 0, 4, 'bacon', 1),
+('mouton', 0, 0, 25, 'laine', 1),
+('poule', 2, 2, 5, 'oeufs', 1),
+('vache', 0, 0, 1, 'lait', 1);
 
 -- --------------------------------------------------------
 
@@ -74,14 +75,14 @@ CREATE TABLE IF NOT EXISTS `champs` (
 INSERT INTO `champs` (`idChamps`, `tempsRestant`, `idNomSemence`, `idJoueur`) VALUES
 ('pbxChamps1', 0, 'rien', 1),
 ('pbxChamps10', 0, 'rien', 1),
-('pbxChamps2', 3, 'colza', 1),
-('pbxChamps3', 22, 'ble', 1),
-('pbxChamps4', 3, 'colza', 1),
+('pbxChamps2', 0, 'rien', 1),
+('pbxChamps3', 0, 'rien', 1),
+('pbxChamps4', 0, 'rien', 1),
 ('pbxChamps5', 0, 'rien', 1),
 ('pbxChamps6', 0, 'rien', 1),
 ('pbxChamps7', 0, 'rien', 1),
-('pbxChamps8', 22, 'ble', 1),
-('pbxChamps9', 22, 'ble', 1);
+('pbxChamps8', 0, 'rien', 1),
+('pbxChamps9', 0, 'rien', 1);
 
 -- --------------------------------------------------------
 
@@ -106,13 +107,13 @@ CREATE TABLE IF NOT EXISTS `entrepots` (
 
 INSERT INTO `entrepots` (`idNomItem`, `qteItem`, `idJoueur`) VALUES
 ('bacon', 0, 1),
-('ble', 12, 1),
+('ble', 18, 1),
 ('carotte', 0, 1),
-('colza', 0, 1),
+('colza', 4, 1),
 ('laine', 0, 1),
 ('lait', 0, 1),
 ('mais', 0, 1),
-('oeufs', 0, 1),
+('oeufs', 20, 1),
 ('patate', 0, 1),
 ('rien', 0, 1);
 
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `joueurs` (
 --
 
 INSERT INTO `joueurs` (`idJoueur`, `Pseudo`, `mdp`, `argent`) VALUES
-(1, 'Robert', '035d22fc1be7512050cf2be88e65cb04b4d844da', 60);
+(1, 'Robert', '035d22fc1be7512050cf2be88e65cb04b4d844da', 100);
 
 -- --------------------------------------------------------
 
@@ -148,6 +149,7 @@ INSERT INTO `joueurs` (`idJoueur`, `Pseudo`, `mdp`, `argent`) VALUES
 CREATE TABLE IF NOT EXISTS `produits` (
   `idNomProduit` varchar(50) NOT NULL,
   `tempsProduction` int(11) NOT NULL,
+  `prixVenteUnite` int(11) NOT NULL,
   `idNomItem` varchar(50) NOT NULL,
   PRIMARY KEY (`idNomProduit`),
   KEY `idNomItem` (`idNomItem`)
@@ -157,11 +159,11 @@ CREATE TABLE IF NOT EXISTS `produits` (
 -- Contenu de la table `produits`
 --
 
-INSERT INTO `produits` (`idNomProduit`, `tempsProduction`, `idNomItem`) VALUES
-('bacon', 1200, 'bacon'),
-('laine', 7200, 'laine'),
-('lait', 600, 'lait'),
-('oeufs', 100, 'oeufs');
+INSERT INTO `produits` (`idNomProduit`, `tempsProduction`, `prixVenteUnite`, `idNomItem`) VALUES
+('bacon', 1200, 0, 'bacon'),
+('laine', 7200, 0, 'laine'),
+('lait', 600, 0, 'lait'),
+('oeufs', 100, 0, 'oeufs');
 
 -- --------------------------------------------------------
 
@@ -197,8 +199,8 @@ INSERT INTO `semences` (`idNomSemence`, `tempsPousse`, `idNomItem`) VALUES
 -- Contraintes pour la table `animaux`
 --
 ALTER TABLE `animaux`
-  ADD CONSTRAINT `animaux_ibfk_2` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `animaux_ibfk_1` FOREIGN KEY (`idNomProduit`) REFERENCES `produits` (`idNomProduit`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `animaux_ibfk_1` FOREIGN KEY (`idNomProduit`) REFERENCES `produits` (`idNomProduit`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `animaux_ibfk_2` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `champs`
