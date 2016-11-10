@@ -156,14 +156,14 @@ namespace farmFantasy
                 connectionDB.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                /*while (reader.Read())
                 {
                     Label pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as Label;
 
                     pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
 
                     repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
-                }
+                }*/
             }
             catch (Exception e)
             {

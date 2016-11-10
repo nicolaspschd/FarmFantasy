@@ -184,7 +184,7 @@ namespace farmFantasy
             }
             else
             {
-                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeux ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeu ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dr == DialogResult.No)
                 {
