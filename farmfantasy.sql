@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 03 Novembre 2016 à 09:22
+-- Généré le :  Jeu 10 Novembre 2016 à 08:51
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -33,19 +33,22 @@ CREATE TABLE IF NOT EXISTS `animaux` (
   `nbrAnimaux` int(11) NOT NULL,
   `tempProdActu` int(11) NOT NULL,
   `idNomProduit` varchar(50) NOT NULL,
+  `idJoueur` int(11) NOT NULL,
   PRIMARY KEY (`idNomAnimal`),
-  KEY `idNomProduit` (`idNomProduit`)
+  KEY `idNomProduit` (`idNomProduit`),
+  KEY `idJoueur` (`idJoueur`),
+  KEY `idJoueur_2` (`idJoueur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `animaux`
 --
 
-INSERT INTO `animaux` (`idNomAnimal`, `nbrAnimaux`, `tempProdActu`, `idNomProduit`) VALUES
-('cochon', 0, 0, 'bacon'),
-('mouton', 0, 0, 'laine'),
-('poule', 0, 0, 'oeufs'),
-('vache', 0, 0, 'lait');
+INSERT INTO `animaux` (`idNomAnimal`, `nbrAnimaux`, `tempProdActu`, `idNomProduit`, `idJoueur`) VALUES
+('cochon', 0, 0, 'bacon', 1),
+('mouton', 0, 0, 'laine', 1),
+('poule', 0, 0, 'oeufs', 1),
+('vache', 0, 0, 'lait', 1);
 
 -- --------------------------------------------------------
 
@@ -57,25 +60,28 @@ CREATE TABLE IF NOT EXISTS `champs` (
   `idChamps` varchar(40) NOT NULL,
   `tempsRestant` int(11) NOT NULL,
   `idNomSemence` varchar(50) NOT NULL,
+  `idJoueur` int(11) NOT NULL,
   PRIMARY KEY (`idChamps`),
-  KEY `idNomSemence` (`idNomSemence`)
+  KEY `idNomSemence` (`idNomSemence`),
+  KEY `idJoueur` (`idJoueur`),
+  KEY `idJoueur_2` (`idJoueur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `champs`
 --
 
-INSERT INTO `champs` (`idChamps`, `tempsRestant`, `idNomSemence`) VALUES
-('pbxChamps1', 0, 'rien'),
-('pbxChamps10', 0, 'rien'),
-('pbxChamps2', 3, 'colza'),
-('pbxChamps3', 22, 'ble'),
-('pbxChamps4', 3, 'colza'),
-('pbxChamps5', 0, 'rien'),
-('pbxChamps6', 0, 'rien'),
-('pbxChamps7', 0, 'rien'),
-('pbxChamps8', 22, 'ble'),
-('pbxChamps9', 22, 'ble');
+INSERT INTO `champs` (`idChamps`, `tempsRestant`, `idNomSemence`, `idJoueur`) VALUES
+('pbxChamps1', 0, 'rien', 1),
+('pbxChamps10', 0, 'rien', 1),
+('pbxChamps2', 3, 'colza', 1),
+('pbxChamps3', 22, 'ble', 1),
+('pbxChamps4', 3, 'colza', 1),
+('pbxChamps5', 0, 'rien', 1),
+('pbxChamps6', 0, 'rien', 1),
+('pbxChamps7', 0, 'rien', 1),
+('pbxChamps8', 22, 'ble', 1),
+('pbxChamps9', 22, 'ble', 1);
 
 -- --------------------------------------------------------
 
@@ -86,24 +92,29 @@ INSERT INTO `champs` (`idChamps`, `tempsRestant`, `idNomSemence`) VALUES
 CREATE TABLE IF NOT EXISTS `entrepots` (
   `idNomItem` varchar(50) NOT NULL,
   `qteItem` int(11) NOT NULL,
-  PRIMARY KEY (`idNomItem`)
+  `idJoueur` int(11) NOT NULL,
+  PRIMARY KEY (`idNomItem`),
+  KEY `idJoueur` (`idJoueur`),
+  KEY `idJoueur_2` (`idJoueur`),
+  KEY `idJoueur_3` (`idJoueur`),
+  KEY `idJoueur_4` (`idJoueur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `entrepots`
 --
 
-INSERT INTO `entrepots` (`idNomItem`, `qteItem`) VALUES
-('bacon', 0),
-('ble', 12),
-('carotte', 0),
-('colza', 0),
-('laine', 0),
-('lait', 0),
-('mais', 0),
-('oeufs', 0),
-('patate', 0),
-('rien', 0);
+INSERT INTO `entrepots` (`idNomItem`, `qteItem`, `idJoueur`) VALUES
+('bacon', 0, 1),
+('ble', 12, 1),
+('carotte', 0, 1),
+('colza', 0, 1),
+('laine', 0, 1),
+('lait', 0, 1),
+('mais', 0, 1),
+('oeufs', 0, 1),
+('patate', 0, 1),
+('rien', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -113,16 +124,20 @@ INSERT INTO `entrepots` (`idNomItem`, `qteItem`) VALUES
 
 CREATE TABLE IF NOT EXISTS `joueurs` (
   `idJoueur` int(11) NOT NULL AUTO_INCREMENT,
+  `Pseudo` varchar(50) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
   `argent` int(11) NOT NULL,
-  PRIMARY KEY (`idJoueur`)
+  PRIMARY KEY (`idJoueur`),
+  UNIQUE KEY `Pseudo` (`Pseudo`),
+  KEY `idJoueur` (`idJoueur`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `joueurs`
 --
 
-INSERT INTO `joueurs` (`idJoueur`, `argent`) VALUES
-(1, 60);
+INSERT INTO `joueurs` (`idJoueur`, `Pseudo`, `mdp`, `argent`) VALUES
+(1, 'Robert', '035d22fc1be7512050cf2be88e65cb04b4d844da', 60);
 
 -- --------------------------------------------------------
 
@@ -182,13 +197,21 @@ INSERT INTO `semences` (`idNomSemence`, `tempsPousse`, `idNomItem`) VALUES
 -- Contraintes pour la table `animaux`
 --
 ALTER TABLE `animaux`
+  ADD CONSTRAINT `animaux_ibfk_2` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `animaux_ibfk_1` FOREIGN KEY (`idNomProduit`) REFERENCES `produits` (`idNomProduit`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `champs`
 --
 ALTER TABLE `champs`
+  ADD CONSTRAINT `champs_ibfk_2` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `champs_ibfk_1` FOREIGN KEY (`idNomSemence`) REFERENCES `semences` (`idNomSemence`);
+
+--
+-- Contraintes pour la table `entrepots`
+--
+ALTER TABLE `entrepots`
+  ADD CONSTRAINT `entrepots_ibfk_1` FOREIGN KEY (`idJoueur`) REFERENCES `joueurs` (`idJoueur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `produits`

@@ -24,6 +24,8 @@ namespace farmFantasy
 {
     public partial class frmMain : Form
     {
+        public string login = string.Empty;
+
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
 
         public Dictionary<string, int> entrepot = new Dictionary<string, int>();
@@ -47,14 +49,24 @@ namespace farmFantasy
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            /*if (conDB())
-            {*/
-            chargerChamps();
-            chargerArgent();
-            chargerEntrepot();
-            //}
+            if (login == string.Empty)
+            {
+                frmConnexion frmCo = new frmConnexion();
+                frmCo.ShowDialog();
+            }
+            else
+            {
+                Console.WriteLine(".bip");
 
-            majInterface();
+                /*if (conDB())
+                {*/
+                chargerChamps();
+                chargerArgent();
+                chargerEntrepot();
+                //}
+
+                majInterface();
+            }
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)
