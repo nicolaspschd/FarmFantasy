@@ -31,6 +31,7 @@ namespace farmFantasy
         const string SELECTCHAMPS  = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
         const string SELECTANIMAUX = "SELECT * FROM animaux";
         const string SELECTARGENT  = "SELECT argent FROM joueurs";
+        const string SELECTENTREPOT = "SELECT * FROM entrepots";
 
         public bool conDB()
         {
@@ -157,14 +158,14 @@ namespace farmFantasy
                 connectionDB.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                /*while (reader.Read())
+                while (reader.Read())
                 {
                     Label pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as Label;
 
                     pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
 
-                    repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
-                }*/
+                    //repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
+                }
             }
             catch (Exception e)
             {
@@ -176,6 +177,7 @@ namespace farmFantasy
 
         public void chargerArgent()
         {
+            int argent = 0;
             cmd = new MySqlCommand(SELECTARGENT, connectionDB);
 
             try
@@ -193,6 +195,29 @@ namespace farmFantasy
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);   
+            }
+
+            connectionDB.Close();
+        }
+
+        public void chargerEntrepot()
+        {
+            cmd = new MySqlCommand(SELECTENTREPOT, connectionDB);
+
+            try
+            {
+                connectionDB.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    entrepot.Add(reader[0].ToString(), (int)reader[1]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             connectionDB.Close();

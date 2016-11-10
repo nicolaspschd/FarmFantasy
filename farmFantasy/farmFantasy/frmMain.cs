@@ -26,17 +26,7 @@ namespace farmFantasy
     {
         Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
 
-        public Dictionary<string, int> entrepot = new Dictionary<string, int> { 
-            {"ble", 10},
-            {"colza", 0},
-            {"carotte", 0},
-            {"patate", 0},
-            {"mais", 0},
-            {"oeufs", 0},
-            {"laine", 0},
-            {"lait", 0},
-            {"bacon", 0}
-        };
+        public Dictionary<string, int> entrepot = new Dictionary<string, int>();
 
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
             {"poule", new Animaux(1, 100, "poule", 0, 5)},
@@ -57,13 +47,14 @@ namespace farmFantasy
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            majInterface();
-
             /*if (conDB())
             {*/
             chargerChamps();
             chargerArgent();
+            chargerEntrepot();
             //}
+
+            majInterface();
         }
 
         private void pbxClickChamps_Click(object sender, EventArgs e)
