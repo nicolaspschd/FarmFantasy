@@ -160,11 +160,10 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    Label pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as Label;
+                    Animaux animal;
 
-                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
-
-                    //repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
+                    Console.WriteLine(reader.GetValue(7) + "    " + (int)reader[6] + "    " + (string)reader[1] + "    " + (int)reader[2] + "    " + (int)reader[4]);
+                    repertoryAnimaux.Add(reader.GetValue(1).ToString(), animal = new Animaux(Convert.ToDouble(reader.GetValue(7)), Convert.ToDouble(reader.GetValue(6)), reader.GetValue(1).ToString(), Convert.ToInt32(reader.GetValue(2)), Convert.ToInt32(reader.GetValue(4))));
                 }
             }
             catch (Exception e)

@@ -30,12 +30,7 @@ namespace farmFantasy
 
         public Dictionary<string, int> entrepot = new Dictionary<string, int>();
 
-        public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>{
-            {"poule", new Animaux(1, 100, "poule", 0, 5)},
-            {"mouton", new Animaux(150, 7200, "mouton", 0, 25)},
-            {"cochon", new Animaux(10, 1200, "cochon", 0, 4)},
-            {"vache", new Animaux(2, 600, "vache", 0, 1)}
-        };
+        public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>();
 
         frmMagasin FrmMagasin = new frmMagasin();
 
@@ -62,6 +57,7 @@ namespace farmFantasy
                 chargerChamps();
                 chargerArgent();
                 chargerEntrepot();
+                chargerAnimaux();
                 //}
 
                 majInterface();
