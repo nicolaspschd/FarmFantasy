@@ -160,10 +160,8 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    Animaux animal;
-
-                    Console.WriteLine(reader.GetValue(7) + "    " + (int)reader[6] + "    " + (string)reader[1] + "    " + (int)reader[2] + "    " + (int)reader[4]);
-                    repertoryAnimaux.Add(reader.GetValue(1).ToString(), animal = new Animaux(Convert.ToDouble(reader.GetValue(7)), Convert.ToDouble(reader.GetValue(6)), reader.GetValue(1).ToString(), Convert.ToInt32(reader.GetValue(2)), Convert.ToInt32(reader.GetValue(4))));
+                    Animaux animal = new Animaux(Convert.ToDouble(reader.GetValue(7)), Convert.ToDouble(reader.GetValue(6)), reader.GetValue(1).ToString(), Convert.ToInt32(reader.GetValue(2)), Convert.ToInt32(reader.GetValue(4)));
+                    repertoryAnimaux.Add(reader.GetValue(1).ToString(), animal);
                 }
             }
             catch (Exception e)
