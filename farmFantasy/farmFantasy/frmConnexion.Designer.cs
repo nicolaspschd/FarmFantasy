@@ -49,7 +49,7 @@
             this.lblTitreConnexion.Location = new System.Drawing.Point(40, 44);
             this.lblTitreConnexion.Name = "lblTitreConnexion";
             this.lblTitreConnexion.Size = new System.Drawing.Size(457, 73);
-            this.lblTitreConnexion.TabIndex = 0;
+            this.lblTitreConnexion.TabIndex = 5;
             this.lblTitreConnexion.Text = "Farm Fantasy ";
             // 
             // btnInscription
@@ -60,7 +60,7 @@
             this.btnInscription.Location = new System.Drawing.Point(334, 389);
             this.btnInscription.Name = "btnInscription";
             this.btnInscription.Size = new System.Drawing.Size(163, 48);
-            this.btnInscription.TabIndex = 1;
+            this.btnInscription.TabIndex = 4;
             this.btnInscription.Text = "Inscription";
             this.btnInscription.UseVisualStyleBackColor = false;
             this.btnInscription.Click += new System.EventHandler(this.btnInscription_Click);
@@ -71,7 +71,7 @@
             this.btnLogin.Location = new System.Drawing.Point(334, 337);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(163, 46);
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Se connecter";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -85,7 +85,7 @@
             this.lblPseudo.Location = new System.Drawing.Point(12, 168);
             this.lblPseudo.Name = "lblPseudo";
             this.lblPseudo.Size = new System.Drawing.Size(116, 29);
-            this.lblPseudo.TabIndex = 3;
+            this.lblPseudo.TabIndex = 6;
             this.lblPseudo.Text = "Pseudo :";
             // 
             // tbxPseudo
@@ -95,7 +95,7 @@
             this.tbxPseudo.Multiline = true;
             this.tbxPseudo.Name = "tbxPseudo";
             this.tbxPseudo.Size = new System.Drawing.Size(229, 29);
-            this.tbxPseudo.TabIndex = 4;
+            this.tbxPseudo.TabIndex = 0;
             // 
             // lblMdp
             // 
@@ -106,7 +106,7 @@
             this.lblMdp.Location = new System.Drawing.Point(12, 209);
             this.lblMdp.Name = "lblMdp";
             this.lblMdp.Size = new System.Drawing.Size(184, 29);
-            this.lblMdp.TabIndex = 5;
+            this.lblMdp.TabIndex = 7;
             this.lblMdp.Text = "Mot de passe :";
             // 
             // tbxMdp
@@ -117,7 +117,7 @@
             this.tbxMdp.Name = "tbxMdp";
             this.tbxMdp.PasswordChar = '*';
             this.tbxMdp.Size = new System.Drawing.Size(229, 29);
-            this.tbxMdp.TabIndex = 6;
+            this.tbxMdp.TabIndex = 1;
             this.tbxMdp.TextChanged += new System.EventHandler(this.tbx_TextChanged);
             // 
             // lblConfmdp
@@ -129,7 +129,7 @@
             this.lblConfmdp.Location = new System.Drawing.Point(12, 257);
             this.lblConfmdp.Name = "lblConfmdp";
             this.lblConfmdp.Size = new System.Drawing.Size(233, 29);
-            this.lblConfmdp.TabIndex = 7;
+            this.lblConfmdp.TabIndex = 8;
             this.lblConfmdp.Text = "Confirmation mdp :";
             this.lblConfmdp.Visible = false;
             // 
@@ -141,7 +141,7 @@
             this.tbxConfMdp.Name = "tbxConfMdp";
             this.tbxConfMdp.PasswordChar = '*';
             this.tbxConfMdp.Size = new System.Drawing.Size(229, 29);
-            this.tbxConfMdp.TabIndex = 8;
+            this.tbxConfMdp.TabIndex = 2;
             this.tbxConfMdp.Visible = false;
             this.tbxConfMdp.TextChanged += new System.EventHandler(this.tbx_TextChanged);
             // 
@@ -157,6 +157,7 @@
             // 
             // frmConnexion
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::farmFantasy.Properties.Resources.herbe;
