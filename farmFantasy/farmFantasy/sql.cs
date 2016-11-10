@@ -24,14 +24,14 @@ namespace farmFantasy
         MySqlConnection connectionDB = new MySqlConnection(infoDB);
         MySqlCommand cmd;
 
-        const string UPDATECHAMPS  = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
-        const string UPDATEENTRPOT = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
-        const string UPDATEANIMAUX = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
-        const string UPDATEARGENT  = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
-        const string SELECTCHAMPS  = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
-        const string SELECTANIMAUX = "SELECT * FROM animaux";
-        const string SELECTARGENT  = "SELECT argent FROM joueurs";
+        const string UPDATECHAMPS   = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
+        const string UPDATEENTRPOT  = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
+        const string UPDATEANIMAUX  = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
+        const string UPDATEARGENT   = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+        const string SELECTCHAMPS   = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
+        const string SELECTARGENT   = "SELECT argent FROM joueurs";
         const string SELECTENTREPOT = "SELECT * FROM entrepots";
+        const string SELECTANIMAUX  = "SELECT * FROM animaux NATURAL JOIN produits";
 
         public bool conDB()
         {
@@ -160,11 +160,10 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    Label pbx = this.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as Label;
+                    Animaux animal;
 
-                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
-
-                    //repertoryAnimaux.Add(reader[0].ToString(), new Animaux());
+                    Console.WriteLine(reader.GetValue(7) + "    " + (int)reader[6] + "    " + (string)reader[1] + "    " + (int)reader[2] + "    " + (int)reader[4]);
+                    repertoryAnimaux.Add(reader.GetValue(1).ToString(), animal = new Animaux(Convert.ToDouble(reader.GetValue(7)), Convert.ToDouble(reader.GetValue(6)), reader.GetValue(1).ToString(), Convert.ToInt32(reader.GetValue(2)), Convert.ToInt32(reader.GetValue(4))));
                 }
             }
             catch (Exception e)
