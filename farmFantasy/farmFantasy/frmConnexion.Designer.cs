@@ -37,6 +37,7 @@
             this.tbxMdp = new System.Windows.Forms.TextBox();
             this.lblConfmdp = new System.Windows.Forms.Label();
             this.tbxConfMdp = new System.Windows.Forms.TextBox();
+            this.lblAvert = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitreConnexion
@@ -117,6 +118,7 @@
             this.tbxMdp.PasswordChar = '*';
             this.tbxMdp.Size = new System.Drawing.Size(229, 29);
             this.tbxMdp.TabIndex = 6;
+            this.tbxMdp.TextChanged += new System.EventHandler(this.tbx_TextChanged);
             // 
             // lblConfmdp
             // 
@@ -141,6 +143,17 @@
             this.tbxConfMdp.Size = new System.Drawing.Size(229, 29);
             this.tbxConfMdp.TabIndex = 8;
             this.tbxConfMdp.Visible = false;
+            this.tbxConfMdp.TextChanged += new System.EventHandler(this.tbx_TextChanged);
+            // 
+            // lblAvert
+            // 
+            this.lblAvert.AutoSize = true;
+            this.lblAvert.Location = new System.Drawing.Point(257, 302);
+            this.lblAvert.Name = "lblAvert";
+            this.lblAvert.Size = new System.Drawing.Size(35, 13);
+            this.lblAvert.TabIndex = 9;
+            this.lblAvert.Text = "label1";
+            this.lblAvert.Visible = false;
             // 
             // frmConnexion
             // 
@@ -148,6 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::farmFantasy.Properties.Resources.herbe;
             this.ClientSize = new System.Drawing.Size(521, 449);
+            this.Controls.Add(this.lblAvert);
             this.Controls.Add(this.tbxConfMdp);
             this.Controls.Add(this.lblConfmdp);
             this.Controls.Add(this.tbxMdp);
@@ -176,5 +190,6 @@
         private System.Windows.Forms.TextBox tbxMdp;
         private System.Windows.Forms.Label lblConfmdp;
         private System.Windows.Forms.TextBox tbxConfMdp;
+        private System.Windows.Forms.Label lblAvert;
     }
 }
