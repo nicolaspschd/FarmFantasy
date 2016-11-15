@@ -26,11 +26,11 @@ namespace farmFantasy
     {
         public string login = string.Empty;
 
-        Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
-
         public Dictionary<string, int> entrepot = new Dictionary<string, int>();
 
         public Dictionary<string, Animaux> repertoryAnimaux = new Dictionary<string, Animaux>();
+
+        Dictionary<string, Champs> repertoryChamps = new Dictionary<string, Champs>();
 
         frmMagasin FrmMagasin = new frmMagasin();
 
@@ -46,6 +46,7 @@ namespace farmFantasy
         {
             if (login == string.Empty)
             {
+                Sql.conDB();
                 timer.Enabled = false;
                 frmConnexion frmCo = new frmConnexion();
                 frmCo.ShowDialog();
@@ -54,10 +55,10 @@ namespace farmFantasy
 
                 /*if (conDB())
                 {*/
-                chargerChamps();
-                chargerArgent();
-                chargerEntrepot();
-                chargerAnimaux();
+                repertoryChamps = Sql.chargerChamps(this);
+                Sql.chargerArgent();
+                Sql.chargerEntrepot(this);
+                Sql.chargerAnimaux(this);
                 //}
 
                 majInterface();
@@ -142,7 +143,7 @@ namespace farmFantasy
             if (repertoryAnimaux["cochon"].NbrAnimaux > 0)
                 if (repertoryAnimaux["cochon"].calculTempsProd())
                     entrepot["bacon"] += (int)repertoryAnimaux["cochon"].Quantite;
-            
+
             //  Mise a jour des labels
             majInterface();
         }
@@ -176,7 +177,7 @@ namespace farmFantasy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (conDB())
+            if (Sql.conDB())
             {
                 sauvegarder();
             }
@@ -200,26 +201,26 @@ namespace farmFantasy
                 if (repertoryChamps.ContainsKey("pbxChamps" + i))
                 {
                     Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
-                    UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                    Sql.UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
                 }
                 else
                 {
-                    UpdateChamps(0, "rien", "pbxChamps" + i);
+                    Sql.UpdateChamps(0, "rien", "pbxChamps" + i);
                 }
             }
 
             for (int i = 0; i < entrepot.Count; i++)
             {
-                UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
+                Sql.UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
             }
 
             for (int i = 0; i < repertoryAnimaux.Count; i++)
             {
                 string elementAt = repertoryAnimaux.ElementAt(i).Key;
-                UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+                Sql.UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
             }
 
-            UpdateArgent(argent);
+            Sql.UpdateArgent(argent);
             //}
             /*else
             {

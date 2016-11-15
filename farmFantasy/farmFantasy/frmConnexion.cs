@@ -47,7 +47,7 @@ namespace farmFantasy
                             this.Close();
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ce nom d'utilisateur existe déjà", "Mèèèèèè !!!", MessageBoxButtons.OK);
                     }
