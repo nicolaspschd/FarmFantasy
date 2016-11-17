@@ -42,6 +42,7 @@ namespace farmFantasy
             InitializeComponent();
         }
 
+        //  Chargement de l'interface
         public void frmMain_Load(object sender, EventArgs e)
         {
             if (login == string.Empty)
@@ -51,19 +52,20 @@ namespace farmFantasy
                 frmConnexion frmCo = new frmConnexion();
                 frmCo.ShowDialog();
             }
-                timer.Enabled = true;
+            timer.Enabled = true;
 
-                /*if (conDB())
-                {*/
+            if (Sql.conDB())
+            {
                 repertoryChamps = Sql.chargerChamps(this);
-                Sql.chargerArgent();
+                argent = Sql.chargerArgent();
                 Sql.chargerEntrepot(this);
                 Sql.chargerAnimaux(this);
-                //}
+            }
 
-                majInterface();
+            majInterface();
         }
 
+        //  Evénement clique sur n'importe quel champ
         private void pbxClickChamps_Click(object sender, EventArgs e)
         {
             //  Initialisation des variables
@@ -148,41 +150,39 @@ namespace farmFantasy
             majInterface();
         }
 
-        private void pbxClickAnimaux_Click(object sender, EventArgs e)
-        {
-            PictureBox pbx = sender as PictureBox;
-        }
-
+        //  Ouverture de frmMagasin + envois des données
         private void btnMagasin_Click(object sender, EventArgs e)
         {
-            //  Ouverture de frmMagasin + envois des données
             FrmMagasin.ShowDialog(this);
         }
 
+        //  Ouverture de l'entrepôt
         private void pbxEntrepot_Click(object sender, EventArgs e)
         {
             frmEntrepot FrmEntrepot = new frmEntrepot();
             FrmEntrepot.ShowDialog(this);
         }
 
+        //  Sauvegarde le jeu
         private void btnSauvegarder_Click(object sender, EventArgs e)
-        {
-            sauvegarder();
-        }
-
-        private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Sql.conDB())
             {
                 sauvegarder();
             }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //  Si la connection a la base de donnée est possible
+            if (Sql.conDB())
+            {
+                //  on sauvegarde
+                sauvegarder();
+            }
             else
             {
+                //  Sinon on avertit le joueurs
                 DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeu ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dr == DialogResult.No)
@@ -192,48 +192,51 @@ namespace farmFantasy
             }
         }
 
+        //  Sauvegarde le jeu dans la base de données
         public void sauvegarder()
         {
-            //if (conDB())
-            //{
-            for (int i = 0; i <= NBRCHAMPS; i++)
+            if (Sql.conDB())
             {
-                if (repertoryChamps.ContainsKey("pbxChamps" + i))
+                for (int i = 0; i <= NBRCHAMPS; i++)
                 {
-                    Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
-                    Sql.UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                    if (repertoryChamps.ContainsKey("pbxChamps" + i))
+                    {
+                        Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                        Sql.UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
+                    }
+                    else
+                    {
+                        Sql.UpdateChamps(0, "rien", "pbxChamps" + i);
+                    }
                 }
-                else
+
+                for (int i = 0; i < entrepot.Count; i++)
                 {
-                    Sql.UpdateChamps(0, "rien", "pbxChamps" + i);
+                    Sql.UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
                 }
-            }
 
-            for (int i = 0; i < entrepot.Count; i++)
-            {
-                Sql.UpdateEntrepot(entrepot.ElementAt(i).Key, entrepot.ElementAt(i).Value);
-            }
+                for (int i = 0; i < repertoryAnimaux.Count; i++)
+                {
+                    string elementAt = repertoryAnimaux.ElementAt(i).Key;
+                    Sql.UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+                }
 
-            for (int i = 0; i < repertoryAnimaux.Count; i++)
-            {
-                string elementAt = repertoryAnimaux.ElementAt(i).Key;
-                Sql.UpdateAnimaux(repertoryAnimaux.ElementAt(i).Key, repertoryAnimaux[elementAt].NbrAnimaux, repertoryAnimaux[elementAt].Temps);
+                Sql.UpdateArgent(argent);
             }
-
-            Sql.UpdateArgent(argent);
-            //}
-            /*else
+            else
             {
                 MessageBox.Show("La partie n'a pas pu être sauvegardée", "Pas de connection à la base de donnée", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
+        //  Ouvre la fenêtre APropos lors du clique sur le label
         private void lblAPropos_Click(object sender, EventArgs e)
         {
             frmAbout FrmAbout = new frmAbout();
             FrmAbout.ShowDialog();
         }
 
+        //  Met les valeurs à jour sur l'interface
         public void majInterface()
         {
             lblArgent.Text = argent.ToString();

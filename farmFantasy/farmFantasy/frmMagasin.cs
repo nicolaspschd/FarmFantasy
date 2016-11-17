@@ -228,7 +228,7 @@ namespace farmFantasy
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
             _FrmMain.argent = argent;
             _FrmMain.lblArgent.Text = argent.ToString();
-            _FrmMain.frmMain_Load(null, null);
+            _FrmMain.majInterface();
         }
 
         public void ResetMag()

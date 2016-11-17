@@ -11,19 +11,21 @@ namespace farmFantasy
 {
     static class Sql
     {
-        static string infoDB = "server=127.0.0.1;user=root;database=farmfantasy;password=;";
+        static int idJoueur = 1;
+        static string infoDB = "server=10.134.97.69;user=root;database=farmfantasy;password=;";
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 
-        const string UPDATECHAMPS = "UPDATE `champs` SET `tempsRestant`=@temps,`idNomSemence`=@idSemence WHERE idChamps=@pbxName";
-        const string UPDATEENTRPOT = "UPDATE `entrepots` SET `qteItem`=@item WHERE idNomItem=@idItem";
-        const string UPDATEANIMAUX = "UPDATE `animaux` SET `nbrAnimaux`=@nbrAnim, `tempProdActu`=@tempsProd WHERE idNomAnimal=@idAnimal";
-        const string UPDATEARGENT = "UPDATE `joueurs` SET `argent`=@argent WHERE idJoueur=1";
+        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName";
+        const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem";
+        const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE idNomAnimal=@idAnimal AND idJoueur=@idJoueur";
+        const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
         const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
         const string SELECTARGENT = "SELECT argent FROM joueurs";
         const string SELECTENTREPOT = "SELECT * FROM entrepots";
         const string SELECTANIMAUX = "SELECT * FROM animaux NATURAL JOIN produits";
-        const string SELECTJOUEUR = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
+        const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
+        const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
         const string INSERTJOUEUR = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
 
         //  Test si la connection a la base de donnés est ok
@@ -124,8 +126,8 @@ namespace farmFantasy
         }
 
         // Charge les champs du joueur dans l'état 
-        // <param name="FrmMain"></param>
-        // <returns> retourne le dictionnaire contanant chaque champ</returns>
+        // param FrmMain
+        // return retourne le dictionnaire contanant chaque champ
         static public Dictionary<string, Champs> chargerChamps(frmMain FrmMain)
         {
             Dictionary<string, Champs> dico = new Dictionary<string, Champs>();
@@ -179,9 +181,9 @@ namespace farmFantasy
         }
 
         //  Charge l'argent du joueur dans le jeu
-        static public void chargerArgent()
+        static public int chargerArgent()
         {
-            int argent = 0;
+            int argent = 100;
             cmd = new MySqlCommand(SELECTARGENT, connectionDB);
 
             try
@@ -201,6 +203,7 @@ namespace farmFantasy
             }
 
             connectionDB.Close();
+            return argent;
         }
 
         // Charge l'entrepôt du joueur dans le jeu
@@ -228,8 +231,8 @@ namespace farmFantasy
         }
 
         // Transforme un text en sha1
-        // <param name="text"> Texte à transformé en sha1</param>
-        // <returns>retourne le texte transformer en sha1</returns>
+        // param text Texte à transformé en sha1
+        // return retourne le texte transformer en sha1
         static public string getSha1(string text)
         {
             byte[] resultat;
@@ -248,13 +251,13 @@ namespace farmFantasy
         }
 
         // Logue le joueur au jeu
-        // <param name="Pseudo"> Pseudo du joueur</param>
-        // <param name="Mdp"> Mot de passe du joueur</param>
-        // <returns> true si la connection est valide</returns>
+        // param Pseudo Pseudo du joueur
+        // param Mdp Mot de passe du joueur
+        // returns true si la connection est valide
         static public bool login(string Pseudo, string Mdp)
         {
             bool loginOK = false;
-            cmd = new MySqlCommand(SELECTJOUEUR, connectionDB);
+            cmd = new MySqlCommand(SELECTJOUEURMDP, connectionDB);
 
             cmd.Parameters.AddWithValue("@Pseudo", Pseudo);
 
@@ -277,15 +280,15 @@ namespace farmFantasy
                 Console.WriteLine(ex.Message);
             }
 
+            
             connectionDB.Close();
-
             return loginOK;
         }
 
         // Inscrit le joueur au jeu
-        // <param name="Pseudo"> Pseudo du joueur pour l'inscription</param>
-        // <param name="Mdp"> Mot de passe du joueur</param>
-        // <returns> true si l'inscription s'est bien passée</returns>
+        // param Pseudo Pseudo du joueur pour l'inscription
+        // param Mdp Mot de passe du joueur
+        // return true si l'inscription s'est bien passée
         static public bool inscription(string Pseudo, string Mdp)
         {
             bool inscritOK = false;
@@ -310,6 +313,30 @@ namespace farmFantasy
             connectionDB.Close();
 
             return inscritOK;
+        }
+
+        // Récupération de l'id du joueur connecter
+        // param pseudo -> pseudo du joueur connecter
+        static public void idJoueurCo(string pseudo)
+        {
+            cmd = new MySqlCommand(SELECTJOUEURID,connectionDB);
+            cmd.Parameters.AddWithValue("@Pseudo", pseudo);
+
+            try
+            {
+                connectionDB.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    idJoueur = Convert.ToInt32(reader.GetString(0));
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Erreur id");
+            }
         }
     }
 }

@@ -479,6 +479,7 @@
             // 
             // btnMagasin
             // 
+            this.btnMagasin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMagasin.Location = new System.Drawing.Point(547, 251);
             this.btnMagasin.Name = "btnMagasin";
             this.btnMagasin.Size = new System.Drawing.Size(256, 29);
@@ -714,6 +715,7 @@
             // 
             // btnSauvegarder
             // 
+            this.btnSauvegarder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSauvegarder.Location = new System.Drawing.Point(229, 4);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(92, 22);
@@ -735,6 +737,7 @@
             // lblAPropos
             // 
             this.lblAPropos.AutoSize = true;
+            this.lblAPropos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAPropos.Location = new System.Drawing.Point(9, 9);
             this.lblAPropos.Name = "lblAPropos";
             this.lblAPropos.Size = new System.Drawing.Size(50, 13);
@@ -780,7 +783,6 @@
             this.Text = "Farm Fantasy";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMain_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChamps3)).EndInit();
