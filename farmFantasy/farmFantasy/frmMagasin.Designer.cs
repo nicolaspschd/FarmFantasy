@@ -458,6 +458,7 @@
             this.cbxProduits.Name = "cbxProduits";
             this.cbxProduits.Size = new System.Drawing.Size(87, 23);
             this.cbxProduits.TabIndex = 25;
+            this.cbxProduits.SelectedIndexChanged += new System.EventHandler(this.cbxProduits_SelectedIndexChanged);
             // 
             // frmMagasin
             // 

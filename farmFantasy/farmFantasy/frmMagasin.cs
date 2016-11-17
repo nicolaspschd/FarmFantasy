@@ -110,16 +110,6 @@ namespace farmFantasy
             }
         }
 
-        private void dudVente_SelectedItemChanged(object sender, EventArgs e)
-        {
-            produitSelect = cbxProduits.SelectedItem.ToString();
-
-            lblStock.Text = (_FrmMain.entrepot[produitSelect]).ToString();
-            lblPrixUnite.Text = prix[produitSelect].ToString();
-            prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
-            lblPrixProduit.Text = prixProduit.ToString();
-        }
-
         private void nudQuantiteProduit_ValueChanged(object sender, EventArgs e)
         {
             if (produitSelect != string.Empty)
@@ -260,6 +250,16 @@ namespace farmFantasy
             {
                 nudQuantiteProduit.Value = Convert.ToDecimal((sender as Label).Text);
             }
+        }
+
+        private void cbxProduits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            produitSelect = cbxProduits.SelectedItem.ToString();
+
+            lblStock.Text = (_FrmMain.entrepot[produitSelect]).ToString();
+            lblPrixUnite.Text = prix[produitSelect].ToString();
+            prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
+            lblPrixProduit.Text = prixProduit.ToString();
         }
     }
 }
