@@ -16,14 +16,14 @@ namespace farmFantasy
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 
-        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName";
-        const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem";
+        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName AND idJoueur=@idJoueur";
+        const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
         const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE idNomAnimal=@idAnimal AND idJoueur=@idJoueur";
         const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
-        const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien'";
-        const string SELECTARGENT = "SELECT argent FROM joueurs";
-        const string SELECTENTREPOT = "SELECT * FROM entrepots";
-        const string SELECTANIMAUX = "SELECT * FROM animaux NATURAL JOIN produits";
+        const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien' AND idJoueur=@idJoueur";
+        const string SELECTARGENT = "SELECT argent FROM joueurs WHERE idJoueur=@idJoueur";
+        const string SELECTENTREPOT = "SELECT * FROM entrepots WHERE idJoueur=@idJoueur";
+        const string SELECTANIMAUX = "SELECT * FROM animaux NATURAL JOIN produits WHERE idJoueur=@idJoueur";
         const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
         const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
         const string INSERTJOUEUR = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
@@ -51,6 +51,7 @@ namespace farmFantasy
             cmd.Parameters.AddWithValue("@temps", temps);
             cmd.Parameters.AddWithValue("@idSemence", idSemence);
             cmd.Parameters.AddWithValue("@pbxName", pbxName);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -71,6 +72,7 @@ namespace farmFantasy
 
             cmd.Parameters.AddWithValue("@item", qte);
             cmd.Parameters.AddWithValue("@idItem", idItem);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -93,6 +95,7 @@ namespace farmFantasy
             cmd.Parameters.AddWithValue("@nbrAnim", nbrAnimaux);
             cmd.Parameters.AddWithValue("@tempsProd", TempsProdActu);
             cmd.Parameters.AddWithValue("@idAnimal", nomAnimal);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -112,6 +115,7 @@ namespace farmFantasy
             cmd = new MySqlCommand(UPDATEARGENT, connectionDB);
 
             cmd.Parameters.AddWithValue("@argent", argent);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -132,6 +136,7 @@ namespace farmFantasy
         {
             Dictionary<string, Champs> dico = new Dictionary<string, Champs>();
             cmd = new MySqlCommand(SELECTCHAMPS, connectionDB);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -160,6 +165,7 @@ namespace farmFantasy
         static public void chargerAnimaux(frmMain FrmMain)
         {
             cmd = new MySqlCommand(SELECTANIMAUX, connectionDB);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -185,6 +191,7 @@ namespace farmFantasy
         {
             int argent = 100;
             cmd = new MySqlCommand(SELECTARGENT, connectionDB);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -210,6 +217,7 @@ namespace farmFantasy
         static public void chargerEntrepot(frmMain FrmMain)
         {
             cmd = new MySqlCommand(SELECTENTREPOT, connectionDB);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
