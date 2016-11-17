@@ -22,7 +22,7 @@ namespace farmFantasy
         const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
         const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien' AND idJoueur=@idJoueur";
         const string SELECTARGENT = "SELECT argent FROM joueurs WHERE idJoueur=@idJoueur";
-        const string SELECTENTREPOT = "SELECT * FROM entrepots WHERE idJoueur=@idJoueur";
+        const string SELECTENTREPOT = "SELECT * FROM entrepots WHERE idJoueur=@idJoueur AND idNomItem != 'rien'";
         const string SELECTANIMAUX = "SELECT * FROM animaux NATURAL JOIN produits WHERE idJoueur=@idJoueur";
         const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
         const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
