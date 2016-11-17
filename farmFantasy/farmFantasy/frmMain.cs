@@ -52,7 +52,8 @@ namespace farmFantasy
                 frmConnexion frmCo = new frmConnexion();
                 frmCo.ShowDialog();
             }
-            timer.Enabled = true;
+
+            Sql.insertChampsInscrit();
 
             if (Sql.conDB())
             {
@@ -61,6 +62,8 @@ namespace farmFantasy
                 Sql.chargerEntrepot(this);
                 Sql.chargerAnimaux(this);
             }
+
+            timer.Enabled = true;
 
             majInterface();
         }
@@ -108,6 +111,7 @@ namespace farmFantasy
             }
         }
 
+        //  Chaque tick = 1 seconde
         private void timer_Tick(object sender, EventArgs e)
         {
             if (repertoryChamps.Count() > 0)

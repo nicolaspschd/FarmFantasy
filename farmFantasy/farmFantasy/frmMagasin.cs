@@ -82,6 +82,7 @@ namespace farmFantasy
                     cbxProduits.Items.Add(_FrmMain.entrepot.ElementAt(i).Key);
                 }
             }
+
             cbxProduits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxProduits.SelectedIndex = 0;
 
