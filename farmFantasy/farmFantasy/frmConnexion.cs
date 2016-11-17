@@ -31,6 +31,10 @@ namespace farmFantasy
                 {
                     if (Sql.inscription(Pseudo, Mdp))
                     {
+                        Sql.idJoueurCo(Pseudo);
+                        Sql.insertChampsInscrit();
+                        Sql.insertAnimauxInscrit();
+
                         this.Close();
                     }
                 }
@@ -57,13 +61,13 @@ namespace farmFantasy
 
             if (Sql.login(Pseudo, Mdp))
             {
+                Sql.idJoueurCo(Pseudo);
                 this.Close();
             }
             else
             {
                 lblAvert.Text = "Login incorrect, veuillez réessayer";
             }
-
         }
 
         private void tbx_TextChanged(object sender, EventArgs e)

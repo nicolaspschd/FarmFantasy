@@ -16,6 +16,7 @@ namespace farmFantasy
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 
+        #region Requete SQL
         const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName AND idJoueur=@idJoueur";
         const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
         const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE idNomAnimal=@idAnimal AND idJoueur=@idJoueur";
@@ -27,6 +28,8 @@ namespace farmFantasy
         const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
         const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
         const string INSERTJOUEUR = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
+        const string INSERTANIMAUX = "INSERT INTO animaux (idNomAnimal, nbrAnimaux, tempProdActu, qteProd, idNomProduit, idJoueur) VALUES ('poule', '0', '0', '5', 'oeufs', @idJoueur), ('mouton', '0', '0', '25', 'laine', @idJoueur), ('cochon', '0', '0', '4', 'bacon', @idJoueur), ('vache', '0', '0', '1', 'lait', @idJoueur);";
+        #endregion
 
         //  Test si la connection a la base de donnés est ok
         static public bool conDB()
@@ -38,7 +41,7 @@ namespace farmFantasy
             {
                 conOK = true;
             }
-            
+
             connectionDB.Close();
             return conOK;
         }
@@ -288,7 +291,7 @@ namespace farmFantasy
                 Console.WriteLine(ex.Message);
             }
 
-            
+
             connectionDB.Close();
             return loginOK;
         }
@@ -327,7 +330,7 @@ namespace farmFantasy
         // param pseudo -> pseudo du joueur connecter
         static public void idJoueurCo(string pseudo)
         {
-            cmd = new MySqlCommand(SELECTJOUEURID,connectionDB);
+            cmd = new MySqlCommand(SELECTJOUEURID, connectionDB);
             cmd.Parameters.AddWithValue("@Pseudo", pseudo);
 
             try
@@ -338,13 +341,78 @@ namespace farmFantasy
 
                 if (reader.HasRows)
                 {
+                    reader.Read();
                     idJoueur = Convert.ToInt32(reader.GetString(0));
+                    Console.WriteLine(idJoueur);
                 }
             }
             catch (Exception)
             {
                 Console.WriteLine("Erreur id");
             }
+            connectionDB.Close();
+            Console.WriteLine(idJoueur);
+        }
+
+        static public void inscriptionData()
+        {
+
+        }
+
+        static public void insertChampsInscrit()
+        {
+            MySqlTransaction transac;
+            string idChamps = "idChamps";
+            connectionDB.Open();
+
+            transac = connectionDB.BeginTransaction();
+
+            for (int i = 1; i < 11; i++)
+            {
+                cmd = new MySqlCommand("INSERT INTO champs VALUES (@idChamps, 0, 'rien', @idJoueurs)", connectionDB);
+
+                cmd.Parameters.AddWithValue("@idChamps", idChamps + i.ToString());
+                cmd.Parameters.AddWithValue("@idJoueurs", idJoueur);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    transac.Rollback();
+                    MessageBox.Show("Erreur lors de l'inscription !", "Groin !", MessageBoxButtons.OK);
+                }
+            }
+
+            transac.Commit();
+
+            connectionDB.Close();
+        }
+
+        static public void insertAnimauxInscrit()
+        {
+            MySqlTransaction transac;
+            connectionDB.Open();
+
+            transac = connectionDB.BeginTransaction();
+
+            cmd = new MySqlCommand(INSERTANIMAUX, connectionDB);
+
+            cmd.Parameters.AddWithValue("@idJoueurs", idJoueur);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                transac.Commit();
+            }
+            catch (Exception)
+            {
+                transac.Rollback();
+                MessageBox.Show("Erreur lors de l'inscription !", "Groin !", MessageBoxButtons.OK);
+            }
+
+            connectionDB.Close();
         }
     }
 }
