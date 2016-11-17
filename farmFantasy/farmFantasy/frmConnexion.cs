@@ -32,6 +32,9 @@ namespace farmFantasy
                     if (Sql.inscription(Pseudo, Mdp))
                     {
                         Sql.idJoueurCo(Pseudo);
+                        Sql.insertChampsInscrit();
+                        Sql.insertAnimauxInscrit();
+
                         this.Close();
                     }
                 }

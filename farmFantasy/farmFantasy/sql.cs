@@ -397,21 +397,20 @@ namespace farmFantasy
 
             transac = connectionDB.BeginTransaction();
 
-            cmd = new MySqlCommand("INSERT INTO champs VALUES (@idChamps, 0, 'rien', @idJoueurs)", connectionDB);
+            cmd = new MySqlCommand(INSERTANIMAUX, connectionDB);
 
             cmd.Parameters.AddWithValue("@idJoueurs", idJoueur);
 
             try
             {
                 cmd.ExecuteNonQuery();
+                transac.Commit();
             }
             catch (Exception)
             {
                 transac.Rollback();
                 MessageBox.Show("Erreur lors de l'inscription !", "Groin !", MessageBoxButtons.OK);
             }
-
-            transac.Commit();
 
             connectionDB.Close();
         }

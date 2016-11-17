@@ -53,7 +53,6 @@ namespace farmFantasy
                 frmCo.ShowDialog();
             }
 
-            Sql.insertChampsInscrit();
 
             if (Sql.conDB())
             {
