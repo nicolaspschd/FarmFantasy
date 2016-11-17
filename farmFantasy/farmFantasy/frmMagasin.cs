@@ -38,7 +38,11 @@ namespace farmFantasy
             {"oeufs", PRIXOEUFS},
             {"laine", PRIXLAINE},
             {"lait", PRIXLAIT},
-            {"bacon", PRIXBACON}
+            {"bacon", PRIXBACON},
+            {"poule", PRIXPOULE},
+            {"mouton",PRIXMOUTON},
+            {"vache", PRIXVACHE},
+            {"cochon", PRIXCOCHON}
         };
 
         #region Constante prix
@@ -82,8 +86,19 @@ namespace farmFantasy
                     cbxProduits.Items.Add(_FrmMain.entrepot.ElementAt(i).Key);
                 }
             }
+
+            if (cbxAnimal.Items.Count == 0)
+            {
+                for (int i = 0; i < _FrmMain.repertoryAnimaux.Count; i++)
+                {
+                    cbxAnimal.Items.Add(_FrmMain.repertoryAnimaux.ElementAt(i).Key);
+                }
+            }
+
             cbxProduits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxProduits.SelectedIndex = 0;
+            cbxAnimal.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxAnimal.SelectedIndex = 0;
 
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = argent.ToString();
@@ -155,66 +170,6 @@ namespace farmFantasy
                 }
             }
         }
-
-        private void transaction_Click(object sender, EventArgs e)
-        {
-            if ((argent - prixProduit >= 0) && (argent - totalPrixAnim >= 0))
-            {
-                _FrmMain.repertoryAnimaux["vache"].NbrAnimaux += (int)nudVache.Value;
-                _FrmMain.repertoryAnimaux["poule"].NbrAnimaux += (int)nudPoule.Value;
-                _FrmMain.repertoryAnimaux["mouton"].NbrAnimaux += (int)nudMouton.Value;
-                _FrmMain.repertoryAnimaux["cochon"].NbrAnimaux += (int)nudCochon.Value;
-
-                _FrmMain.repertoryAnimaux["vache"].majPrix();
-                _FrmMain.repertoryAnimaux["poule"].majPrix();
-                _FrmMain.repertoryAnimaux["mouton"].majPrix();
-                _FrmMain.repertoryAnimaux["cochon"].majPrix();
-
-                argent -= prixProduit + totalPrixAnim;
-
-                //  Mise a jour du label
-                lblArgentMagas.Text = argent.ToString();
-
-                //  Mise a jour de l'argent sur frmMain
-                _FrmMain.argent = argent;
-
-                ResetMag();
-            }
-            else
-            {
-                MessageBox.Show("Vous n'avez pas assez d'argent pour payer", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-        }
-
-        private void nud_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown nud = (sender as NumericUpDown);
-
-            switch (nud.Name)
-            {
-                case "nudPoule":
-                    prixTotPoule = (int)(nud.Value * PRIXPOULE);
-                    lblPrixPoule.Text = prixTotPoule.ToString();
-                    break;
-                case "nudMouton":
-                    prixTotMouton = (int)(nud.Value * PRIXMOUTON);
-                    lblPrixMouton.Text = prixTotMouton.ToString();
-                    break;
-                case "nudCochon":
-                    prixTotCochon = (int)(nud.Value * PRIXCOCHON);
-                    lblPrixCochon.Text = prixTotCochon.ToString();
-                    break;
-                case "nudVache":
-                    prixTotVache = (int)(nud.Value * PRIXVACHE);
-                    lblPrixVache.Text = prixTotVache.ToString();
-                    break;
-            }
-
-            //  Affichage du prix total des animaux
-            totalPrixAnim = prixTotVache + prixTotCochon + prixTotPoule + prixTotMouton;
-            lblTotAnim.Text = totalPrixAnim.ToString();
-        }
-
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
@@ -226,10 +181,7 @@ namespace farmFantasy
         public void ResetMag()
         {
             totalPrixAnim = 0;
-            nudCochon.Value = 0;
-            nudVache.Value = 0;
-            nudMouton.Value = 0;
-            nudPoule.Value = 0;
+            
         }
 
         private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
@@ -260,6 +212,35 @@ namespace farmFantasy
             lblPrixUnite.Text = prix[produitSelect].ToString();
             prixProduit = (int)nudQuantiteProduit.Value * prix[produitSelect];
             lblPrixProduit.Text = prixProduit.ToString();
+        }
+
+        private void btnAcheterAnimal_Click(object sender, EventArgs e)
+        {
+
+            _FrmMain.repertoryAnimaux["vache"].majPrix();
+            _FrmMain.repertoryAnimaux["poule"].majPrix();
+            _FrmMain.repertoryAnimaux["mouton"].majPrix();
+            _FrmMain.repertoryAnimaux["cochon"].majPrix();
+
+            argent -= Convert.ToInt32(lblPrixTotalAnimal.Text);
+
+            //  Mise a jour du label
+            lblArgentMagas.Text = argent.ToString();
+
+            //  Mise a jour de l'argent sur frmMain
+            _FrmMain.argent = argent;
+
+            ResetMag();
+        }
+
+        private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            produitSelect = cbxAnimal.SelectedItem.ToString();
+
+            lblStockAnimal.Text = (_FrmMain.repertoryAnimaux[produitSelect]).NbrAnimaux.ToString();
+            lblPrixUniteAnimal.Text = prix[produitSelect].ToString();
+            lblPrixTotalAnimal.Text = (Convert.ToInt32(lblPrixUniteAnimal.Text) * nudQteAnimal.Value).ToString();
+
         }
     }
 }

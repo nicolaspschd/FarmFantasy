@@ -41,34 +41,26 @@
             this.btnVenteProduit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxAnimaux = new System.Windows.Forms.GroupBox();
-            this.lblTotAnim = new System.Windows.Forms.Label();
-            this.lblPrixVache = new System.Windows.Forms.Label();
-            this.lblPrixCochon = new System.Windows.Forms.Label();
-            this.lblPrixMouton = new System.Windows.Forms.Label();
-            this.lblPrixPoule = new System.Windows.Forms.Label();
             this.btnAcheterAnimal = new System.Windows.Forms.Button();
-            this.nudVache = new System.Windows.Forms.NumericUpDown();
-            this.nudCochon = new System.Windows.Forms.NumericUpDown();
-            this.nudMouton = new System.Windows.Forms.NumericUpDown();
-            this.nudPoule = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.gbxProd = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblArgentMagas = new System.Windows.Forms.Label();
             this.cbxProduits = new System.Windows.Forms.ComboBox();
+            this.cbxAnimal = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblStockAnimal = new System.Windows.Forms.Label();
+            this.lblPrixUniteAnimal = new System.Windows.Forms.Label();
+            this.lblPrixTotalAnimal = new System.Windows.Forms.Label();
+            this.nudQteAnimal = new System.Windows.Forms.NumericUpDown();
             this.gbxSemence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantiteProduit)).BeginInit();
             this.gbxAnimaux.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVache)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCochon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMouton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPoule)).BeginInit();
             this.gbxProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQteAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxSemence
@@ -213,20 +205,15 @@
             // gbxAnimaux
             // 
             this.gbxAnimaux.BackColor = System.Drawing.Color.Transparent;
-            this.gbxAnimaux.Controls.Add(this.lblTotAnim);
-            this.gbxAnimaux.Controls.Add(this.lblPrixVache);
-            this.gbxAnimaux.Controls.Add(this.lblPrixCochon);
-            this.gbxAnimaux.Controls.Add(this.lblPrixMouton);
-            this.gbxAnimaux.Controls.Add(this.lblPrixPoule);
+            this.gbxAnimaux.Controls.Add(this.nudQteAnimal);
+            this.gbxAnimaux.Controls.Add(this.label3);
+            this.gbxAnimaux.Controls.Add(this.label6);
+            this.gbxAnimaux.Controls.Add(this.label7);
+            this.gbxAnimaux.Controls.Add(this.cbxAnimal);
+            this.gbxAnimaux.Controls.Add(this.lblStockAnimal);
+            this.gbxAnimaux.Controls.Add(this.lblPrixUniteAnimal);
             this.gbxAnimaux.Controls.Add(this.btnAcheterAnimal);
-            this.gbxAnimaux.Controls.Add(this.nudVache);
-            this.gbxAnimaux.Controls.Add(this.nudCochon);
-            this.gbxAnimaux.Controls.Add(this.nudMouton);
-            this.gbxAnimaux.Controls.Add(this.nudPoule);
-            this.gbxAnimaux.Controls.Add(this.label10);
-            this.gbxAnimaux.Controls.Add(this.label11);
-            this.gbxAnimaux.Controls.Add(this.label12);
-            this.gbxAnimaux.Controls.Add(this.label13);
+            this.gbxAnimaux.Controls.Add(this.lblPrixTotalAnimal);
             this.gbxAnimaux.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxAnimaux.ForeColor = System.Drawing.Color.White;
             this.gbxAnimaux.Location = new System.Drawing.Point(237, 32);
@@ -235,66 +222,6 @@
             this.gbxAnimaux.TabIndex = 4;
             this.gbxAnimaux.TabStop = false;
             this.gbxAnimaux.Text = "Animaux";
-            // 
-            // lblTotAnim
-            // 
-            this.lblTotAnim.AutoSize = true;
-            this.lblTotAnim.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotAnim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotAnim.ForeColor = System.Drawing.Color.White;
-            this.lblTotAnim.Location = new System.Drawing.Point(133, 148);
-            this.lblTotAnim.Name = "lblTotAnim";
-            this.lblTotAnim.Size = new System.Drawing.Size(39, 15);
-            this.lblTotAnim.TabIndex = 17;
-            this.lblTotAnim.Text = "Total";
-            // 
-            // lblPrixVache
-            // 
-            this.lblPrixVache.AutoSize = true;
-            this.lblPrixVache.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrixVache.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixVache.ForeColor = System.Drawing.Color.White;
-            this.lblPrixVache.Location = new System.Drawing.Point(157, 116);
-            this.lblPrixVache.Name = "lblPrixVache";
-            this.lblPrixVache.Size = new System.Drawing.Size(15, 15);
-            this.lblPrixVache.TabIndex = 16;
-            this.lblPrixVache.Text = "0";
-            // 
-            // lblPrixCochon
-            // 
-            this.lblPrixCochon.AutoSize = true;
-            this.lblPrixCochon.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrixCochon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixCochon.ForeColor = System.Drawing.Color.White;
-            this.lblPrixCochon.Location = new System.Drawing.Point(157, 88);
-            this.lblPrixCochon.Name = "lblPrixCochon";
-            this.lblPrixCochon.Size = new System.Drawing.Size(15, 15);
-            this.lblPrixCochon.TabIndex = 16;
-            this.lblPrixCochon.Text = "0";
-            // 
-            // lblPrixMouton
-            // 
-            this.lblPrixMouton.AutoSize = true;
-            this.lblPrixMouton.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrixMouton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixMouton.ForeColor = System.Drawing.Color.White;
-            this.lblPrixMouton.Location = new System.Drawing.Point(157, 59);
-            this.lblPrixMouton.Name = "lblPrixMouton";
-            this.lblPrixMouton.Size = new System.Drawing.Size(15, 15);
-            this.lblPrixMouton.TabIndex = 16;
-            this.lblPrixMouton.Text = "0";
-            // 
-            // lblPrixPoule
-            // 
-            this.lblPrixPoule.AutoSize = true;
-            this.lblPrixPoule.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrixPoule.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrixPoule.ForeColor = System.Drawing.Color.White;
-            this.lblPrixPoule.Location = new System.Drawing.Point(157, 29);
-            this.lblPrixPoule.Name = "lblPrixPoule";
-            this.lblPrixPoule.Size = new System.Drawing.Size(15, 15);
-            this.lblPrixPoule.TabIndex = 16;
-            this.lblPrixPoule.Text = "0";
             // 
             // btnAcheterAnimal
             // 
@@ -306,87 +233,7 @@
             this.btnAcheterAnimal.TabIndex = 15;
             this.btnAcheterAnimal.Text = "Acheter";
             this.btnAcheterAnimal.UseVisualStyleBackColor = true;
-            this.btnAcheterAnimal.Click += new System.EventHandler(this.transaction_Click);
-            // 
-            // nudVache
-            // 
-            this.nudVache.Location = new System.Drawing.Point(81, 114);
-            this.nudVache.Name = "nudVache";
-            this.nudVache.Size = new System.Drawing.Size(60, 21);
-            this.nudVache.TabIndex = 11;
-            this.nudVache.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
-            // 
-            // nudCochon
-            // 
-            this.nudCochon.Location = new System.Drawing.Point(81, 86);
-            this.nudCochon.Name = "nudCochon";
-            this.nudCochon.Size = new System.Drawing.Size(60, 21);
-            this.nudCochon.TabIndex = 12;
-            this.nudCochon.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
-            // 
-            // nudMouton
-            // 
-            this.nudMouton.Location = new System.Drawing.Point(81, 57);
-            this.nudMouton.Name = "nudMouton";
-            this.nudMouton.Size = new System.Drawing.Size(60, 21);
-            this.nudMouton.TabIndex = 13;
-            this.nudMouton.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
-            // 
-            // nudPoule
-            // 
-            this.nudPoule.Location = new System.Drawing.Point(81, 27);
-            this.nudPoule.Name = "nudPoule";
-            this.nudPoule.Size = new System.Drawing.Size(60, 21);
-            this.nudPoule.TabIndex = 14;
-            this.nudPoule.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(23, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 15);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Vache : ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(20, 88);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 15);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Cochon :";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(21, 59);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 15);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Mouton :";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(30, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 15);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Poule :";
+            this.btnAcheterAnimal.Click += new System.EventHandler(this.btnAcheterAnimal_Click);
             // 
             // gbxProd
             // 
@@ -460,6 +307,94 @@
             this.cbxProduits.TabIndex = 25;
             this.cbxProduits.SelectedIndexChanged += new System.EventHandler(this.cbxProduits_SelectedIndexChanged);
             // 
+            // cbxAnimal
+            // 
+            this.cbxAnimal.FormattingEnabled = true;
+            this.cbxAnimal.Location = new System.Drawing.Point(61, 29);
+            this.cbxAnimal.Name = "cbxAnimal";
+            this.cbxAnimal.Size = new System.Drawing.Size(87, 23);
+            this.cbxAnimal.TabIndex = 26;
+            this.cbxAnimal.SelectedIndexChanged += new System.EventHandler(this.cbxAnimal_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(80, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 15);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Stock :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(52, 112);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 15);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Prix a l\'unité :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(64, 139);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 15);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Prix Total :";
+            // 
+            // lblStockAnimal
+            // 
+            this.lblStockAnimal.AutoSize = true;
+            this.lblStockAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.lblStockAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockAnimal.ForeColor = System.Drawing.Color.White;
+            this.lblStockAnimal.Location = new System.Drawing.Point(146, 87);
+            this.lblStockAnimal.Name = "lblStockAnimal";
+            this.lblStockAnimal.Size = new System.Drawing.Size(15, 15);
+            this.lblStockAnimal.TabIndex = 26;
+            this.lblStockAnimal.Text = "0";
+            // 
+            // lblPrixUniteAnimal
+            // 
+            this.lblPrixUniteAnimal.AutoSize = true;
+            this.lblPrixUniteAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrixUniteAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixUniteAnimal.ForeColor = System.Drawing.Color.White;
+            this.lblPrixUniteAnimal.Location = new System.Drawing.Point(146, 112);
+            this.lblPrixUniteAnimal.Name = "lblPrixUniteAnimal";
+            this.lblPrixUniteAnimal.Size = new System.Drawing.Size(15, 15);
+            this.lblPrixUniteAnimal.TabIndex = 27;
+            this.lblPrixUniteAnimal.Text = "0";
+            // 
+            // lblPrixTotalAnimal
+            // 
+            this.lblPrixTotalAnimal.AutoSize = true;
+            this.lblPrixTotalAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrixTotalAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrixTotalAnimal.ForeColor = System.Drawing.Color.White;
+            this.lblPrixTotalAnimal.Location = new System.Drawing.Point(146, 139);
+            this.lblPrixTotalAnimal.Name = "lblPrixTotalAnimal";
+            this.lblPrixTotalAnimal.Size = new System.Drawing.Size(15, 15);
+            this.lblPrixTotalAnimal.TabIndex = 28;
+            this.lblPrixTotalAnimal.Text = "0";
+            // 
+            // nudQteAnimal
+            // 
+            this.nudQteAnimal.Location = new System.Drawing.Point(61, 55);
+            this.nudQteAnimal.Name = "nudQteAnimal";
+            this.nudQteAnimal.Size = new System.Drawing.Size(87, 21);
+            this.nudQteAnimal.TabIndex = 32;
+            // 
             // frmMagasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,12 +418,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantiteProduit)).EndInit();
             this.gbxAnimaux.ResumeLayout(false);
             this.gbxAnimaux.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVache)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCochon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMouton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPoule)).EndInit();
             this.gbxProd.ResumeLayout(false);
             this.gbxProd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQteAnimal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,24 +432,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gbxAnimaux;
         private System.Windows.Forms.Button btnAcheterAnimal;
-        private System.Windows.Forms.NumericUpDown nudVache;
-        private System.Windows.Forms.NumericUpDown nudCochon;
-        private System.Windows.Forms.NumericUpDown nudMouton;
-        private System.Windows.Forms.NumericUpDown nudPoule;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gbxProd;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblArgentMagas;
-        private System.Windows.Forms.Label lblPrixVache;
-        private System.Windows.Forms.Label lblPrixCochon;
-        private System.Windows.Forms.Label lblPrixMouton;
-        private System.Windows.Forms.Label lblPrixPoule;
-        private System.Windows.Forms.Label lblTotAnim;
         private System.Windows.Forms.Button btnAchatProduit;
         private System.Windows.Forms.Button btnVenteProduit;
         private System.Windows.Forms.NumericUpDown nudQuantiteProduit;
@@ -528,5 +447,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.ComboBox cbxProduits;
+        private System.Windows.Forms.NumericUpDown nudQteAnimal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbxAnimal;
+        private System.Windows.Forms.Label lblStockAnimal;
+        private System.Windows.Forms.Label lblPrixUniteAnimal;
+        private System.Windows.Forms.Label lblPrixTotalAnimal;
     }
 }
