@@ -10,7 +10,7 @@ namespace farmFantasy
 {
     static class Sql
     {
-        static string infoDB = "server=127.0.0.1;user=root;database=farmfantasy;password=;";
+        static string infoDB = "server=10.134.97.69;user=root;database=farmfantasy;password=;";
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 

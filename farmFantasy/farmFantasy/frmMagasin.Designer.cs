@@ -38,7 +38,6 @@
             this.lblPrixProduit = new System.Windows.Forms.Label();
             this.nudQuantiteProduit = new System.Windows.Forms.NumericUpDown();
             this.btnAchatProduit = new System.Windows.Forms.Button();
-            this.dudVente = new System.Windows.Forms.DomainUpDown();
             this.btnVenteProduit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxAnimaux = new System.Windows.Forms.GroupBox();
@@ -61,6 +60,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblArgentMagas = new System.Windows.Forms.Label();
+            this.cbxProduits = new System.Windows.Forms.ComboBox();
             this.gbxSemence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantiteProduit)).BeginInit();
             this.gbxAnimaux.SuspendLayout();
@@ -74,6 +74,7 @@
             // gbxSemence
             // 
             this.gbxSemence.BackColor = System.Drawing.Color.Transparent;
+            this.gbxSemence.Controls.Add(this.cbxProduits);
             this.gbxSemence.Controls.Add(this.label4);
             this.gbxSemence.Controls.Add(this.label2);
             this.gbxSemence.Controls.Add(this.label1);
@@ -82,7 +83,6 @@
             this.gbxSemence.Controls.Add(this.lblPrixProduit);
             this.gbxSemence.Controls.Add(this.nudQuantiteProduit);
             this.gbxSemence.Controls.Add(this.btnAchatProduit);
-            this.gbxSemence.Controls.Add(this.dudVente);
             this.gbxSemence.Controls.Add(this.btnVenteProduit);
             this.gbxSemence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSemence.ForeColor = System.Drawing.Color.White;
@@ -185,15 +185,6 @@
             this.btnAchatProduit.Text = "Acheter";
             this.btnAchatProduit.UseVisualStyleBackColor = true;
             this.btnAchatProduit.Click += new System.EventHandler(this.btnAchatProduit_Click);
-            // 
-            // dudVente
-            // 
-            this.dudVente.Location = new System.Drawing.Point(69, 29);
-            this.dudVente.Name = "dudVente";
-            this.dudVente.ReadOnly = true;
-            this.dudVente.Size = new System.Drawing.Size(87, 21);
-            this.dudVente.TabIndex = 21;
-            this.dudVente.SelectedItemChanged += new System.EventHandler(this.dudVente_SelectedItemChanged);
             // 
             // btnVenteProduit
             // 
@@ -460,6 +451,14 @@
             this.lblArgentMagas.TabIndex = 5;
             this.lblArgentMagas.Text = "Label";
             // 
+            // cbxProduits
+            // 
+            this.cbxProduits.FormattingEnabled = true;
+            this.cbxProduits.Location = new System.Drawing.Point(69, 29);
+            this.cbxProduits.Name = "cbxProduits";
+            this.cbxProduits.Size = new System.Drawing.Size(87, 23);
+            this.cbxProduits.TabIndex = 25;
+            // 
             // frmMagasin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,7 +519,6 @@
         private System.Windows.Forms.Label lblTotAnim;
         private System.Windows.Forms.Button btnAchatProduit;
         private System.Windows.Forms.Button btnVenteProduit;
-        private System.Windows.Forms.DomainUpDown dudVente;
         private System.Windows.Forms.NumericUpDown nudQuantiteProduit;
         private System.Windows.Forms.Label lblPrixProduit;
         private System.Windows.Forms.Label label1;
@@ -528,5 +526,6 @@
         private System.Windows.Forms.Label lblPrixUnite;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.ComboBox cbxProduits;
     }
 }

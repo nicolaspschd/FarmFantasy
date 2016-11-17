@@ -75,13 +75,15 @@ namespace farmFantasy
             //  Récupération de l'argent de frmMain
             argent = (int)(_FrmMain.argent);
 
-            if (dudVente.Items.Count == 0)
+            if (cbxProduits.Items.Count == 0)
             {
                 for (int i = 0; i < _FrmMain.entrepot.Count(); i++)
                 {
-                    dudVente.Items.Add(_FrmMain.entrepot.ElementAt(i).Key);
+                    cbxProduits.Items.Add(_FrmMain.entrepot.ElementAt(i).Key);
                 }
             }
+            cbxProduits.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxProduits.SelectedIndex = 0;
 
             //  Mise a jour du label avec l'argent actuel
             lblArgentMagas.Text = argent.ToString();
@@ -110,7 +112,7 @@ namespace farmFantasy
 
         private void dudVente_SelectedItemChanged(object sender, EventArgs e)
         {
-            produitSelect = dudVente.SelectedItem.ToString();
+            produitSelect = cbxProduits.SelectedItem.ToString();
 
             lblStock.Text = (_FrmMain.entrepot[produitSelect]).ToString();
             lblPrixUnite.Text = prix[produitSelect].ToString();
