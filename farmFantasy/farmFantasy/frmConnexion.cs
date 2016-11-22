@@ -21,7 +21,7 @@ namespace farmFantasy
 
         private void btnInscription_Click(object sender, EventArgs e)
         {
-            if (tbxConfMdp.Visible == true)
+            if (tbxConfMdp.Visible)
             {
 
                 string Pseudo = tbxPseudo.Text;
