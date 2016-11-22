@@ -343,7 +343,6 @@ namespace farmFantasy
                 {
                     reader.Read();
                     idJoueur = Convert.ToInt32(reader.GetString(0));
-                    Console.WriteLine(idJoueur);
                 }
             }
             catch (Exception)
@@ -351,7 +350,6 @@ namespace farmFantasy
                 Console.WriteLine("Erreur id");
             }
             connectionDB.Close();
-            Console.WriteLine(idJoueur);
         }
 
         static public void inscriptionData()
