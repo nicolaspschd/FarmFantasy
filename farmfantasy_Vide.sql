@@ -4,65 +4,64 @@
 
 
 #------------------------------------------------------------
-# Table: Champs
+# Table: champs
 #------------------------------------------------------------
 
-CREATE TABLE Champs(
+CREATE TABLE champs(
         idChamps     int (11) Auto_increment  NOT NULL ,
         nomChamps    Varchar (40) ,
-        semence      Varchar (40) ,
-        tempsR       Int ,
-        idnomSemence Varchar (40) ,
+        tempsRestant Int ,
+        idNomSemence Varchar (40) ,
         idJoueur     Int ,
         PRIMARY KEY (idChamps )
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Semences
+# Table: semences
 #------------------------------------------------------------
 
-CREATE TABLE Semences(
-        idnomSemence Varchar (40) NOT NULL ,
+CREATE TABLE semences(
+        idNomSemence Varchar (40) NOT NULL ,
         tempsPousse  Int ,
         idItem       Int ,
-        PRIMARY KEY (idnomSemence )
+        PRIMARY KEY (idNomSemence )
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Animaux
+# Table: animaux
 #------------------------------------------------------------
 
-CREATE TABLE Animaux(
-        idAnimal     int (11) Auto_increment  NOT NULL ,
-        nomAnimal    Varchar (40) ,
-        nbrAnimal    Int ,
-        tempsPactu   Int ,
-        idnomProduit Varchar (25) ,
-        idJoueur     Int ,
+CREATE TABLE animaux(
+        idAnimal      int (11) Auto_increment  NOT NULL ,
+        nomAnimal     Varchar (40) ,
+        nbrAnimal     Int ,
+        tempsProdActu Int ,
+        idNomProduit  Varchar (25) ,
+        idJoueur      Int ,
         PRIMARY KEY (idAnimal )
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Produits
+# Table: produits
 #------------------------------------------------------------
 
-CREATE TABLE Produits(
-        idnomProduit    Varchar (25) NOT NULL ,
+CREATE TABLE produits(
+        idNomProduit    Varchar (25) NOT NULL ,
         tempsProduction Int ,
         prixVenteUnite  Int ,
         idItem          Int ,
-        PRIMARY KEY (idnomProduit )
+        PRIMARY KEY (idNomProduit )
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Entrepots
+# Table: entrepots
 #------------------------------------------------------------
 
-CREATE TABLE Entrepots(
+CREATE TABLE entrepots(
         idItem   int (11) Auto_increment  NOT NULL ,
         nomItem  Varchar (40) ,
         qteItem  Int ,
@@ -72,22 +71,22 @@ CREATE TABLE Entrepots(
 
 
 #------------------------------------------------------------
-# Table: Joueurs
+# Table: joueurs
 #------------------------------------------------------------
 
-CREATE TABLE Joueurs(
+CREATE TABLE joueurs(
         idJoueur int (11) Auto_increment  NOT NULL ,
         argent   Int ,
-        Pseudo   Varchar (50) ,
+        pseudo   Varchar (50) ,
         mdp      Varchar (50) ,
         PRIMARY KEY (idJoueur ) ,
-        UNIQUE (Pseudo )
+        UNIQUE (pseudo )
 )ENGINE=InnoDB;
 
-ALTER TABLE Champs ADD CONSTRAINT FK_Champs_idnomSemence FOREIGN KEY (idnomSemence) REFERENCES Semences(idnomSemence);
-ALTER TABLE Champs ADD CONSTRAINT FK_Champs_idJoueur FOREIGN KEY (idJoueur) REFERENCES Joueurs(idJoueur);
-ALTER TABLE Semences ADD CONSTRAINT FK_Semences_idItem FOREIGN KEY (idItem) REFERENCES Entrepots(idItem);
-ALTER TABLE Animaux ADD CONSTRAINT FK_Animaux_idnomProduit FOREIGN KEY (idnomProduit) REFERENCES Produits(idnomProduit);
-ALTER TABLE Animaux ADD CONSTRAINT FK_Animaux_idJoueur FOREIGN KEY (idJoueur) REFERENCES Joueurs(idJoueur);
-ALTER TABLE Produits ADD CONSTRAINT FK_Produits_idItem FOREIGN KEY (idItem) REFERENCES Entrepots(idItem);
-ALTER TABLE Entrepots ADD CONSTRAINT FK_Entrepots_idJoueur FOREIGN KEY (idJoueur) REFERENCES Joueurs(idJoueur);
+ALTER TABLE champs ADD CONSTRAINT FK_champs_idNomSemence FOREIGN KEY (idNomSemence) REFERENCES semences(idNomSemence);
+ALTER TABLE champs ADD CONSTRAINT FK_champs_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
+ALTER TABLE semences ADD CONSTRAINT FK_semences_idItem FOREIGN KEY (idItem) REFERENCES entrepots(idItem);
+ALTER TABLE animaux ADD CONSTRAINT FK_animaux_idNomProduit FOREIGN KEY (idNomProduit) REFERENCES produits(idNomProduit);
+ALTER TABLE animaux ADD CONSTRAINT FK_animaux_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
+ALTER TABLE produits ADD CONSTRAINT FK_produits_idItem FOREIGN KEY (idItem) REFERENCES entrepots(idItem);
+ALTER TABLE entrepots ADD CONSTRAINT FK_entrepots_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
