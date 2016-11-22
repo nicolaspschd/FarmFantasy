@@ -34,6 +34,7 @@ namespace farmFantasy
                         Sql.idJoueurCo(Pseudo);
                         Sql.insertChampsInscrit();
                         Sql.insertAnimauxInscrit();
+                        Sql.insertEntrepot();
 
                         this.Close();
                     }
