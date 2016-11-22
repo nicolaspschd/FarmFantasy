@@ -28,7 +28,9 @@ namespace farmFantasy
         const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
         const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
         const string INSERTJOUEUR = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
-        const string INSERTANIMAUX = "INSERT INTO animaux (idNomAnimal, nbrAnimaux, tempProdActu, qteProd, idNomProduit, idJoueur) VALUES ('poule', '0', '0', '5', 'oeufs', @idJoueur), ('mouton', '0', '0', '25', 'laine', @idJoueur), ('cochon', '0', '0', '4', 'bacon', @idJoueur), ('vache', '0', '0', '1', 'lait', @idJoueur);";
+        const string INSERTANIMAUX = "INSERT INTO animaux (nomAnimal, nbrAnimaux, tempProdActu, qteProd, idNomProduit, idJoueur) VALUES ('poule', '0', '0', '5', 'oeufs', @idJoueur), ('mouton', '0', '0', '25', 'laine', @idJoueur), ('cochon', '0', '0', '4', 'bacon', @idJoueur), ('vache', '0', '0', '1', 'lait', @idJoueur);";
+        const string INSERTCHAMPS = "INSERT INTO champs (nomChamps, tempsRestant, idNomSemence, idJoueur) VALUES (@idChamps, 0, 'rien', @idJoueur)";
+        const string INSERTENTREPOT = "INSERT INTO entrepots (idNomItem, qteItem, idJoueur) VALUES ('ble', 10, @idJoueur), ('colza', 0, @idJoueur), ('carotte', 0, @idJoueur), ('patate', 0, @idJoueur), ('mais', 0, @idJoueur), ('oeufs', 0, @idJoueur), ('laine', 0, @idJoueur), ('lait', 0, @idJoueur), ('bacon', 0, @idJoueur);";
         #endregion
 
         //  Test si la connection a la base de donnés est ok
@@ -177,8 +179,8 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    Animaux animal = new Animaux(Convert.ToDouble(reader.GetValue(7)), Convert.ToDouble(reader.GetValue(6)), reader.GetValue(1).ToString(), Convert.ToInt32(reader.GetValue(2)), Convert.ToInt32(reader.GetValue(4)));
-                    FrmMain.repertoryAnimaux.Add(reader.GetValue(1).ToString(), animal);
+                    Animaux animal = new Animaux(Convert.ToDouble(reader.GetValue(8)), Convert.ToDouble(reader.GetValue(7)), reader.GetValue(2).ToString(), Convert.ToInt32(reader.GetValue(3)), Convert.ToInt32(reader.GetValue(5)));
+                    FrmMain.repertoryAnimaux.Add(reader.GetValue(2).ToString(), animal);
                 }
             }
             catch (Exception e)
@@ -230,7 +232,7 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    FrmMain.entrepot.Add(reader[0].ToString(), (int)reader[1]);
+                    FrmMain.entrepot.Add(reader[1].ToString(), (int)reader[2]);
                 }
             }
             catch (Exception e)
@@ -343,7 +345,6 @@ namespace farmFantasy
                 {
                     reader.Read();
                     idJoueur = Convert.ToInt32(reader.GetString(0));
-                    Console.WriteLine(idJoueur);
                 }
             }
             catch (Exception)
@@ -351,7 +352,6 @@ namespace farmFantasy
                 Console.WriteLine("Erreur id");
             }
             connectionDB.Close();
-            Console.WriteLine(idJoueur);
         }
 
         static public void inscriptionData()
@@ -362,17 +362,17 @@ namespace farmFantasy
         static public void insertChampsInscrit()
         {
             MySqlTransaction transac;
-            string idChamps = "idChamps";
+            string idChamps = "pbxChamps";
             connectionDB.Open();
 
             transac = connectionDB.BeginTransaction();
 
             for (int i = 1; i < 11; i++)
             {
-                cmd = new MySqlCommand("INSERT INTO champs VALUES (@idChamps, 0, 'rien', @idJoueurs)", connectionDB);
+                cmd = new MySqlCommand(INSERTCHAMPS, connectionDB);
 
                 cmd.Parameters.AddWithValue("@idChamps", idChamps + i.ToString());
-                cmd.Parameters.AddWithValue("@idJoueurs", idJoueur);
+                cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
                 try
                 {
@@ -381,7 +381,7 @@ namespace farmFantasy
                 catch (Exception)
                 {
                     transac.Rollback();
-                    MessageBox.Show("Erreur lors de l'inscription !", "Groin !", MessageBoxButtons.OK);
+                    MessageBox.Show("Erreur lors de l'inscription !\\n InsertChamps", "Groin !", MessageBoxButtons.OK);
                 }
             }
 
@@ -399,7 +399,7 @@ namespace farmFantasy
 
             cmd = new MySqlCommand(INSERTANIMAUX, connectionDB);
 
-            cmd.Parameters.AddWithValue("@idJoueurs", idJoueur);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
 
             try
             {
@@ -409,9 +409,32 @@ namespace farmFantasy
             catch (Exception)
             {
                 transac.Rollback();
-                MessageBox.Show("Erreur lors de l'inscription !", "Groin !", MessageBoxButtons.OK);
+                MessageBox.Show("Erreur lors de l'inscription ! \\n insertAnimaux", "Groin !", MessageBoxButtons.OK);
             }
 
+            connectionDB.Close();
+        }
+
+        static public void insertEntrepot()
+        {
+            MySqlTransaction transac;
+            connectionDB.Open();
+
+            transac = connectionDB.BeginTransaction();
+
+            cmd = new MySqlCommand(INSERTENTREPOT,connectionDB);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            
+            try
+            {
+                cmd.ExecuteNonQuery();
+                transac.Commit();
+            }
+            catch (Exception ex)
+            {
+                transac.Rollback();
+                MessageBox.Show(ex.Message,"Groin !",MessageBoxButtons.OK);
+            }
             connectionDB.Close();
         }
     }

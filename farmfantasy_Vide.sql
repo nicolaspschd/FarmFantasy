@@ -1,137 +1,92 @@
--- phpMyAdmin SQL Dump
--- version 4.1.4
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Jeu 29 Septembre 2016 à 08:26
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.5.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+#------------------------------------------------------------
+# Table: champs
+#------------------------------------------------------------
 
---
--- Base de données :  `farmfantasy`
---
-CREATE DATABASE IF NOT EXISTS `farmfantasy` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `farmfantasy`;
+CREATE TABLE champs(
+        idChamps     int (11) Auto_increment  NOT NULL ,
+        nomChamps    Varchar (40) ,
+        tempsRestant Int ,
+        idNomSemence Varchar (40) ,
+        idJoueur     Int ,
+        PRIMARY KEY (idChamps )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `animaux`
---
+#------------------------------------------------------------
+# Table: semences
+#------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `animaux` (
-  `idNomAnimal` varchar(50) NOT NULL,
-  `nbrAnimaux` int(11) NOT NULL,
-  `tempProdActu` int(11) NOT NULL,
-  `idNomProduit` varchar(50) NOT NULL,
-  PRIMARY KEY (`idNomAnimal`),
-  KEY `idNomProduit` (`idNomProduit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE semences(
+        idNomSemence Varchar (40) NOT NULL ,
+        tempsPousse  Int ,
+        idItem       Int ,
+        PRIMARY KEY (idNomSemence )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `champs`
---
+#------------------------------------------------------------
+# Table: animaux
+#------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `champs` (
-  `idChamps` int(11) NOT NULL AUTO_INCREMENT,
-  `semence` varchar(50) NOT NULL,
-  `tempsRestant` int(11) NOT NULL,
-  `idNomSemence` varchar(50) NOT NULL,
-  PRIMARY KEY (`idChamps`),
-  KEY `idNomSemence` (`idNomSemence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE animaux(
+        idAnimal      int (11) Auto_increment  NOT NULL ,
+        nomAnimal     Varchar (40) ,
+        nbrAnimal     Int ,
+        tempsProdActu Int ,
+        idNomProduit  Varchar (25) ,
+        idJoueur      Int ,
+        PRIMARY KEY (idAnimal )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `entrepots`
---
+#------------------------------------------------------------
+# Table: produits
+#------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `entrepots` (
-  `idNomItem` varchar(50) NOT NULL,
-  `qteItem` int(11) NOT NULL,
-  PRIMARY KEY (`idNomItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE produits(
+        idNomProduit    Varchar (25) NOT NULL ,
+        tempsProduction Int ,
+        prixVenteUnite  Int ,
+        idItem          Int ,
+        PRIMARY KEY (idNomProduit )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `joueurs`
---
+#------------------------------------------------------------
+# Table: entrepots
+#------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `joueurs` (
-  `idJoueur` int(11) NOT NULL AUTO_INCREMENT,
-  `argent` int(11) NOT NULL,
-  PRIMARY KEY (`idJoueur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE entrepots(
+        idItem   int (11) Auto_increment  NOT NULL ,
+        nomItem  Varchar (40) ,
+        qteItem  Int ,
+        idJoueur Int ,
+        PRIMARY KEY (idItem )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `prduits`
---
+#------------------------------------------------------------
+# Table: joueurs
+#------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `prduits` (
-  `idNomProduit` varchar(50) NOT NULL,
-  `tempsProduction` int(11) NOT NULL,
-  `idNomItem` varchar(50) NOT NULL,
-  PRIMARY KEY (`idNomProduit`),
-  KEY `idNomItem` (`idNomItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE joueurs(
+        idJoueur int (11) Auto_increment  NOT NULL ,
+        argent   Int ,
+        pseudo   Varchar (50) ,
+        mdp      Varchar (50) ,
+        PRIMARY KEY (idJoueur ) ,
+        UNIQUE (pseudo )
+)ENGINE=InnoDB;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `semences`
---
-
-CREATE TABLE IF NOT EXISTS `semences` (
-  `idNomSemence` varchar(50) NOT NULL,
-  `tempsPousse` int(11) NOT NULL,
-  `idNomItem` varchar(50) NOT NULL,
-  PRIMARY KEY (`idNomSemence`),
-  KEY `idNomItem` (`idNomItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `animaux`
---
-ALTER TABLE `animaux`
-  ADD CONSTRAINT `animaux_ibfk_1` FOREIGN KEY (`idNomProduit`) REFERENCES `prduits` (`idNomProduit`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `champs`
---
-ALTER TABLE `champs`
-  ADD CONSTRAINT `champs_ibfk_1` FOREIGN KEY (`idNomSemence`) REFERENCES `semences` (`idNomSemence`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `prduits`
---
-ALTER TABLE `prduits`
-  ADD CONSTRAINT `prduits_ibfk_1` FOREIGN KEY (`idNomItem`) REFERENCES `entrepots` (`idNomItem`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `semences`
---
-ALTER TABLE `semences`
-  ADD CONSTRAINT `semences_ibfk_1` FOREIGN KEY (`idNomItem`) REFERENCES `entrepots` (`idNomItem`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE champs ADD CONSTRAINT FK_champs_idNomSemence FOREIGN KEY (idNomSemence) REFERENCES semences(idNomSemence);
+ALTER TABLE champs ADD CONSTRAINT FK_champs_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
+ALTER TABLE semences ADD CONSTRAINT FK_semences_idItem FOREIGN KEY (idItem) REFERENCES entrepots(idItem);
+ALTER TABLE animaux ADD CONSTRAINT FK_animaux_idNomProduit FOREIGN KEY (idNomProduit) REFERENCES produits(idNomProduit);
+ALTER TABLE animaux ADD CONSTRAINT FK_animaux_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
+ALTER TABLE produits ADD CONSTRAINT FK_produits_idItem FOREIGN KEY (idItem) REFERENCES entrepots(idItem);
+ALTER TABLE entrepots ADD CONSTRAINT FK_entrepots_idJoueur FOREIGN KEY (idJoueur) REFERENCES joueurs(idJoueur);
