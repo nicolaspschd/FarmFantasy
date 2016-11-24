@@ -53,7 +53,6 @@ namespace farmFantasy
                 frmCo.ShowDialog();
             }
 
-
             if (Sql.conDB())
             {
                 repertoryChamps = Sql.chargerChamps(this);

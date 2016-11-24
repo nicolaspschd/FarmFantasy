@@ -150,11 +150,11 @@ namespace farmFantasy
 
                 while (reader.Read())
                 {
-                    PictureBox pbx = FrmMain.Controls.Find(reader[0].ToString(), true).FirstOrDefault() as PictureBox;
+                    PictureBox pbx = FrmMain.Controls.Find(reader[1].ToString(), true).FirstOrDefault() as PictureBox;
 
-                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[2].ToString());
+                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(reader[3].ToString());
 
-                    dico.Add(reader[0].ToString(), new Champs(pbx, reader[2].ToString()));
+                    dico.Add(reader[1].ToString(), new Champs(pbx, reader[3].ToString(), Convert.ToInt32(reader[2])));
                 }
             }
             catch (Exception e)
