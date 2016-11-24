@@ -63,6 +63,8 @@ namespace farmFantasy
             if (Sql.login(Pseudo, Mdp))
             {
                 Sql.idJoueurCo(Pseudo);
+                frmMain frm = this.Owner as frmMain;
+                frm.login = Pseudo;
                 this.Close();
             }
             else
@@ -73,30 +75,33 @@ namespace farmFantasy
 
         private void tbx_TextChanged(object sender, EventArgs e)
         {
-            string mdpConfirm = string.Empty;
-            //  On récupère le contenu de la tbx
-            //  On test si les 2 mots de passe sont ok
-            if (tbxMdp.Text != tbxConfMdp.Text)
+            if (tbxConfMdp.Visible)
             {
-                //  Si non, on affiche erreur
-                lblAvert.Visible = true;
-                lblAvert.Text = "Le mot de passe ne correspond pas";
-                mdpConfirmation = false;
-            }
-            else
-            {
-                if (tbxMdp.Text != string.Empty)
+                string mdpConfirm = string.Empty;
+                //  On récupère le contenu de la tbx
+                //  On test si les 2 mots de passe sont ok
+                if (tbxMdp.Text != tbxConfMdp.Text)
                 {
-                    //  Sinon, on dit ok
+                    //  Si non, on affiche erreur
                     lblAvert.Visible = true;
-
-                    lblAvert.Text = "Pas de soucis";
-                    mdpConfirmation = true;
+                    lblAvert.Text = "Le mot de passe ne correspond pas";
+                    mdpConfirmation = false;
                 }
                 else
                 {
-                    lblAvert.Text = string.Empty;
-                    mdpConfirmation = false;
+                    if (tbxMdp.Text != string.Empty)
+                    {
+                        //  Sinon, on dit ok
+                        lblAvert.Visible = true;
+
+                        lblAvert.Text = "Pas de soucis";
+                        mdpConfirmation = true;
+                    }
+                    else
+                    {
+                        lblAvert.Text = string.Empty;
+                        mdpConfirmation = false;
+                    }
                 }
             }
         }

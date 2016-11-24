@@ -51,7 +51,7 @@ namespace farmFantasy
                 {
                     timer.Enabled = false;
                     frmConnexion frmCo = new frmConnexion();
-                    frmCo.ShowDialog();
+                    frmCo.ShowDialog(this);
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace farmFantasy
                 }
             }
 
-            if (Sql.conDB())
+            if (login != string.Empty)
             {
                 repertoryChamps = Sql.chargerChamps(this);
                 argent = Sql.chargerArgent();
@@ -238,7 +238,7 @@ namespace farmFantasy
                 {
                     if (repertoryChamps.ContainsKey("pbxChamps" + i))
                     {
-                        Champs nativChamps = (Champs)repertoryChamps["pbxChamps" + i];
+                        Champs nativChamps = repertoryChamps["pbxChamps" + i];
                         Sql.UpdateChamps(nativChamps.Temps, nativChamps.Culture, nativChamps.PbxChamps.Name);
                     }
                     else

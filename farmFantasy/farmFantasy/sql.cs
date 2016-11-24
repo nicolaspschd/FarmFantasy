@@ -11,13 +11,13 @@ namespace farmFantasy
 {
     static class Sql
     {
-        static int idJoueur = 1;
+        static int idJoueur;
         static string infoDB = "server=10.134.97.69;user=root;database=farmfantasy;password=;";
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 
         #region Requete SQL
-        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName AND idJoueur=@idJoueur";
+        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE nomChamps=@pbxName AND idJoueur=@idJoueur";
         const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
         const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE nomAnimal=@idAnimal AND idJoueur=@idJoueur";
         const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
@@ -64,7 +64,7 @@ namespace farmFantasy
             cmd.Parameters.AddWithValue("@idSemence", idSemence);
             cmd.Parameters.AddWithValue("@pbxName", pbxName);
             cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
-
+            Console.WriteLine(idJoueur);
             try
             {
                 connectionDB.Open();
@@ -204,16 +204,16 @@ namespace farmFantasy
             int argent = 100;
             cmd = new MySqlCommand(SELECTARGENT, connectionDB);
             cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
-
             try
             {
                 connectionDB.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.HasRows)
                 {
-                    argent = Convert.ToInt32(reader.GetValue(0));
+                    reader.Read();
+                    argent = Convert.ToInt32(reader.GetString(0));
                 }
             }
             catch (Exception e)
@@ -348,9 +348,8 @@ namespace farmFantasy
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
+                while (reader.Read())
                 {
-                    reader.Read();
                     idJoueur = Convert.ToInt32(reader.GetString(0));
                 }
             }

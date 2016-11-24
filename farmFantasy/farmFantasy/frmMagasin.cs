@@ -23,14 +23,11 @@ namespace farmFantasy
     {
         public int totalPrixAnim = 0;
         public int prixProduit = 0;
-        public int prixTotPoule = 0;
-        public int prixTotMouton = 0;
-        public int prixTotCochon = 0;
-        public int prixTotVache = 0;
+
         public string produitSelect = string.Empty;
         public string animalSelect = string.Empty;
 
-        public Dictionary<string, int> prix = new Dictionary<string, int> { 
+        public Dictionary<string, int> prix = new Dictionary<string, int> {
             {"ble", PRIXBLE},
             {"colza", PRIXCOLZA},
             {"carotte", PRIXCAROTTE},
@@ -75,7 +72,7 @@ namespace farmFantasy
         private void frmMagasin_Load(object sender, EventArgs e)
         {
             //  Récupération de frmMain
-            _FrmMain = (frmMain)this.Owner;
+            _FrmMain = this.Owner as frmMain;
 
             //  Récupération de l'argent de frmMain
             argent = (int)(_FrmMain.argent);
@@ -101,8 +98,6 @@ namespace farmFantasy
             cbxAnimal.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxAnimal.SelectedIndex = 0;
 
-            //  Mise a jour du label avec l'argent actuel
-            lblArgentMagas.Text = argent.ToString();
             ResetMag();
         }
 
@@ -130,7 +125,6 @@ namespace farmFantasy
         {
             if (!(nudQuantiteProduit.Value <= -1))
             {
-
                 if (produitSelect != string.Empty)
                 {
                     prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
@@ -175,6 +169,7 @@ namespace farmFantasy
                 }
             }
         }
+
         private void frmMagasin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //  Mise a jout de l'argent sur la fenêtre principal lors de la fermeture
@@ -186,15 +181,19 @@ namespace farmFantasy
         public void ResetMag()
         {
             totalPrixAnim = 0;
+            lblPrixProduit.Text = 0.ToString();
+            lblPrixTotalAnimal.Text = 0.ToString();
+            lblPrixUnite.Text = 0.ToString();
+            lblPrixUniteAnimal.Text = 0.ToString();
+            lblArgentMagas.Text = argent.ToString();
 
-        }
+            lblNbrAnimaux.Text = 0.ToString();
+            lblNbrAnimaux.Text = 0.ToString();
+            lblNbrAnimaux.Text = 0.ToString();
+            lblNbrAnimaux.Text = 0.ToString();
 
-        private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 27)
-            {
-                this.Close();
-            }
+            cbxAnimal.SelectedIndex = 0;
+            cbxProduits.SelectedIndex = 0;
         }
 
         private void lblStock_Click(object sender, EventArgs e)
@@ -221,20 +220,19 @@ namespace farmFantasy
 
         private void btnAcheterAnimal_Click(object sender, EventArgs e)
         {
+            if ((argent - totalPrixAnim) >= 0)
+            {
+                _FrmMain.repertoryAnimaux[animalSelect].majPrix();
 
-            _FrmMain.repertoryAnimaux["vache"].majPrix();
-            _FrmMain.repertoryAnimaux["poule"].majPrix();
-            _FrmMain.repertoryAnimaux["mouton"].majPrix();
-            _FrmMain.repertoryAnimaux["cochon"].majPrix();
+                _FrmMain.repertoryAnimaux[animalSelect].NbrAnimaux += (int)nudQteAnimal.Value;
+                argent -= Convert.ToInt32(lblPrixTotalAnimal.Text);
 
-            argent -= Convert.ToInt32(lblPrixTotalAnimal.Text);
+                //  Mise a jour du label
+                lblArgentMagas.Text = argent.ToString();
 
-            //  Mise a jour du label
-            lblArgentMagas.Text = argent.ToString();
-
-            //  Mise a jour de l'argent sur frmMain
-            _FrmMain.argent = argent;
-
+                //  Mise a jour de l'argent sur frmMain
+                _FrmMain.argent = argent;
+            }
             ResetMag();
         }
 
@@ -242,10 +240,9 @@ namespace farmFantasy
         {
             animalSelect = cbxAnimal.SelectedItem.ToString();
 
-            lblStockAnimal.Text = (_FrmMain.repertoryAnimaux[animalSelect]).NbrAnimaux.ToString();
+            lblNbrAnimaux.Text = (_FrmMain.repertoryAnimaux[animalSelect]).NbrAnimaux.ToString();
             lblPrixUniteAnimal.Text = prix[animalSelect].ToString();
             lblPrixTotalAnimal.Text = (Convert.ToInt32(lblPrixUniteAnimal.Text) * nudQteAnimal.Value).ToString();
-
         }
     }
 }
