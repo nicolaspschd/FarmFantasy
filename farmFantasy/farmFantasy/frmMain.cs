@@ -47,10 +47,16 @@ namespace farmFantasy
         {
             if (login == string.Empty)
             {
-                Sql.conDB();
-                timer.Enabled = false;
-                frmConnexion frmCo = new frmConnexion();
-                frmCo.ShowDialog();
+                if (Sql.conDB())
+                {
+                    timer.Enabled = false;
+                    frmConnexion frmCo = new frmConnexion();
+                    frmCo.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Impossible de se connecter", "Meeeeeh !", MessageBoxButtons.OK);
+                }
             }
 
             if (Sql.conDB())
@@ -59,6 +65,23 @@ namespace farmFantasy
                 argent = Sql.chargerArgent();
                 Sql.chargerEntrepot(this);
                 Sql.chargerAnimaux(this);
+            }
+            else
+            {
+                repertoryAnimaux.Add("vache", new Animaux(2, 10 * 60, "vache", 0, 1));
+                repertoryAnimaux.Add("poule", new Animaux(1, 15 * 60, "poule", 0, 5));
+                repertoryAnimaux.Add("mouton", new Animaux(150, 120 * 60, "mouton", 0, 25));
+                repertoryAnimaux.Add("cochon", new Animaux(10, 20 * 60, "cochon", 0, 4));
+
+                entrepot.Add("ble", 10);
+                entrepot.Add("colza", 0);
+                entrepot.Add("patate", 0);
+                entrepot.Add("carotte", 0);
+                entrepot.Add("mais", 0);
+                entrepot.Add("oeufs", 0);
+                entrepot.Add("laine", 0);
+                entrepot.Add("lait", 0);
+                entrepot.Add("bacon", 0);
             }
 
             timer.Enabled = true;
@@ -176,16 +199,28 @@ namespace farmFantasy
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //  Si la connection a la base de donnée est possible
-            if (Sql.conDB())
+            if (login != string.Empty)
             {
-                //  on sauvegarde
-                sauvegarder();
+                //  Si la connection a la base de donnée est possible
+                if (Sql.conDB())
+                {
+                    //  on sauvegarde
+                    sauvegarder();
+                }
+                else
+                {
+                    //  Sinon on avertit le joueurs
+                    DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeu ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (dr == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
             }
             else
             {
-                //  Sinon on avertit le joueurs
-                DialogResult dr = MessageBox.Show("La sauvegarde n'a pas pu être faites ! \n Voulez-vous vraiment quitter le jeu ?", "Danger", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dr = MessageBox.Show("Voulez-vous vraiment quitter le jeu ?", "Cot-cot !", MessageBoxButtons.YesNo);
 
                 if (dr == DialogResult.No)
                 {

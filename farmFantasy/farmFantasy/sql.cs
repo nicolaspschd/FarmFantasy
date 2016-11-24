@@ -19,7 +19,7 @@ namespace farmFantasy
         #region Requete SQL
         const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE idChamps=@pbxName AND idJoueur=@idJoueur";
         const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
-        const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE idNomAnimal=@idAnimal AND idJoueur=@idJoueur";
+        const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE nomAnimal=@idAnimal AND idJoueur=@idJoueur";
         const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
         const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien' AND idJoueur=@idJoueur";
         const string SELECTARGENT = "SELECT argent FROM joueurs WHERE idJoueur=@idJoueur";
@@ -37,12 +37,19 @@ namespace farmFantasy
         static public bool conDB()
         {
             bool conOK = false;
-
-            connectionDB.Open();
-            if (connectionDB.State == System.Data.ConnectionState.Open)
+            try
             {
-                conOK = true;
+                connectionDB.Open();
+                if (connectionDB.State == System.Data.ConnectionState.Open)
+                {
+                    conOK = true;
+                }
             }
+            catch (Exception)
+            {
+                conOK = false;
+            }
+            
 
             connectionDB.Close();
             return conOK;

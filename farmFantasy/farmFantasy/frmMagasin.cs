@@ -28,6 +28,7 @@ namespace farmFantasy
         public int prixTotCochon = 0;
         public int prixTotVache = 0;
         public string produitSelect = string.Empty;
+        public string animalSelect = string.Empty;
 
         public Dictionary<string, int> prix = new Dictionary<string, int> { 
             {"ble", PRIXBLE},
@@ -127,32 +128,36 @@ namespace farmFantasy
 
         private void nudQuantiteProduit_ValueChanged(object sender, EventArgs e)
         {
-            if (produitSelect != string.Empty)
+            if (!(nudQuantiteProduit.Value <= -1))
             {
-                prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
-                if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
+
+                if (produitSelect != string.Empty)
                 {
-                    if (btnVenteProduit.Enabled == false)
+                    prixProduit = (int)(nudQuantiteProduit.Value * prix[produitSelect]);
+                    if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
                     {
-                        btnVenteProduit.Enabled = true;
-                        lblStock.BackColor = Color.Transparent;
+                        if (btnVenteProduit.Enabled == false)
+                        {
+                            btnVenteProduit.Enabled = true;
+                            lblStock.BackColor = Color.Transparent;
+                        }
+
+
+                        lblStock.Text = _FrmMain.entrepot[produitSelect].ToString();
+                    }
+                    else
+                    {
+                        btnVenteProduit.Enabled = false;
+                        lblStock.BackColor = Color.Red;
                     }
 
+                    if (prixProduit > argent)
+                        lblPrixProduit.BackColor = Color.Red;
+                    else
+                        lblPrixProduit.BackColor = Color.Transparent;
 
-                    lblStock.Text = _FrmMain.entrepot[produitSelect].ToString();
+                    lblPrixProduit.Text = prixProduit.ToString();
                 }
-                else
-                {
-                    btnVenteProduit.Enabled = false;
-                    lblStock.BackColor = Color.Red;
-                }
-
-                if (prixProduit > argent)
-                    lblPrixProduit.BackColor = Color.Red;
-                else
-                    lblPrixProduit.BackColor = Color.Transparent;
-
-                lblPrixProduit.Text = prixProduit.ToString();
             }
         }
 
@@ -181,7 +186,7 @@ namespace farmFantasy
         public void ResetMag()
         {
             totalPrixAnim = 0;
-            
+
         }
 
         private void frmMagasin_KeyPress(object sender, KeyPressEventArgs e)
@@ -235,10 +240,10 @@ namespace farmFantasy
 
         private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            produitSelect = cbxAnimal.SelectedItem.ToString();
+            animalSelect = cbxAnimal.SelectedItem.ToString();
 
-            lblStockAnimal.Text = (_FrmMain.repertoryAnimaux[produitSelect]).NbrAnimaux.ToString();
-            lblPrixUniteAnimal.Text = prix[produitSelect].ToString();
+            lblStockAnimal.Text = (_FrmMain.repertoryAnimaux[animalSelect]).NbrAnimaux.ToString();
+            lblPrixUniteAnimal.Text = prix[animalSelect].ToString();
             lblPrixTotalAnimal.Text = (Convert.ToInt32(lblPrixUniteAnimal.Text) * nudQteAnimal.Value).ToString();
 
         }
