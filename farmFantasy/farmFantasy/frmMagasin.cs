@@ -93,6 +93,7 @@ namespace farmFantasy
                 }
             }
 
+            lblArgentMagas.Text = argent.ToString();
             cbxProduits.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxProduits.SelectedIndex = 0;
             cbxAnimal.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -103,7 +104,6 @@ namespace farmFantasy
 
         private void btnVenteProduit_Click(object sender, EventArgs e)
         {
-
             if (produitSelect != string.Empty)
             {
                 if (_FrmMain.entrepot[produitSelect] - nudQuantiteProduit.Value >= 0)
@@ -181,16 +181,14 @@ namespace farmFantasy
         public void ResetMag()
         {
             totalPrixAnim = 0;
-            lblPrixProduit.Text = 0.ToString();
-            lblPrixTotalAnimal.Text = 0.ToString();
-            lblPrixUnite.Text = 0.ToString();
-            lblPrixUniteAnimal.Text = 0.ToString();
+            lblPrixProduit.Text = "0";
+            lblPrixTotalAnimal.Text = "0";
+            lblPrixUnite.Text = "0";
+            lblPrixUniteAnimal.Text = prix[animalSelect].ToString();
             lblArgentMagas.Text = argent.ToString();
 
-            lblNbrAnimaux.Text = 0.ToString();
-            lblNbrAnimaux.Text = 0.ToString();
-            lblNbrAnimaux.Text = 0.ToString();
-            lblNbrAnimaux.Text = 0.ToString();
+            lblNbrAnimaux.Text = _FrmMain.repertoryAnimaux[animalSelect].NbrAnimaux.ToString();
+            lblStock.Text = _FrmMain.entrepot[produitSelect].ToString();
 
             cbxAnimal.SelectedIndex = 0;
             cbxProduits.SelectedIndex = 0;
@@ -225,24 +223,24 @@ namespace farmFantasy
                 _FrmMain.repertoryAnimaux[animalSelect].majPrix();
 
                 _FrmMain.repertoryAnimaux[animalSelect].NbrAnimaux += (int)nudQteAnimal.Value;
-                argent -= Convert.ToInt32(lblPrixTotalAnimal.Text);
-
-                //  Mise a jour du label
-                lblArgentMagas.Text = argent.ToString();
+                argent -= totalPrixAnim;
 
                 //  Mise a jour de l'argent sur frmMain
                 _FrmMain.argent = argent;
             }
-            ResetMag();
+            cbxAnimal.SelectedIndex = cbxAnimal.SelectedIndex;
         }
 
         private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             animalSelect = cbxAnimal.SelectedItem.ToString();
+            int prixAnimSelect = prix[animalSelect];
 
-            lblNbrAnimaux.Text = (_FrmMain.repertoryAnimaux[animalSelect]).NbrAnimaux.ToString();
-            lblPrixUniteAnimal.Text = prix[animalSelect].ToString();
-            lblPrixTotalAnimal.Text = (Convert.ToInt32(lblPrixUniteAnimal.Text) * nudQteAnimal.Value).ToString();
+            lblNbrAnimaux.Text = _FrmMain.repertoryAnimaux[animalSelect].NbrAnimaux.ToString();
+            lblPrixUniteAnimal.Text = prixAnimSelect.ToString();
+            
+            totalPrixAnim = prixAnimSelect * Convert.ToInt32(nudQteAnimal.Value);
+            lblPrixTotalAnimal.Text = totalPrixAnim.ToString();
         }
     }
 }

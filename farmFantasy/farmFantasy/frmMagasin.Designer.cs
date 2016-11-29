@@ -233,6 +233,7 @@
             this.nudQteAnimal.Name = "nudQteAnimal";
             this.nudQteAnimal.Size = new System.Drawing.Size(87, 21);
             this.nudQteAnimal.TabIndex = 32;
+            this.nudQteAnimal.ValueChanged += new System.EventHandler(this.cbxAnimal_SelectedIndexChanged);
             // 
             // label3
             // 

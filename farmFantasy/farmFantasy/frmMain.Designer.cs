@@ -239,6 +239,7 @@
             // 
             // pbxEntrepot
             // 
+            this.pbxEntrepot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxEntrepot.Image = ((System.Drawing.Image)(resources.GetObject("pbxEntrepot.Image")));
             this.pbxEntrepot.Location = new System.Drawing.Point(12, 159);
             this.pbxEntrepot.Name = "pbxEntrepot";
