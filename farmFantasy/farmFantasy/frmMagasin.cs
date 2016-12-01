@@ -228,6 +228,7 @@ namespace farmFantasy
                 //  Mise a jour de l'argent sur frmMain
                 _FrmMain.argent = argent;
             }
+            lblArgentMagas.Text = argent.ToString();
             cbxAnimal.SelectedIndex = cbxAnimal.SelectedIndex;
         }
 

@@ -64,7 +64,7 @@ namespace farmFantasy
             cmd.Parameters.AddWithValue("@idSemence", idSemence);
             cmd.Parameters.AddWithValue("@pbxName", pbxName);
             cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
-            Console.WriteLine(idJoueur);
+
             try
             {
                 connectionDB.Open();
@@ -358,11 +358,6 @@ namespace farmFantasy
                 Console.WriteLine("Erreur id");
             }
             connectionDB.Close();
-        }
-
-        static public void inscriptionData()
-        {
-
         }
 
         static public void insertChampsInscrit()
