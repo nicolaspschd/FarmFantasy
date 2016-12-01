@@ -143,7 +143,7 @@ namespace farmFantasy
                     if (repertoryChamps.ContainsKey("pbxChamps" + i))
                     {
                         //  Récupération du champs
-                        Champs nativChamps = repertoryChamps["pbxChamps" + i] as Champs;
+                        Champs nativChamps = repertoryChamps["pbxChamps" + i];
 
                         //  Si le temps de pousse est finis
                         if (nativChamps.calculTemps())
@@ -197,6 +197,7 @@ namespace farmFantasy
             }
         }
 
+        //  Evénement lors de la fermeture de la fenêtre
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (login != string.Empty)
