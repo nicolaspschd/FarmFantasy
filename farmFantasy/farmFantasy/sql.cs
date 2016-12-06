@@ -360,6 +360,7 @@ namespace farmFantasy
             connectionDB.Close();
         }
 
+        //  Insert un nouvel enregistrement dans la base pour le nouveau joueur
         static public void insertChampsInscrit()
         {
             MySqlTransaction transac;
@@ -391,6 +392,7 @@ namespace farmFantasy
             connectionDB.Close();
         }
 
+        //  Insert un nouvel enregistrement dans la base pour le nouveau joueur
         static public void insertAnimauxInscrit()
         {
             MySqlTransaction transac;
@@ -416,6 +418,7 @@ namespace farmFantasy
             connectionDB.Close();
         }
 
+        //  Insert un nouvel enregistrement dans la base pour le nouveau joueur
         static public void insertEntrepot()
         {
             MySqlTransaction transac;

@@ -118,7 +118,7 @@ namespace farmFantasy
 
                     //  Récupération de la bonne image de culture
 
-                    pbx.Image = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(culture);
+                    pbx.Image = (Image)Properties.Resources.ResourceManager.GetObject(culture);
 
                     //  Mise a jour des labels
                     majInterface();
