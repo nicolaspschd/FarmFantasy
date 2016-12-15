@@ -60,13 +60,14 @@ namespace farmFantasy
         public bool calculTemps()
         {
             bool fini = false;
-            _temps += 1;
-            if (_temps >= _tempsPousse)
+            Temps += 1;
+
+            if (Temps >= TempsPousse)
             {
                 fini = true;
-                _pbxChamps.Enabled = true;
-                _temps = 0;
-                _pbxChamps.Image = Properties.Resources.terre;
+                PbxChamps.Enabled = true;
+                PbxChamps.Image = Properties.Resources.terre;
+                Temps = 0;
             }
 
             return fini;
