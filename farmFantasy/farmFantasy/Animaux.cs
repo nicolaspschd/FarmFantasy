@@ -79,18 +79,18 @@ namespace farmFantasy
 
         public void majPrix()
         {
-            _prixVenteTot = _prixV * _nbrAnimaux;
-            _quantite = _nbrAnimaux * 2;
+            PrixVenteTot = _prixV * _nbrAnimaux;
+            Quantite = _nbrAnimaux * 2;
         }
 
         public bool calculTempsProd()
         {
             bool fini = false;
-            _temps += 1;
-            if (_temps >= _tempsProduction)
+            Temps += 1;
+            if (Temps >= TempsProduction)
             {
                 fini = true;
-                _temps = 1;
+                Temps = 0;
             }
 
             return fini;
