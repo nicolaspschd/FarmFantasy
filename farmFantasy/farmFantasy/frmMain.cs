@@ -117,7 +117,6 @@ namespace farmFantasy
                     pbx.Enabled = false;
 
                     //  Récupération de la bonne image de culture
-
                     pbx.Image = (Image)Properties.Resources.ResourceManager.GetObject(culture);
 
                     //  Mise a jour des labels

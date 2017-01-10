@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Auteurs : RAMUSHI Ardi && PASCHOUD Nicolas
+ * Nom du programme : Farm Fantasy
+ * Description : FarmFantasy est un jeu de gestion de ferme évolutif. 
+ *               Plusieurs animaux et type de cultures seront 
+ *               disponible ainsi que des améliorations de bâtiments.
+ * Date : 1 Septembre 2016
+ * Version 1.0
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,25 +21,25 @@ namespace farmFantasy
     static class Sql
     {
         static int idJoueur;
-        static string infoDB = "server=10.134.96.109;user=Thierry;password=ferme;database=farmfantasy;";
+        static string infoDB = "server=127.0.0.1;user=Thierry;password=ferme;database=farmfantasy;";
         static MySqlConnection connectionDB = new MySqlConnection(infoDB);
         static MySqlCommand cmd;
 
         #region Requete SQL
-        const string UPDATECHAMPS = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE nomChamps=@pbxName AND idJoueur=@idJoueur";
-        const string UPDATEENTRPOT = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
-        const string UPDATEANIMAUX = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE nomAnimal=@idAnimal AND idJoueur=@idJoueur";
-        const string UPDATEARGENT = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
-        const string SELECTCHAMPS = "SELECT * FROM champs WHERE idNomSemence != 'rien' AND idJoueur=@idJoueur";
-        const string SELECTARGENT = "SELECT argent FROM joueurs WHERE idJoueur=@idJoueur";
-        const string SELECTENTREPOT = "SELECT * FROM entrepots WHERE idJoueur=@idJoueur AND idNomItem != 'rien'";
-        const string SELECTANIMAUX = "SELECT * FROM animaux NATURAL JOIN produits WHERE idJoueur=@idJoueur";
-        const string SELECTJOUEURMDP = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
-        const string SELECTJOUEURID = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
-        const string INSERTJOUEUR = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
-        const string INSERTANIMAUX = "INSERT INTO animaux (nomAnimal, nbrAnimaux, tempProdActu, qteProd, idNomProduit, idJoueur) VALUES ('poule', '0', '0', '5', 'oeufs', @idJoueur), ('mouton', '0', '0', '25', 'laine', @idJoueur), ('cochon', '0', '0', '4', 'bacon', @idJoueur), ('vache', '0', '0', '1', 'lait', @idJoueur);";
-        const string INSERTCHAMPS = "INSERT INTO champs (nomChamps, tempsRestant, idNomSemence, idJoueur) VALUES (@idChamps, 0, 'rien', @idJoueur)";
-        const string INSERTENTREPOT = "INSERT INTO entrepots (idNomItem, qteItem, idJoueur) VALUES ('ble', 10, @idJoueur), ('colza', 0, @idJoueur), ('carotte', 0, @idJoueur), ('patate', 0, @idJoueur), ('mais', 0, @idJoueur), ('oeufs', 0, @idJoueur), ('laine', 0, @idJoueur), ('lait', 0, @idJoueur), ('bacon', 0, @idJoueur);";
+        const string UPDATECHAMPS       = "UPDATE champs SET tempsRestant=@temps,idNomSemence=@idSemence WHERE nomChamps=@pbxName AND idJoueur=@idJoueur";
+        const string UPDATEENTRPOT      = "UPDATE entrepots SET qteItem=@item WHERE idNomItem=@idItem AND idJoueur = @idJoueur";
+        const string UPDATEANIMAUX      = "UPDATE animaux SET nbrAnimaux=@nbrAnim, tempProdActu=@tempsProd WHERE nomAnimal=@idAnimal AND idJoueur=@idJoueur";
+        const string UPDATEARGENT       = "UPDATE joueurs SET argent=@argent WHERE idJoueur=@idJoueur";
+        const string SELECTCHAMPS       = "SELECT * FROM champs WHERE idNomSemence != 'rien' AND idJoueur=@idJoueur";
+        const string SELECTARGENT       = "SELECT argent FROM joueurs WHERE idJoueur=@idJoueur";
+        const string SELECTENTREPOT     = "SELECT * FROM entrepots WHERE idJoueur=@idJoueur AND idNomItem != 'rien'";
+        const string SELECTANIMAUX      = "SELECT * FROM animaux NATURAL JOIN produits WHERE idJoueur=@idJoueur";
+        const string SELECTJOUEURMDP    = "SELECT mdp FROM joueurs WHERE Pseudo = @Pseudo";
+        const string SELECTJOUEURID     = "SELECT idJoueur FROM joueurs WHERE Pseudo = @Pseudo";
+        const string INSERTJOUEUR       = "INSERT INTO joueurs(Pseudo, mdp) VALUES (@Pseudo,@Mdp)";
+        const string INSERTANIMAUX      = "INSERT INTO animaux (nomAnimal, nbrAnimaux, tempProdActu, qteProd, idNomProduit, idJoueur) VALUES ('poule', '0', '0', '5', 'oeufs', @idJoueur), ('mouton', '0', '0', '25', 'laine', @idJoueur), ('cochon', '0', '0', '4', 'bacon', @idJoueur), ('vache', '0', '0', '1', 'lait', @idJoueur);";
+        const string INSERTCHAMPS       = "INSERT INTO champs (nomChamps, tempsRestant, idNomSemence, idJoueur) VALUES (@idChamps, 0, 'rien', @idJoueur)";
+        const string INSERTENTREPOT     = "INSERT INTO entrepots (idNomItem, qteItem, idJoueur) VALUES ('ble', 10, @idJoueur), ('colza', 0, @idJoueur), ('carotte', 0, @idJoueur), ('patate', 0, @idJoueur), ('mais', 0, @idJoueur), ('oeufs', 0, @idJoueur), ('laine', 0, @idJoueur), ('lait', 0, @idJoueur), ('bacon', 0, @idJoueur);";
         #endregion
 
         //  Test si la connection a la base de donnés est ok
